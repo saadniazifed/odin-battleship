@@ -1,5 +1,7 @@
 const Ship = require("../shipFactory");
 
-test("Ship", () => {
-  expect(Ship(1)).toBe(1);
+describe("First test", () => {
+  it("First Test To Be", () => {
+    expect(Ship()).toBe();
+  });
 });

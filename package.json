@@ -7,8 +7,8 @@
   "description": "Creating Battleship with the help of Unit Testing and Mocking.",
   "private": true,
   "scripts": {
-    "start": "webpack serve --open webpack --watch",
-    "watch": "jest --watch *.js",
+    "start": "webpack serve --open",
+    "watch": "jest --watch",
     "build": "webpack",
     "test": "jest"
   },
@@ -25,6 +25,7 @@
   "devDependencies": {
     "@babel/core": "^7.18.2",
     "@babel/preset-env": "^7.18.2",
+    "@babel/preset-flow": "^7.17.12",
     "babel-jest": "^28.1.0",
     "css-loader": "^6.7.1",
     "eslint": "^8.17.0",
@@ -39,13 +40,9 @@
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.9.1"
   },
-    "jest": {
-    "moduleFileExtensions": ["js", "jsx"],
-    "moduleDirectories": ["node_modules", "bower_components", "shared"],
-
+  "jest": {
     "moduleNameMapper": {
-      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js",
-      "\\.(gif|ttf|eot|svg)$": "<rootDir>/__mocks__/fileMock.js"
+      "^.+\\.scss$": "<rootDir>/scripts/mocks/style-mock.js"
     }
   }
 }

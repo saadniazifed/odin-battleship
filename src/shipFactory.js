@@ -1,5 +1,5 @@
-const Ship = () => {
-  return 1;
-};
+function Ship(a) {
+  return a;
+}
 
-module.exports(Ship);
+module.exports = Ship;
