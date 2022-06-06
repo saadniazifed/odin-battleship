@@ -1,0 +1,42 @@
+{
+  "eslintIgnore": [
+    "webpack.config.js"
+  ],
+  "name": "odin-battleship",
+  "version": "1.0.0",
+  "description": "Creating Battleship with the help of Unit Testing and Mocking.",
+  "private": true,
+  "scripts": {
+    "start": "webpack serve --open webpack --watch",
+    "watch": "jest --watch *.js",
+    "build": "webpack",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saadniazifed/odin-battleship.git"
+  },
+  "author": "Saad Niazi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saadniazifed/odin-battleship/issues"
+  },
+  "homepage": "https://github.com/saadniazifed/odin-battleship#readme",
+  "devDependencies": {
+    "@babel/core": "^7.18.2",
+    "@babel/preset-env": "^7.18.2",
+    "babel-jest": "^28.1.0",
+    "css-loader": "^6.7.1",
+    "eslint": "^8.17.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.2.1",
+    "eslint-plugin-promise": "^6.0.0",
+    "html-webpack-plugin": "^5.5.0",
+    "jest": "^28.1.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.9.1"
+  }
+}
