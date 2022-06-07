@@ -1,7 +1,9 @@
-const Ship = require("../shipFactory");
+import { Ship } from "../shipFactory";
 
-describe("First test", () => {
-  it("First Test To Be", () => {
-    expect(Ship()).toBe();
-  });
+test("Is Ship Returning Us Something", () => {
+  expect(Ship()).toBeDefined();
+});
+
+test("Ship Length Test", () => {
+  expect(Ship(3)).toHaveLength(3);
 });

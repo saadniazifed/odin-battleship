@@ -1,5 +1,7 @@
-function Ship(a) {
-  return a;
+function Ship(length) {
+  return {
+    length,
+  };
 }
 
-module.exports = Ship;
+export { Ship };
