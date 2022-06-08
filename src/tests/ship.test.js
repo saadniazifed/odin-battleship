@@ -37,9 +37,40 @@ test("Checking to see if the ship is hit #3", () => {
   expect(myFirstShip.getShipArray()[2]).toBe("hit");
 });
 
-test("Checking to see if the ship is hit #4", () => {
+test("when ship sinks, ship array must be correctly marked and isSunk should be true #1", () => {
   const myFirstShip = Ship(3);
+  myFirstShip.hit(0);
+  myFirstShip.hit(1);
+  myFirstShip.hit(2);
+
+  expect(myFirstShip.getShipArray()).toEqual(["hit", "hit", "hit"]);
+  expect(myFirstShip.isSunk(true)).toBe(true);
+});
+
+test("when ship sinks, ship array must be correctly marked and isSunk should be true #2", () => {
+  const myFirstShip = Ship(4);
+  myFirstShip.hit(0);
+  myFirstShip.hit(1);
+  myFirstShip.hit(2);
   myFirstShip.hit(3);
-  console.log(myFirstShip.getShipArray());
-  expect(myFirstShip.getShipArray()[3]).toBe("hit");
+
+  expect(myFirstShip.getShipArray()).toEqual(["hit", "hit", "hit", "hit"]);
+  expect(myFirstShip.isSunk(true)).toBe(true);
+});
+
+test("when ship sinks, ship array must be correctly marked and isSunk should be true #3", () => {
+  const myFirstShip = Ship(2);
+  myFirstShip.hit(0);
+  myFirstShip.hit(1);
+
+  expect(myFirstShip.getShipArray()).toEqual(["hit", "hit"]);
+  expect(myFirstShip.isSunk(true)).toBe(true);
+});
+
+test("When the ship has been hit, this test will see that the isSunk should return false", () => {
+  const myFirstShip = Ship(2);
+  myFirstShip.hit(0);
+
+  expect(myFirstShip.getShipArray()).toEqual(["hit", null]);
+  expect(myFirstShip.isSunk(false)).toBe(false);
 });

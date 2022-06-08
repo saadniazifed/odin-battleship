@@ -8,14 +8,23 @@ function Ship(length) {
   const hit = (position) => {
     if (position >= _shipArray.length) {
       return;
-    } else {
-      _shipArray[position] = "hit";
+    }
+    _shipArray[position] = "hit";
+  };
+
+  const isSunk = (shipSunk) => {
+    if (shipSunk == true) {
+      hit();
+      return true;
+    } else if (shipSunk == false) {
+      return false;
     }
   };
   return {
     getShipArray,
     length,
     hit,
+    isSunk,
   };
 }
 
