@@ -18,3 +18,27 @@ test("Correct length of Ship #3", () => {
   const myThirdShip = Ship(2);
   expect(myThirdShip.length).toEqual(2);
 });
+
+test("Checking to see if the ship is hit #1", () => {
+  const myFirstShip = Ship(3);
+  myFirstShip.hit(0);
+  expect(myFirstShip.getShipArray().at(0)).toBe("hit");
+});
+
+test("Checking to see if the ship is hit #2", () => {
+  const myFirstShip = Ship(3);
+  myFirstShip.hit(1);
+  expect(myFirstShip.getShipArray().at(1)).toBe("hit");
+});
+
+test("Checking to see if the ship is hit #3", () => {
+  const myFirstShip = Ship(3);
+  myFirstShip.hit(2);
+  expect(myFirstShip.getShipArray().at(2)).toBe("hit");
+});
+
+test("Checking to see if the ship is hit #3", () => {
+  const myFirstShip = Ship(3);
+  myFirstShip.hit(3);
+  expect(myFirstShip.getShipArray()[3]).toBe("hit");
+});

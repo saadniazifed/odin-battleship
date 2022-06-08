@@ -4,9 +4,14 @@ function Ship(length) {
 
   //Making a public method.
   const getShipArray = () => [..._shipArray];
+
+  const hit = (position) => {
+    _shipArray.splice(position, 1, "hit");
+  };
   return {
     getShipArray,
     length,
+    hit,
   };
 }
 
