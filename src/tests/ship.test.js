@@ -28,17 +28,18 @@ test("Checking to see if the ship is hit #1", () => {
 test("Checking to see if the ship is hit #2", () => {
   const myFirstShip = Ship(3);
   myFirstShip.hit(1);
-  expect(myFirstShip.getShipArray().at(1)).toBe("hit");
+  expect(myFirstShip.getShipArray()[1]).toBe("hit");
 });
 
 test("Checking to see if the ship is hit #3", () => {
   const myFirstShip = Ship(3);
   myFirstShip.hit(2);
-  expect(myFirstShip.getShipArray().at(2)).toBe("hit");
+  expect(myFirstShip.getShipArray()[2]).toBe("hit");
 });
 
-test("Checking to see if the ship is hit #3", () => {
+test("Checking to see if the ship is hit #4", () => {
   const myFirstShip = Ship(3);
   myFirstShip.hit(3);
+  console.log(myFirstShip.getShipArray());
   expect(myFirstShip.getShipArray()[3]).toBe("hit");
 });

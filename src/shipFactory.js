@@ -6,7 +6,11 @@ function Ship(length) {
   const getShipArray = () => [..._shipArray];
 
   const hit = (position) => {
-    _shipArray.splice(position, 1, "hit");
+    if (position >= _shipArray.length) {
+      return;
+    } else {
+      _shipArray[position] = "hit";
+    }
   };
   return {
     getShipArray,
