@@ -44,7 +44,7 @@ test("when ship sinks, ship array must be correctly marked and isSunk should be 
   myFirstShip.hit(2);
 
   expect(myFirstShip.getShipArray()).toEqual(["hit", "hit", "hit"]);
-  expect(myFirstShip.isSunk(true)).toBe(true);
+  expect(myFirstShip.isSunk()).toBe(true);
 });
 
 test("when ship sinks, ship array must be correctly marked and isSunk should be true #2", () => {
@@ -55,7 +55,7 @@ test("when ship sinks, ship array must be correctly marked and isSunk should be 
   myFirstShip.hit(3);
 
   expect(myFirstShip.getShipArray()).toEqual(["hit", "hit", "hit", "hit"]);
-  expect(myFirstShip.isSunk(true)).toBe(true);
+  expect(myFirstShip.isSunk()).toBe(true);
 });
 
 test("when ship sinks, ship array must be correctly marked and isSunk should be true #3", () => {
@@ -64,7 +64,7 @@ test("when ship sinks, ship array must be correctly marked and isSunk should be 
   myFirstShip.hit(1);
 
   expect(myFirstShip.getShipArray()).toEqual(["hit", "hit"]);
-  expect(myFirstShip.isSunk(true)).toBe(true);
+  expect(myFirstShip.isSunk()).toBe(true);
 });
 
 test("When the ship has been hit, this test will see that the isSunk should return false", () => {
@@ -72,5 +72,5 @@ test("When the ship has been hit, this test will see that the isSunk should retu
   myFirstShip.hit(0);
 
   expect(myFirstShip.getShipArray()).toEqual(["hit", null]);
-  expect(myFirstShip.isSunk(false)).toBe(false);
+  expect(myFirstShip.isSunk()).toEqual(false);
 });

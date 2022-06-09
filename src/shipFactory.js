@@ -12,13 +12,11 @@ function Ship(length) {
     _shipArray[position] = "hit";
   };
 
-  const isSunk = (shipSunk) => {
-    if (shipSunk == true) {
-      hit();
+  const isSunk = () => {
+    if (_shipArray.every((element) => element !== null)) {
       return true;
-    } else if (shipSunk == false) {
-      return false;
     }
+    return false;
   };
   return {
     getShipArray,
