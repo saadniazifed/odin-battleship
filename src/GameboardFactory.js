@@ -39,7 +39,7 @@ const Gameboard = () => {
 
     const placePatroller = (positionA, positionB) => {
       gameBoardArray[positionA][positionB] = patroller;
-      return [[gameBoardArray][positionA][positionB]];
+      return [[gameBoardArray[positionA][positionB]]];
     };
 
     return {
