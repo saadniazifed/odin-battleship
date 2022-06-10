@@ -1,4 +1,5 @@
-function Ship(length) {
+function Ship(length, name) {
+  const shipName = name;
   const _shipArray = Array(length).fill(null);
   const getShipArray = () => [..._shipArray];
 
@@ -16,6 +17,7 @@ function Ship(length) {
     return false;
   };
   return {
+    shipName,
     getShipArray,
     length,
     hit,

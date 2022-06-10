@@ -1,15 +1,46 @@
+import { Ship } from "./shipFactory";
+
 const Gameboard = () => {
   const gameBoardArray = [];
-  const rows = 2;
-  const columns = 2;
-  for (let i = 0; i < rows; i++) {
+
+  for (let i = 0; i < 10; i++) {
     gameBoardArray[i] = [];
-    for (let j = 0; j < columns; j++) {
+    for (let j = 0; j < 10; j++) {
       gameBoardArray[i][j] = null;
     }
   }
+
+  const waterCarrier = Ship(5, "Water Carrier");
+  const battleShip = Ship(4, "Battleship");
+  const destroyer = Ship(3, "Destroyer");
+  const submarine = Ship(3, "Submarine");
+  const patroller = Ship(2, "Patroller");
+
+  const placeShip = () => {
+    const placeWaterCarrier = (positionA, positionB) => {
+      gameBoardArray[positionA][positionB] = waterCarrier;
+      return [[gameBoardArray[positionA][positionB]]];
+    };
+
+    const placeDestroyer = (positionA, positionB) => {
+      gameBoardArray[positionA][positionB] = destroyer;
+      return [[gameBoardArray[positionA][positionB]]];
+    };
+
+    const placeBattleship = (positionA, positionB) => {
+      gameBoardArray[positionA][positionB] = battleShip;
+      return [[gameBoardArray[positionA][positionB]]];
+    };
+
+    return {
+      placeWaterCarrier,
+      placeDestroyer,
+      placeBattleship,
+    };
+  };
+
   return {
-    gameBoardArray,
+    placeShip,
   };
 };
 
