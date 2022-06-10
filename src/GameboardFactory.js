@@ -32,10 +32,22 @@ const Gameboard = () => {
       return [[gameBoardArray[positionA][positionB]]];
     };
 
+    const placeSubmarine = (positionA, positionB) => {
+      gameBoardArray[positionA][positionB] = submarine;
+      return [[gameBoardArray[positionA][positionB]]];
+    };
+
+    const placePatroller = (positionA, positionB) => {
+      gameBoardArray[positionA][positionB] = patroller;
+      return [[gameBoardArray][positionA][positionB]];
+    };
+
     return {
       placeWaterCarrier,
       placeDestroyer,
       placeBattleship,
+      placeSubmarine,
+      placePatroller,
     };
   };
 

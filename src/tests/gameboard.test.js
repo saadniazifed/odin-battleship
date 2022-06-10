@@ -22,3 +22,15 @@ test("Placing a Battleship Ship at a specific coordinate", () => {
     "Battleship"
   );
 });
+
+test("Placing a Submarine Ship at a specific coordinate", () => {
+  expect(Gameboard().placeShip().placeSubmarine(0, 0)[0][0].shipName).toEqual(
+    "Submarine"
+  );
+});
+
+test("Placing a Patroller Ship at a specific coordinate", () => {
+  expect(Gameboard().placeShip().placePatroller(0, 0)[0][0].shipName).toEqual(
+    "Patroller"
+  );
+});
