@@ -18,6 +18,7 @@ const Gameboard = () => {
   const submarine = Ship(3, "Submarine");
   const patroller = Ship(2, "Patroller");
 
+  //Function responsible for the ships to be placed vertically.
   const placeVerticalShips = (x, y, ship) => {
     for (let i = 0; i < ship.length; i++) {
       gameBoardArray[y + i][x] = ship.shipName;
@@ -25,6 +26,7 @@ const Gameboard = () => {
     return gameBoardArray;
   };
 
+  //Function responsible for placing the ships horizontally.
   const placeHorizontalShips = (x, y, ship) => {
     for (let i = 0; i < ship.length; i++) {
       gameBoardArray[x + i][y] = ship.shipName;
@@ -32,6 +34,7 @@ const Gameboard = () => {
     return gameBoardArray;
   };
 
+  //Direction of Ships is controlled from here. Whether the ships will be placed horizontally or vertically.
   const directionOfShips = (x, y, ship, direction) => {
     if (direction === "vertical") {
       return placeVerticalShips(x, y, ship);
@@ -80,7 +83,6 @@ const Gameboard = () => {
   return {
     placeShip,
     receiveAttack,
-    gameBoardArray,
   };
 };
 
