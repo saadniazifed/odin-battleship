@@ -58,12 +58,8 @@ const Gameboard = () => {
       return directionOfShips(x, y, submarine, direction);
     };
 
-    const placePatroller = (x, y) => {
-      for (let i = 0; i < patroller.length; i++) {
-        gameBoardArray[y + i][x] = patroller.shipName;
-      }
-      console.table(gameBoardArray);
-      return gameBoardArray;
+    const placePatroller = (x, y, direction) => {
+      return directionOfShips(x, y, patroller, direction);
     };
 
     return {
