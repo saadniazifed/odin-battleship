@@ -18,28 +18,55 @@ const Gameboard = () => {
   const submarine = Ship(3, "Submarine");
   const patroller = Ship(2, "Patroller");
 
+  //Checking to see if the Ship Fits.
+  const shipFit = (cell, direction, shipLength) => {
+    let x = cell[0];
+    let y = cell[1];
+    if (direction === "horizontal") {
+      if (x > 0 || x + shipLength < gameBoardArray.length - 1) {
+        return true;
+      }
+      return false;
+    }
+    if (direction === "vertical") {
+      if (y > 0 || y + shipLength < gameBoardArray.length - 1) {
+        return true;
+      }
+    }
+    return false;
+  };
+
   //Function responsible for the ships to be placed vertically.
-  const placeVerticalShips = (x, y, ship) => {
-    for (let i = 0; i < ship.length; i++) {
-      gameBoardArray[y + i][x] = ship.shipName;
+  const placeVerticalShips = (x, y, ship, direction) => {
+    let isShipFit = shipFit([x, y], direction, ship.length);
+    if (isShipFit === true) {
+      for (let i = 0; i < ship.length; i++) {
+        gameBoardArray[y + i][x] = ship.shipName;
+      }
     }
     return gameBoardArray;
   };
 
   //Function responsible for placing the ships horizontally.
-  const placeHorizontalShips = (x, y, ship) => {
-    for (let i = 0; i < ship.length; i++) {
-      gameBoardArray[x + i][y] = ship.shipName;
+  const placeHorizontalShips = (x, y, ship, direction) => {
+    let isShipFit = shipFit([x, y], direction, ship.length);
+    if (isShipFit === true) {
+      for (let i = 0; i < ship.length; i++) {
+        gameBoardArray[x + i][y] = ship.shipName;
+      }
+    } else if (isShipFit !== true) {
+      console.log("OOps ships are not fitting in there");
     }
+
     return gameBoardArray;
   };
 
   //Direction of Ships is controlled from here. Whether the ships will be placed horizontally or vertically.
   const directionOfShips = (x, y, ship, direction) => {
     if (direction === "vertical") {
-      return placeVerticalShips(x, y, ship);
+      return placeVerticalShips(x, y, ship, direction);
     } else if (direction === "horizontal") {
-      return placeHorizontalShips(x, y, ship);
+      return placeHorizontalShips(x, y, ship, direction);
     }
   };
 
@@ -73,16 +100,8 @@ const Gameboard = () => {
       placePatroller,
     };
   };
-
-  const receiveAttack = () => {
-    return {
-      //
-    };
-  };
-
   return {
     placeShip,
-    receiveAttack,
   };
 };
 
