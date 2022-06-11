@@ -54,11 +54,8 @@ const Gameboard = () => {
       return directionOfShips(x, y, battleShip, direction);
     };
 
-    const placeSubmarine = (x, y) => {
-      for (let i = 0; i < submarine.length; i++) {
-        gameBoardArray[y + i][x] = submarine.shipName;
-      }
-      return gameBoardArray;
+    const placeSubmarine = (x, y, direction) => {
+      return directionOfShips(x, y, submarine, direction);
     };
 
     const placePatroller = (x, y) => {
