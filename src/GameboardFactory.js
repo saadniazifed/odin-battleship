@@ -50,11 +50,8 @@ const Gameboard = () => {
       return directionOfShips(x, y, destroyer, direction);
     };
 
-    const placeBattleship = (x, y) => {
-      for (let i = 0; i < battleShip.length; i++) {
-        gameBoardArray[y + i][x] = battleShip.shipName;
-      }
-      return gameBoardArray;
+    const placeBattleship = (x, y, direction) => {
+      return directionOfShips(x, y, battleShip, direction);
     };
 
     const placeSubmarine = (x, y) => {
