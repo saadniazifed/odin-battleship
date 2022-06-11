@@ -18,13 +18,28 @@ const Gameboard = () => {
   const submarine = Ship(3, "Submarine");
   const patroller = Ship(2, "Patroller");
 
+  const placeVerticalShips = (x, y) => {
+    for (let i = 0; i < waterCarrier.length; i++) {
+      gameBoardArray[y + i][x] = waterCarrier.shipName;
+    }
+    return gameBoardArray;
+  };
+
+  const placeHorizontalShips = (x, y) => {
+    for (let i = 0; i < waterCarrier.length; i++) {
+      gameBoardArray[x + i][y] = waterCarrier.shipName;
+    }
+    return gameBoardArray;
+  };
+
   //Placing each ship in their respective positions
   const placeShip = () => {
-    const placeWaterCarrier = (x, y) => {
-      for (let i = 0; i < waterCarrier.length; i++) {
-        gameBoardArray[y + i][x] = waterCarrier.shipName;
+    const placeWaterCarrier = (x, y, direction) => {
+      if (direction === "vertical") {
+        return placeVerticalShips(x, y);
+      } else if (direction === "horizontal") {
+        return placeHorizontalShips(x, y);
       }
-      return gameBoardArray;
     };
 
     const placeDestroyer = (x, y) => {
@@ -52,6 +67,7 @@ const Gameboard = () => {
       for (let i = 0; i < patroller.length; i++) {
         gameBoardArray[y + i][x] = patroller.shipName;
       }
+      console.table(gameBoardArray);
       return gameBoardArray;
     };
 
