@@ -18,35 +18,36 @@ const Gameboard = () => {
   const submarine = Ship(3, "Submarine");
   const patroller = Ship(2, "Patroller");
 
-  const placeVerticalShips = (x, y) => {
-    for (let i = 0; i < waterCarrier.length; i++) {
-      gameBoardArray[y + i][x] = waterCarrier.shipName;
+  const placeVerticalShips = (x, y, ship) => {
+    for (let i = 0; i < ship.length; i++) {
+      gameBoardArray[y + i][x] = ship.shipName;
     }
     return gameBoardArray;
   };
 
-  const placeHorizontalShips = (x, y) => {
-    for (let i = 0; i < waterCarrier.length; i++) {
-      gameBoardArray[x + i][y] = waterCarrier.shipName;
+  const placeHorizontalShips = (x, y, ship) => {
+    for (let i = 0; i < ship.length; i++) {
+      gameBoardArray[x + i][y] = ship.shipName;
     }
     return gameBoardArray;
+  };
+
+  const directionOfShips = (x, y, ship, direction) => {
+    if (direction === "vertical") {
+      return placeVerticalShips(x, y, ship);
+    } else if (direction === "horizontal") {
+      return placeHorizontalShips(x, y, ship);
+    }
   };
 
   //Placing each ship in their respective positions
   const placeShip = () => {
     const placeWaterCarrier = (x, y, direction) => {
-      if (direction === "vertical") {
-        return placeVerticalShips(x, y);
-      } else if (direction === "horizontal") {
-        return placeHorizontalShips(x, y);
-      }
+      return directionOfShips(x, y, waterCarrier, direction);
     };
 
-    const placeDestroyer = (x, y) => {
-      for (let i = 0; i < destroyer.length; i++) {
-        gameBoardArray[y + i][x] = destroyer.shipName;
-      }
-      return gameBoardArray;
+    const placeDestroyer = (x, y, direction) => {
+      return directionOfShips(x, y, destroyer, direction);
     };
 
     const placeBattleship = (x, y) => {

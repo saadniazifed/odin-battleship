@@ -5,7 +5,7 @@ test("Checking to see if the Gameboard factory function returns us something", (
   expect(Gameboard()).toBeDefined();
 });
 
-test.only("Placing a Water Carrier Ship at a specific coordinate", () => {
+test("Placing a Water Carrier Ship at a specific coordinate", () => {
   expect(
     Gameboard().placeShip().placeWaterCarrier(0, 0, "vertical")[0][0]
   ).toEqual("Water Carrier");
@@ -23,16 +23,16 @@ test.only("Placing a Water Carrier Ship at a specific coordinate", () => {
   ).toEqual("Water Carrier");
 });
 
-test("Placing a Destroyer Ship at a specific coordinate", () => {
-  expect(Gameboard().placeShip().placeDestroyer(0, 2)[2][0]).toEqual(
-    "Destroyer"
-  );
-  expect(Gameboard().placeShip().placeDestroyer(0, 3)[3][0]).toEqual(
-    "Destroyer"
-  );
-  expect(Gameboard().placeShip().placeDestroyer(0, 4)[4][0]).toEqual(
-    "Destroyer"
-  );
+test.only("Placing a Destroyer Ship at a specific coordinate", () => {
+  expect(
+    Gameboard().placeShip().placeDestroyer(0, 2, "horizontal")[0][2]
+  ).toEqual("Destroyer");
+  expect(
+    Gameboard().placeShip().placeDestroyer(0, 3, "horizontal")[0][3]
+  ).toEqual("Destroyer");
+  expect(
+    Gameboard().placeShip().placeDestroyer(0, 4, "horizontal")[0][4]
+  ).toEqual("Destroyer");
 });
 
 test("Placing a Battleship Ship at a specific coordinate", () => {
