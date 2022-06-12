@@ -104,6 +104,7 @@ const Gameboard = () => {
   };
   return {
     placeShip,
+    gameBoardArray,
   };
 };
 
