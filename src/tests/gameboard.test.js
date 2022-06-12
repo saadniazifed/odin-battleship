@@ -40,19 +40,15 @@ test("Placing a Destroyer Ship at a specific coordinate", () => {
   ).toEqual("Destroyer");
 });
 
-test("Placing a Battleship Ship at a specific coordinate", () => {
-  expect(
-    Gameboard().placeShip().placeBattleship(0, 1, "horizontal")[0][1]
-  ).toEqual("Battleship");
-  expect(
-    Gameboard().placeShip().placeBattleship(0, 2, "horizontal")[0][2]
-  ).toEqual("Battleship");
-  expect(
-    Gameboard().placeShip().placeBattleship(0, 3, "horizontal")[0][3]
-  ).toEqual("Battleship");
-  expect(
-    Gameboard().placeShip().placeBattleship(0, 4, "horizontal")[0][4]
-  ).toEqual("Battleship");
+describe.only("Battleship Ship Tests are inside this block", () => {
+  test("Placement of the Battleship", () => {
+    gameboard.placeShip().placeBattleship(0, 0, "horizontal");
+
+    expect(gameboard.gameBoardArray[0][0]).toEqual("Battleship");
+    expect(gameboard.gameBoardArray[1][0]).toEqual("Battleship");
+    expect(gameboard.gameBoardArray[2][0]).toEqual("Battleship");
+    expect(gameboard.gameBoardArray[2][0]).toEqual("Battleship");
+  });
 });
 
 describe("Submarine Tests are inside this block", () => {
@@ -65,7 +61,7 @@ describe("Submarine Tests are inside this block", () => {
   });
 });
 
-describe.only("Patroller Ship Tests are inside this block", () => {
+describe("Patroller Ship Tests are inside this block", () => {
   test("Placement of the Patroller", () => {
     gameboard.placeShip().placePatroller(0, 0, "horizontal");
 
