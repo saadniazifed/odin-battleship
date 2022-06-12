@@ -41,21 +41,23 @@ describe("Battleship Ship Tests are inside this block", () => {
   });
 });
 
-describe.only("Submarine Tests are inside this block", () => {
-  test("Placement of the submarine", () => {
+describe("Submarine Tests are inside this block", () => {
+  beforeAll(() => {
     gameboard.placeShip().placeSubmarine(0, 0, "horizontal");
-
+  });
+  test("Placement of the submarine", () => {
+    // gameboard.placeShip().placeSubmarine(0, 0, "horizontal");
     expect(gameboard.gameBoardArray[0][0]).toEqual("Submarine");
     expect(gameboard.gameBoardArray[1][0]).toEqual("Submarine");
     expect(gameboard.gameBoardArray[2][0]).toEqual("Submarine");
   });
 });
 
-describe("Patroller Ship Tests are inside this block", () => {
+describe.only("Patroller Ship Tests are inside this block", () => {
   test("Placement of the Patroller", () => {
-    gameboard.placeShip().placePatroller(0, 1, "vertical");
+    gameboard.placeShip().placePatroller(0, 0, "vertical");
 
-    // expect(gameboard.gameBoardArray[0][0]).toEqual("Patroller");
-    // expect(gameboard.gameBoardArray[1][0]).toEqual("Patroller");
+    expect(gameboard.gameBoardArray[0][0]).toEqual("Patroller");
+    expect(gameboard.gameBoardArray[1][0]).toEqual("Patroller");
   });
 });

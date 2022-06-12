@@ -35,12 +35,12 @@ const Gameboard = () => {
     }
   };
 
-  //Function responsible for the ships to be placed vertically.
-  const placeVerticalShips = (x, y, ship, direction) => {
-    let isShipFit = shipFit([x, y], direction, ship.length);
+  //  x axis is a column shift, y axis is a row shift.
+  const placeVerticalShips = (column, row, ship, direction) => {
+    let isShipFit = shipFit([column, row], direction, ship.length);
     if (isShipFit === true) {
       for (let i = 0; i < ship.length; i++) {
-        gameBoardArray[y + i][x] = ship.shipName;
+        gameBoardArray[row + i][column] = ship.shipName;
       }
     } else if (isShipFit !== true) {
       console.log("Oops, ships cannot be placed vertically here.");
@@ -49,13 +49,13 @@ const Gameboard = () => {
     return gameBoardArray;
   };
 
-  //Function responsible for placing the ships horizontally.
-  const placeHorizontalShips = (x, y, ship, direction) => {
-    let isShipFit = shipFit([x, y], direction, ship.length);
+  // and x axis is still column!
+  const placeHorizontalShips = (column, row, ship, direction) => {
+    let isShipFit = shipFit([column, row], direction, ship.length);
 
     if (isShipFit === true) {
       for (let i = 0; i < ship.length; i++) {
-        gameBoardArray[x + i][y] = ship.shipName;
+        gameBoardArray[row][column + i] = ship.shipName;
       }
     } else if (isShipFit !== true) {
       console.log("Oops ships are not fitting in there");
