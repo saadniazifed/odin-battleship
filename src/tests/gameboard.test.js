@@ -2,9 +2,8 @@ import { Gameboard } from "../GameboardFactory";
 import { Ship } from "../shipFactory";
 let gameboard;
 
-beforeEach(() => {
+beforeAll(() => {
   gameboard = Gameboard();
-  gameboard.placeShip().placeSubmarine(0, 0, "horizontal");
 });
 
 test("Checking to see if the Gameboard factory function returns us something", () => {
@@ -56,22 +55,14 @@ test("Placing a Battleship Ship at a specific coordinate", () => {
   ).toEqual("Battleship");
 });
 
-// test.only("Placing a Submarine Ship at a specific coordinate", () => {
-//   expect(
-//     Gameboard().placeShip().placeSubmarine(0, 0, "horizontal")[0][0]
-//   ).toEqual("Submarine");
-//   expect(
-//     Gameboard().placeShip().placeSubmarine(0, 1, "horizontal")[0][1]
-//   ).toEqual("Submarine");
-//   expect(
-//     Gameboard().placeShip().placeSubmarine(0, 2, "horizontal")[0][2]
-//   ).toEqual("Submarine");
-// });
+describe.only("Submarine Tests are inside this block", () => {
+  test("Placement of the submarine", () => {
+    gameboard.placeShip().placeSubmarine(0, 0, "horizontal");
 
-test("Placement of the submarine", () => {
-  expect(gameboard.board[0][0]).toBe("Submarine");
-  expect(gameboard.board[0][1]).toBe("Submarine");
-  expect(gameboard.board[0][2]).toBe("Submarine");
+    expect(gameboard.gameBoardArray[0][0]).toEqual("Submarine");
+    expect(gameboard.gameBoardArray[1][0]).toEqual("Submarine");
+    expect(gameboard.gameBoardArray[2][0]).toEqual("Submarine");
+  });
 });
 
 test("Placing a Patroller Ship at a specific coordinate", () => {
