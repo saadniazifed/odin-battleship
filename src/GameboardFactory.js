@@ -27,13 +27,12 @@ const Gameboard = () => {
         return true;
       }
       return false;
-    }
-    if (direction === "vertical") {
+    } else if (direction === "vertical") {
       if (y >= 0 || y + shipLength < gameBoardArray.length - 1) {
         return true;
       }
+      return false;
     }
-    return false;
   };
 
   //Function responsible for the ships to be placed vertically.
@@ -43,6 +42,8 @@ const Gameboard = () => {
       for (let i = 0; i < ship.length; i++) {
         gameBoardArray[y + i][x] = ship.shipName;
       }
+    } else if (isShipFit !== true) {
+      console.log("Oops, ships cannot be placed vertically here.");
     }
     console.table(gameBoardArray);
     return gameBoardArray;
@@ -57,8 +58,9 @@ const Gameboard = () => {
         gameBoardArray[x + i][y] = ship.shipName;
       }
     } else if (isShipFit !== true) {
-      console.log("OOps ships are not fitting in there");
+      console.log("Oops ships are not fitting in there");
     }
+    console.table(gameBoardArray);
     return gameBoardArray;
   };
 
