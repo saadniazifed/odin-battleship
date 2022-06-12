@@ -41,7 +41,7 @@ test("Placing a Destroyer Ship at a specific coordinate", () => {
 });
 
 describe.only("Destroyer Ship Tests are inside this block", () => {
-  test("Placement of the Destroyer Ship", () => {
+  test("Placement of the Destroyer Ships", () => {
     gameboard.placeShip().placeDestroyer(0, 0, "horizontal");
 
     expect(gameboard.gameBoardArray[0][0]).toEqual("Destroyer");
