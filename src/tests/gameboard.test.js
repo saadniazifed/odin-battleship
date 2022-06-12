@@ -50,12 +50,15 @@ test("Placing a Battleship Ship at a specific coordinate", () => {
   ).toEqual("Battleship");
 });
 
-test("Placing a Submarine Ship at a specific coordinate", () => {
+test.only("Placing a Submarine Ship at a specific coordinate", () => {
   expect(
-    Gameboard().placeShip().placeSubmarine(0, 3, "horizontal")[0][3]
+    Gameboard().placeShip().placeSubmarine(0, 0, "horizontal")[0][0]
   ).toEqual("Submarine");
   expect(
-    Gameboard().placeShip().placeSubmarine(0, 4, "horizontal")[0][4]
+    Gameboard().placeShip().placeSubmarine(0, 1, "horizontal")[0][1]
+  ).toEqual("Submarine");
+  expect(
+    Gameboard().placeShip().placeSubmarine(0, 2, "horizontal")[0][2]
   ).toEqual("Submarine");
 });
 

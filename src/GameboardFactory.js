@@ -23,13 +23,13 @@ const Gameboard = () => {
     let x = cell[0];
     let y = cell[1];
     if (direction === "horizontal") {
-      if (x > 0 || x + shipLength < gameBoardArray.length - 1) {
+      if (x >= 0 && x + shipLength < gameBoardArray.length - 1) {
         return true;
       }
       return false;
     }
     if (direction === "vertical") {
-      if (y > 0 || y + shipLength < gameBoardArray.length - 1) {
+      if (y >= 0 || y + shipLength < gameBoardArray.length - 1) {
         return true;
       }
     }
@@ -44,12 +44,14 @@ const Gameboard = () => {
         gameBoardArray[y + i][x] = ship.shipName;
       }
     }
+
     return gameBoardArray;
   };
 
   //Function responsible for placing the ships horizontally.
   const placeHorizontalShips = (x, y, ship, direction) => {
     let isShipFit = shipFit([x, y], direction, ship.length);
+
     if (isShipFit === true) {
       for (let i = 0; i < ship.length; i++) {
         gameBoardArray[x + i][y] = ship.shipName;
@@ -57,7 +59,7 @@ const Gameboard = () => {
     } else if (isShipFit !== true) {
       console.log("OOps ships are not fitting in there");
     }
-
+    console.table(gameBoardArray);
     return gameBoardArray;
   };
 
