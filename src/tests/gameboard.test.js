@@ -40,7 +40,18 @@ test("Placing a Destroyer Ship at a specific coordinate", () => {
   ).toEqual("Destroyer");
 });
 
-describe.only("Battleship Ship Tests are inside this block", () => {
+describe.only("Destroyer Ship Tests are inside this block", () => {
+  test("Placement of the Destroyer Ship", () => {
+    gameboard.placeShip().placeDestroyer(0, 0, "horizontal");
+
+    expect(gameboard.gameBoardArray[0][0]).toEqual("Destroyer");
+    expect(gameboard.gameBoardArray[1][0]).toEqual("Destroyer");
+    expect(gameboard.gameBoardArray[2][0]).toEqual("Destroyer");
+    expect(gameboard.gameBoardArray[2][0]).toEqual("Destroyer");
+  });
+});
+
+describe("Battleship Ship Tests are inside this block", () => {
   test("Placement of the Battleship", () => {
     gameboard.placeShip().placeBattleship(0, 0, "horizontal");
 
