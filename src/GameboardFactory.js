@@ -44,7 +44,7 @@ const Gameboard = () => {
         gameBoardArray[y + i][x] = ship.shipName;
       }
     }
-
+    console.table(gameBoardArray);
     return gameBoardArray;
   };
 
@@ -59,7 +59,6 @@ const Gameboard = () => {
     } else if (isShipFit !== true) {
       console.log("OOps ships are not fitting in there");
     }
-    console.table(gameBoardArray);
     return gameBoardArray;
   };
 
