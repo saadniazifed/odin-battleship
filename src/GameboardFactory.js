@@ -47,7 +47,12 @@ const Gameboard = () => {
         return false;
       }
     } else if (direction === "vertical") {
-      //
+      for (let i = 0; i < shipLength; i++) {
+        if (gameBoardArray[row][column + i] === null) {
+          return true;
+        }
+        return false;
+      }
     }
   };
 
