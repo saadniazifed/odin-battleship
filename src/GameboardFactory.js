@@ -1,7 +1,6 @@
 import { Ship } from "./shipFactory";
 
 const Gameboard = () => {
-  //Creating a 10 x 10 2D Array
   const gameBoardArray = [];
 
   for (let i = 0; i < 10; i++) {
@@ -66,7 +65,6 @@ const Gameboard = () => {
     } else if (isShipFit !== true) {
       console.log("Oops, ships cannot be placed vertically here.");
     }
-    console.table(gameBoardArray);
     return gameBoardArray;
   };
 
@@ -92,6 +90,10 @@ const Gameboard = () => {
     } else if (direction === "horizontal") {
       return placeHorizontalShips(x, y, ship, direction);
     }
+  };
+
+  const receiveAttack = () => {
+    //
   };
 
   //Placing each ship in their respective positions
