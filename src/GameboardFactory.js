@@ -35,6 +35,22 @@ const Gameboard = () => {
     }
   };
 
+  //Checking to see if the Ship exists in that location or not.
+  const positionEmpty = (cell, direction, shipLength) => {
+    let column = cell[0];
+    let row = cell[1];
+    if (direction === "horizontal") {
+      for (let i = 0; i < shipLength; i++) {
+        if (gameBoardArray[row + i][column] === null) {
+          return true;
+        }
+        return false;
+      }
+    } else if (direction === "vertical") {
+      //
+    }
+  };
+
   //  x axis is a column shift, y axis is a row shift.
   const placeVerticalShips = (column, row, ship, direction) => {
     let isShipFit = shipFit([column, row], direction, ship.length);
@@ -51,8 +67,9 @@ const Gameboard = () => {
 
   const placeHorizontalShips = (column, row, ship, direction) => {
     let isShipFit = shipFit([column, row], direction, ship.length);
+    let isPositionEmpty = positionEmpty([column, row], direction, ship.length);
 
-    if (isShipFit === true) {
+    if (isShipFit === true && isPositionEmpty === true) {
       for (let i = 0; i < ship.length; i++) {
         gameBoardArray[row][column + i] = ship.shipName;
       }

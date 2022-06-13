@@ -42,7 +42,7 @@ describe("Battleship Ship Tests are inside this block", () => {
   });
 });
 
-describe("Submarine Tests are inside this block", () => {
+describe.only("Submarine Tests are inside this block", () => {
   beforeAll(() => {
     gameboard.placeShip().placeSubmarine(0, 0, "horizontal");
   });
@@ -54,7 +54,7 @@ describe("Submarine Tests are inside this block", () => {
   });
 });
 
-describe.only("Patroller Ship Tests are inside this block", () => {
+describe("Patroller Ship Tests are inside this block", () => {
   test("Placement of the Patroller", () => {
     gameboard.placeShip().placePatroller(0, 0, "horizontal");
 
