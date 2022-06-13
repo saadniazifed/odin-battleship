@@ -13,15 +13,15 @@ describe("Water Carrier Ship Tests are inside this block", () => {
   test("Placement of Water Carrier Ship", () => {
     gameboard.placeShip().placeWaterCarrier(1, 4, "horizontal");
 
-    expect(gameboard.gameBoardArray[4][1]).toEqual("Water Carrier");
-    expect(gameboard.gameBoardArray[4][2]).toEqual("Water Carrier");
-    expect(gameboard.gameBoardArray[4][3]).toEqual("Water Carrier");
-    expect(gameboard.gameBoardArray[4][4]).toEqual("Water Carrier");
-    expect(gameboard.gameBoardArray[4][5]).toEqual("Water Carrier");
+    expect(gameboard.gameBoardArray[4][1].shipName).toEqual("Water Carrier");
+    expect(gameboard.gameBoardArray[4][2].shipName).toEqual("Water Carrier");
+    expect(gameboard.gameBoardArray[4][3].shipName).toEqual("Water Carrier");
+    expect(gameboard.gameBoardArray[4][4].shipName).toEqual("Water Carrier");
+    expect(gameboard.gameBoardArray[4][5].shipName).toEqual("Water Carrier");
   });
 });
 
-describe.only("Destroyer Ship Tests are inside this block", () => {
+describe("Destroyer Ship Tests are inside this block", () => {
   test("Placement of Destroyer Ship", () => {
     gameboard.placeShip().placeDestroyer(1, 3, "horizontal");
 
@@ -31,7 +31,7 @@ describe.only("Destroyer Ship Tests are inside this block", () => {
   });
 });
 
-describe.only("Battleship Ship Tests are inside this block", () => {
+describe("Battleship Ship Tests are inside this block", () => {
   test("Placement of the Battleship", () => {
     gameboard.placeShip().placeBattleship(1, 2, "horizontal");
 
@@ -42,7 +42,7 @@ describe.only("Battleship Ship Tests are inside this block", () => {
   });
 });
 
-describe.only("Submarine Tests are inside this block", () => {
+describe("Submarine Tests are inside this block", () => {
   beforeAll(() => {
     gameboard.placeShip().placeSubmarine(1, 1, "horizontal");
   });
@@ -54,7 +54,7 @@ describe.only("Submarine Tests are inside this block", () => {
   });
 });
 
-describe.only("Patroller Ship Tests are inside this block", () => {
+describe("Patroller Ship Tests are inside this block", () => {
   test("Placement of the Patroller", () => {
     gameboard.placeShip().placePatroller(2, 0, "horizontal");
 
