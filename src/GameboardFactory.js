@@ -49,7 +49,6 @@ const Gameboard = () => {
     return gameBoardArray;
   };
 
-  // and x axis is still column!
   const placeHorizontalShips = (column, row, ship, direction) => {
     let isShipFit = shipFit([column, row], direction, ship.length);
 
