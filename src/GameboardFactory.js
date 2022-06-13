@@ -79,7 +79,6 @@ const Gameboard = () => {
     } else if (isShipFit !== true) {
       console.log("Oops ships are not fitting in there");
     }
-    console.table(gameBoardArray);
     return gameBoardArray;
   };
 
@@ -92,7 +91,9 @@ const Gameboard = () => {
     }
   };
 
-  const receiveAttack = (column, row) => {};
+  const receiveAttack = (column, row) => {
+    //
+  };
 
   //Placing each ship in their respective positions
   const placeShip = () => {
