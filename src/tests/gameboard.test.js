@@ -9,7 +9,7 @@ test("Checking to see if the Gameboard factory function returns us something", (
   expect(Gameboard()).toBeDefined();
 });
 
-describe.only("Water Carrier Ship Tests are inside this block", () => {
+describe("Water Carrier Ship Tests are inside this block", () => {
   test("Placement of Water Carrier Ship", () => {
     gameboard.placeShip().placeWaterCarrier(0, 0, "horizontal");
 
@@ -21,13 +21,13 @@ describe.only("Water Carrier Ship Tests are inside this block", () => {
   });
 });
 
-describe("Destroyer Ship Tests are inside this block", () => {
+describe.only("Destroyer Ship Tests are inside this block", () => {
   test("Placement of Destroyer Ship", () => {
     gameboard.placeShip().placeDestroyer(0, 0, "horizontal");
 
     expect(gameboard.gameBoardArray[0][0]).toEqual("Destroyer");
-    expect(gameboard.gameBoardArray[1][0]).toEqual("Destroyer");
-    expect(gameboard.gameBoardArray[2][0]).toEqual("Destroyer");
+    expect(gameboard.gameBoardArray[0][1]).toEqual("Destroyer");
+    expect(gameboard.gameBoardArray[0][2]).toEqual("Destroyer");
   });
 });
 
