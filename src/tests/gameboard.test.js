@@ -21,13 +21,13 @@ describe("Water Carrier Ship Tests are inside this block", () => {
   });
 });
 
-describe("Destroyer Ship Tests are inside this block", () => {
+describe.only("Destroyer Ship Tests are inside this block", () => {
   test("Placement of Destroyer Ship", () => {
     gameboard.placeShip().placeDestroyer(1, 3, "horizontal");
 
-    expect(gameboard.gameBoardArray[3][1]).toEqual("Destroyer");
-    expect(gameboard.gameBoardArray[3][2]).toEqual("Destroyer");
-    expect(gameboard.gameBoardArray[3][3]).toEqual("Destroyer");
+    expect(gameboard.gameBoardArray[3][1].shipName).toEqual("Destroyer");
+    expect(gameboard.gameBoardArray[3][2].shipName).toEqual("Destroyer");
+    expect(gameboard.gameBoardArray[3][3].shipName).toEqual("Destroyer");
   });
 });
 
