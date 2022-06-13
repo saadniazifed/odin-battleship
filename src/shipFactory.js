@@ -7,7 +7,7 @@ function Ship(length, name) {
     if (position >= _shipArray.length) {
       return;
     }
-    _shipArray[position] = "hit";
+    return (_shipArray[position] = "hit");
   };
 
   const isSunk = () => {
