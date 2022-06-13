@@ -63,10 +63,18 @@ describe("Patroller Ship Tests are inside this block", () => {
   });
 });
 
-describe("Receive-Attack Tests are inside this block", () => {
-  test("Receive Attack for the Patroller", () => {
+describe.only("Receive-Attack Tests are inside this block", () => {
+  test("Receive Attack for the Patroller (Missing Values)", () => {
     gameboard.placeShip().placePatroller(0, 0, "horizontal");
-    expect(gameboard.receiveAttack(0, 0)).toBe("hit");
-    expect(gameboard.receiveAttack(0, 1)).toBe("hit");
+    expect(gameboard.receiveAttack(0, 2)).toBe("missing");
+    expect(gameboard.receiveAttack(0, 3)).toBe("missing");
+  });
+});
+
+describe.only("Receive-Attack Tests are inside this block", () => {
+  test("Receive Attack for the Patroller (Hit Values)", () => {
+    gameboard.placeShip().placePatroller(0, 0, "horizontal");
+    expect(gameboard.gameBoard[0][0].receiveAttack(0, 0)).toBe("hit");
+    expect(gameboard.gameBoard[0][0].receiveAttack(0, 1)).toBe("hit");
   });
 });

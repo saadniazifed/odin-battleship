@@ -92,12 +92,11 @@ const Gameboard = () => {
   };
 
   const receiveAttack = (column, row) => {
-    // if (column === null && row === null) {
-    //  return gameBoardArray[column][row] = "missing";
-    // }
-    // // } else if (column !== null && row !== null) {
-    // //   gameBoardArray[column][row].hit();
-    // // }
+    if (gameBoardArray[column][row] === null) {
+      return (gameBoardArray[column][row] = "missing");
+    } else if (gameBoardArray[column][row] !== null) {
+      return gameBoardArray[column][row].hit();
+    }
   };
 
   //Placing each ship in their respective positions
