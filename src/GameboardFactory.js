@@ -60,7 +60,7 @@ const Gameboard = () => {
     let isShipFit = shipFit([column, row], direction, ship.length);
     if (isShipFit === true) {
       for (let i = 0; i < ship.length; i++) {
-        gameBoardArray[row + i][column] = ship.shipName;
+        gameBoardArray[row + i][column] = ship;
       }
     } else if (isShipFit !== true) {
       console.log("Oops, ships cannot be placed vertically here.");
@@ -74,7 +74,7 @@ const Gameboard = () => {
 
     if (isShipFit === true && isPositionEmpty === true) {
       for (let i = 0; i < ship.length; i++) {
-        gameBoardArray[row][column + i] = ship.shipName;
+        gameBoardArray[row][column + i] = ship;
       }
     } else if (isShipFit !== true) {
       console.log("Oops ships are not fitting in there");
@@ -92,9 +92,7 @@ const Gameboard = () => {
     }
   };
 
-  const receiveAttack = () => {
-    //
-  };
+  const receiveAttack = (column, row) => {};
 
   //Placing each ship in their respective positions
   const placeShip = () => {
@@ -129,6 +127,7 @@ const Gameboard = () => {
   return {
     placeShip,
     gameBoardArray,
+    receiveAttack,
   };
 };
 

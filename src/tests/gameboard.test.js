@@ -54,11 +54,19 @@ describe("Submarine Tests are inside this block", () => {
   });
 });
 
-describe("Patroller Ship Tests are inside this block", () => {
+describe.only("Patroller Ship Tests are inside this block", () => {
   test("Placement of the Patroller", () => {
     gameboard.placeShip().placePatroller(2, 0, "horizontal");
 
-    expect(gameboard.gameBoardArray[0][2]).toEqual("Patroller");
-    expect(gameboard.gameBoardArray[0][3]).toEqual("Patroller");
+    expect(gameboard.gameBoardArray[0][2].shipName).toEqual("Patroller");
+    expect(gameboard.gameBoardArray[0][3].shipName).toEqual("Patroller");
   });
 });
+
+// describe.only("Receive-Attack Tests are inside this block", () => {
+//   test("Receive Attack for the Patroller", () => {
+//     gameboard.placeShip().placePatroller(0, 0, "horizontal");
+
+//     // expect(gameboard.receiveAttack(0, 0)).toEqual("hit");
+//   });
+// });
