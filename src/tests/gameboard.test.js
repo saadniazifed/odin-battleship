@@ -70,10 +70,12 @@ describe.only("Checking for the receiveAttack function in this block", () => {
     gameboard.receiveAttack(0, 3);
     gameboard.receiveAttack(0, 4);
     gameboard.receiveAttack(0, 5);
+    gameboard.receiveAttack(0, 6);
 
     expect(gameboard.gameBoardArray[0][2]).toBe("miss");
     expect(gameboard.gameBoardArray[0][3]).toBe("miss");
     expect(gameboard.gameBoardArray[0][4]).toBe("miss");
     expect(gameboard.gameBoardArray[0][5]).toBe("miss");
+    expect(gameboard.gameBoardArray[0][6]).toBe("miss");
   });
 });
