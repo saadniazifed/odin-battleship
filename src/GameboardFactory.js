@@ -92,10 +92,14 @@ const Gameboard = () => {
   };
 
   const receiveAttack = (column, row) => {
+    /*
+      1. Take the column and row to be the coordinate.
+      2. Check the gameBoardArray of row and column. 
+      3. If it is null, place the value of `missing` there.
+    */
     if (gameBoardArray[column][row] === null) {
-      return (gameBoardArray[column][row] = "missing");
-    } else if (gameBoardArray[column][row] !== null) {
-      return gameBoardArray[column][row].hit();
+      gameBoardArray[column][row] = "miss";
+      console.table(gameBoardArray);
     }
   };
 
