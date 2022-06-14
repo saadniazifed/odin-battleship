@@ -67,7 +67,9 @@ describe.only("Checking for the receiveAttack function in this block", () => {
   test("If, the ship isn't there, place a miss string in there ", () => {
     gameboard.placeShip().placePatroller(0, 0, "horizontal");
     gameboard.receiveAttack(0, 2);
+    gameboard.receiveAttack(0, 3);
 
     expect(gameboard.gameBoardArray[0][2]).toBe("miss");
+    expect(gameboard.gameBoardArray[0][3]).toBe("miss");
   });
 });
