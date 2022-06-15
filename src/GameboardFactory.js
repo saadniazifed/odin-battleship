@@ -99,9 +99,21 @@ const Gameboard = () => {
       }
     } else if (gameBoardArray[column][row] !== null) {
       gameBoardArray[column][row].hit();
+      allShipsSunk();
     }
   };
 
+  const allShipsSunk = () => {
+    if (
+      (waterCarrier.isSunk() === true,
+      destroyer.isSunk() === true,
+      battleShip.isSunk() === true,
+      submarine.isSunk() === true,
+      patroller.isSunk() === true)
+    ) {
+      console.log("All Ships have sunk");
+    }
+  };
   //Placing each ship in their respective positions
   const placeShip = () => {
     const placeWaterCarrier = (x, y, direction) => {
