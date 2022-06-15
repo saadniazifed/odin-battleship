@@ -58,7 +58,9 @@ const Gameboard = () => {
   //  x axis is a column shift, y axis is a row shift.
   const placeVerticalShips = (column, row, ship, direction) => {
     let isShipFit = shipFit([column, row], direction, ship.length);
-    if (isShipFit === true) {
+    let isPositionEmpty = positionEmpty([column, row], direction, ship.length);
+
+    if (isShipFit === true && isPositionEmpty === true) {
       for (let i = 0; i < ship.length; i++) {
         gameBoardArray[row + i][column] = ship;
       }
