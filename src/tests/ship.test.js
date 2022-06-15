@@ -125,10 +125,13 @@ describe.only("When the hit functions are called, length must be equal to zero a
   });
 });
 
-test("When the ship has been hit, this test will see that the isSunk should return false", () => {
-  const myFirstShip = Ship(2);
-  myFirstShip.hit(0);
+describe.only("When the hit functions are called, length must be equal to zero and isSunk function returns true", () => {
+  test("Testing the isSunk function", () => {
+    const myFirstShip = Ship(2, "Patroller");
+    myFirstShip.hit(0);
+    myFirstShip.hit(1);
 
-  expect(myFirstShip.getShipArray()).toEqual(["hit", null]);
-  expect(myFirstShip.isSunk()).toEqual(false);
+    expect(myFirstShip.getShipArray()).toEqual([]);
+    expect(myFirstShip.isSunk()).toBe(true);
+  });
 });
