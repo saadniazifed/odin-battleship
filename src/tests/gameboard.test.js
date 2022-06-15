@@ -120,7 +120,6 @@ describe("Checking if receiveAttack invokes ships hit function correctly #2", ()
     gameboard.receiveAttack(0, 2);
     gameboard.receiveAttack(0, 3);
 
-    expect(gameboard.gameBoardArray[0][0].getShipArray()[0]).toEqual();
     expect(gameboard.gameBoardArray[0][1].getShipArray()[1]).toEqual();
     expect(gameboard.gameBoardArray[0][2].getShipArray()[2]).toEqual();
     expect(gameboard.gameBoardArray[0][3].getShipArray()[3]).toEqual();
@@ -164,7 +163,7 @@ describe("Checking if receiveAttack invokes ships hit function correctly #5", ()
   });
 });
 
-describe.only("Checking if all the ships have been sunk or not", () => {
+describe("Checking if all the ships have been sunk or not", () => {
   test("Check board if the ships have sunk or not", () => {
     gameboard.placeShip().placeWaterCarrier(0, 0, "horizontal");
     gameboard.placeShip().placeBattleship(0, 1, "horizontal");
@@ -195,7 +194,6 @@ describe.only("Checking if all the ships have been sunk or not", () => {
     gameboard.receiveAttack(4, 0);
     gameboard.receiveAttack(4, 1);
 
-    console.table(gameboard.gameBoardArray);
     //For the Water Carrier
     expect(gameboard.gameBoardArray[0][0].isSunk()).toBe(true);
     expect(gameboard.gameBoardArray[0][1].isSunk()).toBe(true);

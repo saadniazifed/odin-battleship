@@ -38,19 +38,27 @@ const Gameboard = () => {
   const positionEmpty = (cell, direction, shipLength) => {
     let column = cell[0];
     let row = cell[1];
+    let checkIfEmpty = true;
+
     if (direction === "horizontal") {
       for (let i = 0; i < shipLength; i++) {
         if (gameBoardArray[row + i][column] === null) {
-          return true;
+          checkIfEmpty = true;
+          return checkIfEmpty;
+        } else if (gameBoardArray[row + i][column] !== null) {
+          checkIfEmpty = false;
+          break;
         }
-        return false;
       }
     } else if (direction === "vertical") {
       for (let i = 0; i < shipLength; i++) {
-        if (gameBoardArray[row][column + i] === null) {
-          return true;
+        if (gameBoardArray[row + i][column] === null) {
+          checkIfEmpty = true;
+          return checkIfEmpty;
+        } else if (gameBoardArray[row + i][column] !== null) {
+          checkIfEmpty = false;
+          break;
         }
-        return false;
       }
     }
   };
