@@ -94,6 +94,9 @@ const Gameboard = () => {
   const receiveAttack = (column, row) => {
     if (gameBoardArray[column][row] === null) {
       gameBoardArray[column][row] = "miss";
+      if (gameBoardArray[column][row] === "miss") {
+        return;
+      }
     } else if (gameBoardArray[column][row] !== null) {
       gameBoardArray[column][row].hit();
     }

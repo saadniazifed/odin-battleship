@@ -163,3 +163,59 @@ describe("Checking if receiveAttack invokes ships hit function correctly #5", ()
     expect(gameboard.gameBoardArray[0][1].getShipArray()[1]).toEqual();
   });
 });
+
+describe.only("Checking if all the ships have been sunk or not", () => {
+  test("Check board if the ships have sunk or not", () => {
+    gameboard.placeShip().placeWaterCarrier(0, 0, "horizontal");
+    gameboard.placeShip().placeBattleship(0, 1, "horizontal");
+    gameboard.placeShip().placeDestroyer(0, 2, "horizontal");
+    gameboard.placeShip().placeSubmarine(0, 3, "horizontal");
+    gameboard.placeShip().placePatroller(0, 4, "horizontal");
+
+    //For the Water Carrier
+    gameboard.receiveAttack(0, 0);
+    gameboard.receiveAttack(0, 1);
+    gameboard.receiveAttack(0, 2);
+    gameboard.receiveAttack(0, 3);
+    gameboard.receiveAttack(0, 4);
+    //For the Battleship
+    gameboard.receiveAttack(1, 0);
+    gameboard.receiveAttack(1, 1);
+    gameboard.receiveAttack(1, 2);
+    gameboard.receiveAttack(1, 3);
+    //For the Destroyer
+    gameboard.receiveAttack(2, 0);
+    gameboard.receiveAttack(2, 1);
+    gameboard.receiveAttack(2, 2);
+    //For the Submarine
+    gameboard.receiveAttack(3, 0);
+    gameboard.receiveAttack(3, 1);
+    gameboard.receiveAttack(3, 2);
+    //For the Patroller
+    gameboard.receiveAttack(4, 0);
+    gameboard.receiveAttack(4, 1);
+
+    console.table(gameboard.gameBoardArray);
+    //For the Water Carrier
+    expect(gameboard.gameBoardArray[0][0].isSunk()).toBe(true);
+    expect(gameboard.gameBoardArray[0][1].isSunk()).toBe(true);
+    expect(gameboard.gameBoardArray[0][2].isSunk()).toBe(true);
+    expect(gameboard.gameBoardArray[0][3].isSunk()).toBe(true);
+    //For the BattleShip
+    expect(gameboard.gameBoardArray[1][0].isSunk()).toBe(true);
+    expect(gameboard.gameBoardArray[1][1].isSunk()).toBe(true);
+    expect(gameboard.gameBoardArray[1][2].isSunk()).toBe(true);
+    expect(gameboard.gameBoardArray[1][3].isSunk()).toBe(true);
+    //For the Destroyer
+    expect(gameboard.gameBoardArray[2][0].isSunk()).toBe(true);
+    expect(gameboard.gameBoardArray[2][1].isSunk()).toBe(true);
+    expect(gameboard.gameBoardArray[2][2].isSunk()).toBe(true);
+    //For the Submarine
+    expect(gameboard.gameBoardArray[3][0].isSunk()).toBe(true);
+    expect(gameboard.gameBoardArray[3][1].isSunk()).toBe(true);
+    expect(gameboard.gameBoardArray[3][2].isSunk()).toBe(true);
+    //For the Patroller
+    expect(gameboard.gameBoardArray[4][0].isSunk()).toBe(true);
+    expect(gameboard.gameBoardArray[4][1].isSunk()).toBe(true);
+  });
+});
