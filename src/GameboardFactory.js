@@ -19,15 +19,23 @@ const Gameboard = () => {
 
   //Checking to see if the Ship Fits.
   const shipFit = (cell, direction, shipLength) => {
-    let x = cell[0];
-    let y = cell[1];
+    let column = cell[0];
+    let row = cell[1];
     if (direction === "horizontal") {
-      if (x >= 0 && x + shipLength < gameBoardArray.length - 1) {
+      if (
+        row >= 0 &&
+        column >= 0 &&
+        row + shipLength - 1 < gameBoardArray.length
+      ) {
         return true;
       }
       return false;
     } else if (direction === "vertical") {
-      if (y >= 0 || y + shipLength < gameBoardArray.length - 1) {
+      if (
+        column >= 0 &&
+        row >= 0 &&
+        column + shipLength - 1 < gameBoardArray.length
+      ) {
         return true;
       }
       return false;
@@ -42,7 +50,7 @@ const Gameboard = () => {
 
     if (direction === "horizontal") {
       for (let i = 0; i < shipLength; i++) {
-        if (gameBoardArray[row + i][column] !== null) {
+        if (gameBoardArray[row][column + i] !== null) {
           checkIfEmpty = false;
           break;
         }
@@ -60,8 +68,8 @@ const Gameboard = () => {
 
   //  x axis is a column shift, y axis is a row shift.
   const placeVerticalShips = (column, row, ship, direction) => {
-    let isShipFit = shipFit([column, row], direction, ship.length);
-    let isPositionEmpty = positionEmpty([column, row], direction, ship.length);
+    let isShipFit = shipFit([row, column], direction, ship.length);
+    let isPositionEmpty = positionEmpty([row, column], direction, ship.length);
 
     if (isShipFit === true && isPositionEmpty === true) {
       for (let i = 0; i < ship.length; i++) {
@@ -74,8 +82,8 @@ const Gameboard = () => {
   };
 
   const placeHorizontalShips = (column, row, ship, direction) => {
-    let isShipFit = shipFit([column, row], direction, ship.length);
-    let isPositionEmpty = positionEmpty([column, row], direction, ship.length);
+    let isShipFit = shipFit([row, column], direction, ship.length);
+    let isPositionEmpty = positionEmpty([row, column], direction, ship.length);
 
     if (isShipFit === true && isPositionEmpty === true) {
       for (let i = 0; i < ship.length; i++) {
@@ -153,6 +161,7 @@ const Gameboard = () => {
     placeShip,
     gameBoardArray,
     receiveAttack,
+    shipFit,
   };
 };
 
