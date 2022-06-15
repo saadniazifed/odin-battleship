@@ -1,5 +1,10 @@
 import { Ship } from "./shipFactory";
 
+/*    
+let row = cell[0];
+let column = cell[1]; 
+*/
+
 const Gameboard = () => {
   const gameBoardArray = [];
 
@@ -44,8 +49,8 @@ const Gameboard = () => {
 
   //Checking to see if the Ship exists in that location or not.
   const positionEmpty = (cell, direction, shipLength) => {
-    let column = cell[0];
-    let row = cell[1];
+    let row = cell[0];
+    let column = cell[1];
     let checkIfEmpty = true;
 
     if (direction === "horizontal") {
@@ -57,13 +62,17 @@ const Gameboard = () => {
       }
     } else if (direction === "vertical") {
       for (let i = 0; i < shipLength; i++) {
-        if (gameBoardArray[row + i][column] !== null) {
+        if (gameBoardArray[column][row + i] !== null) {
           checkIfEmpty = false;
           break;
         }
       }
     }
-    return checkIfEmpty;
+    if (gameBoardArray[column][row] === null) {
+      return checkIfEmpty;
+    } else if (gameBoardArray[column][row] !== null) {
+      return (checkIfEmpty = false);
+    }
   };
 
   //  x axis is a column shift, y axis is a row shift.
@@ -162,6 +171,7 @@ const Gameboard = () => {
     gameBoardArray,
     receiveAttack,
     shipFit,
+    positionEmpty,
   };
 };
 
