@@ -92,23 +92,11 @@ const Gameboard = () => {
   };
 
   const receiveAttack = (column, row) => {
-    /*
-      1. Take the column and row to be the coordinate.
-      2. Check the gameBoardArray of row and column. 
-      3. If it is null, place the value of `missing` there.
-    */
     if (gameBoardArray[column][row] === null) {
       gameBoardArray[column][row] = "miss";
     } else if (gameBoardArray[column][row] !== null) {
-      // gameBoardArray[column][row].hit(column);
-      // gameBoardArray[column][row].hit(row);
-
-      console.table(gameBoardArray[column][row].getShipArray());
+      gameBoardArray[column][row].hit();
     }
-    /* 
-      1. Take the column and row to be the coordinate.
-      2. If the coordinates are not null, then call the hit function on that coordinate.
-    */
   };
 
   //Placing each ship in their respective positions

@@ -82,11 +82,17 @@ describe.skip("Checking for the receiveAttack function in this block", () => {
   });
 });
 
-// describe.only("Checking if receiveAttack invokes ships hit function correctly", () => {
-//   test("Checking if receiveAttack invokes ships hit function correctly", () => {
-//     gameboard.placeShip().placePatroller(0, 0, "horizontal");
-//     gameboard.receiveAttack(0, 0);
-//     expect(gameboard.gameBoardArray[0][0].getShipArray()[0]).toEqual("hit");
-//     expect(gameboard.gameBoardArray[0][0].getShipArray()[1]).toEqual("hit");
-//   });
-// });
+describe.only("Checking if receiveAttack invokes ships hit function correctly", () => {
+  test("Checking if receiveAttack invokes ships hit function correctly", () => {
+    gameboard.placeShip().placeBattleship(0, 0, "horizontal");
+    gameboard.receiveAttack(0, 0);
+    gameboard.receiveAttack(0, 1);
+    gameboard.receiveAttack(0, 2);
+    gameboard.receiveAttack(0, 3);
+
+    expect(gameboard.gameBoardArray[0][0].getShipArray()[0]).toEqual();
+    expect(gameboard.gameBoardArray[0][1].getShipArray()[1]).toEqual();
+    expect(gameboard.gameBoardArray[0][2].getShipArray()[2]).toEqual();
+    expect(gameboard.gameBoardArray[0][3].getShipArray()[3]).toEqual();
+  });
+});
