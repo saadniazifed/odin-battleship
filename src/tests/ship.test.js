@@ -1,10 +1,5 @@
-import { Gameboard } from "../GameboardFactory";
 import { Ship } from "../shipFactory";
-let gameboard;
 
-// beforeAll(() => {
-//   gameboard = Gameboard();
-// });
 describe("First function to be tested", () => {
   test("Is Ship Returning Us Something", () => {
     expect(Ship()).toBeDefined();

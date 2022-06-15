@@ -68,17 +68,17 @@ describe("Patroller Ship Tests are inside this block", () => {
 describe("Checking for the receiveAttack function in this block", () => {
   test("If, the ship isn't there, place a miss string in there ", () => {
     gameboard.placeShip().placePatroller(0, 0, "horizontal");
-    gameboard.receiveAttack(0, 2);
-    gameboard.receiveAttack(0, 3);
-    gameboard.receiveAttack(0, 4);
-    gameboard.receiveAttack(0, 5);
-    gameboard.receiveAttack(0, 6);
+    gameboard.receiveAttack(6, 0);
+    gameboard.receiveAttack(6, 1);
+    gameboard.receiveAttack(6, 2);
+    gameboard.receiveAttack(6, 3);
+    gameboard.receiveAttack(6, 4);
 
-    expect(gameboard.gameBoardArray[0][2]).toBe("miss");
-    expect(gameboard.gameBoardArray[0][3]).toBe("miss");
-    expect(gameboard.gameBoardArray[0][4]).toBe("miss");
-    expect(gameboard.gameBoardArray[0][5]).toBe("miss");
-    expect(gameboard.gameBoardArray[0][6]).toBe("miss");
+    expect(gameboard.gameBoardArray[6][0]).toBe("miss");
+    expect(gameboard.gameBoardArray[6][1]).toBe("miss");
+    expect(gameboard.gameBoardArray[6][2]).toBe("miss");
+    expect(gameboard.gameBoardArray[6][3]).toBe("miss");
+    expect(gameboard.gameBoardArray[6][4]).toBe("miss");
   });
 });
 
@@ -119,13 +119,11 @@ describe("Checking if receiveAttack invokes ships hit function correctly #2", ()
     gameboard.receiveAttack(0, 1);
     gameboard.receiveAttack(0, 2);
     gameboard.receiveAttack(0, 3);
-    gameboard.receiveAttack(0, 4);
 
     expect(gameboard.gameBoardArray[0][0].getShipArray()[0]).toEqual();
     expect(gameboard.gameBoardArray[0][1].getShipArray()[1]).toEqual();
     expect(gameboard.gameBoardArray[0][2].getShipArray()[2]).toEqual();
     expect(gameboard.gameBoardArray[0][3].getShipArray()[3]).toEqual();
-    expect(gameboard.gameBoardArray[0][4].getShipArray()[4]).toEqual();
   });
 });
 
@@ -155,7 +153,7 @@ describe("Checking if receiveAttack invokes ships hit function correctly #4", ()
   });
 });
 
-describe.only("Checking if receiveAttack invokes ships hit function correctly #5", () => {
+describe("Checking if receiveAttack invokes ships hit function correctly #5", () => {
   test("Checking if receiveAttack invokes ships hit function correctly", () => {
     gameboard.placeShip().placePatroller(0, 0, "horizontal");
     gameboard.receiveAttack(0, 0);
