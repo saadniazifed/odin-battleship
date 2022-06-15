@@ -1,4 +1,10 @@
+import { Gameboard } from "../GameboardFactory";
 import { Ship } from "../shipFactory";
+let gameboard;
+
+// beforeAll(() => {
+//   gameboard = Gameboard();
+// });
 
 test("Is Ship Returning Us Something", () => {
   expect(Ship()).toBeDefined();
@@ -17,6 +23,15 @@ test("Correct length of Ship #2", () => {
 test("Correct length of Ship #3", () => {
   const myThirdShip = Ship(2);
   expect(myThirdShip.length).toEqual(2);
+});
+
+describe.only("Checking to see if the hit function is working, and the length is decreased by 1", () => {
+  test("Checking to see if the length is decreased by 1 for the Ship", () => {
+    const myFirstShip = Ship(3, "Patroller");
+    expect(myFirstShip.hit()).toEqual([null, null]);
+    expect(myFirstShip.hit()).toEqual([null]);
+    expect(myFirstShip.hit()).toEqual([]);
+  });
 });
 
 test("Checking to see if the ship is hit #1", () => {

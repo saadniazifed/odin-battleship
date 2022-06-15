@@ -1,5 +1,7 @@
 import { Gameboard } from "../GameboardFactory";
+import { Ship } from "../shipFactory";
 let gameboard;
+let ship;
 
 beforeAll(() => {
   gameboard = Gameboard();
@@ -9,7 +11,7 @@ test("Checking to see if the Gameboard factory function returns us something", (
   expect(Gameboard()).toBeDefined();
 });
 
-describe("Water Carrier Ship Tests are inside this block", () => {
+describe.skip("Water Carrier Ship Tests are inside this block", () => {
   test("Placement of Water Carrier Ship", () => {
     gameboard.placeShip().placeWaterCarrier(1, 4, "horizontal");
 
@@ -21,7 +23,7 @@ describe("Water Carrier Ship Tests are inside this block", () => {
   });
 });
 
-describe("Destroyer Ship Tests are inside this block", () => {
+describe.skip("Destroyer Ship Tests are inside this block", () => {
   test("Placement of Destroyer Ship", () => {
     gameboard.placeShip().placeDestroyer(1, 3, "horizontal");
 
@@ -31,7 +33,7 @@ describe("Destroyer Ship Tests are inside this block", () => {
   });
 });
 
-describe("Battleship Ship Tests are inside this block", () => {
+describe.skip("Battleship Ship Tests are inside this block", () => {
   test("Placement of the Battleship", () => {
     gameboard.placeShip().placeBattleship(1, 2, "horizontal");
 
@@ -42,7 +44,7 @@ describe("Battleship Ship Tests are inside this block", () => {
   });
 });
 
-describe("Submarine Tests are inside this block", () => {
+describe.skip("Submarine Tests are inside this block", () => {
   beforeAll(() => {
     gameboard.placeShip().placeSubmarine(1, 1, "horizontal");
   });
@@ -54,7 +56,7 @@ describe("Submarine Tests are inside this block", () => {
   });
 });
 
-describe("Patroller Ship Tests are inside this block", () => {
+describe.skip("Patroller Ship Tests are inside this block", () => {
   test("Placement of the Patroller", () => {
     gameboard.placeShip().placePatroller(2, 0, "horizontal");
 
@@ -63,7 +65,7 @@ describe("Patroller Ship Tests are inside this block", () => {
   });
 });
 
-describe.only("Checking for the receiveAttack function in this block", () => {
+describe.skip("Checking for the receiveAttack function in this block", () => {
   test("If, the ship isn't there, place a miss string in there ", () => {
     gameboard.placeShip().placePatroller(0, 0, "horizontal");
     gameboard.receiveAttack(0, 2);
@@ -79,3 +81,12 @@ describe.only("Checking for the receiveAttack function in this block", () => {
     expect(gameboard.gameBoardArray[0][6]).toBe("miss");
   });
 });
+
+// describe.only("Checking if receiveAttack invokes ships hit function correctly", () => {
+//   test("Checking if receiveAttack invokes ships hit function correctly", () => {
+//     gameboard.placeShip().placePatroller(0, 0, "horizontal");
+//     gameboard.receiveAttack(0, 0);
+//     expect(gameboard.gameBoardArray[0][0].getShipArray()[0]).toEqual("hit");
+//     expect(gameboard.gameBoardArray[0][0].getShipArray()[1]).toEqual("hit");
+//   });
+// });

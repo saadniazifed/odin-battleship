@@ -99,8 +99,16 @@ const Gameboard = () => {
     */
     if (gameBoardArray[column][row] === null) {
       gameBoardArray[column][row] = "miss";
-      console.table(gameBoardArray);
+    } else if (gameBoardArray[column][row] !== null) {
+      // gameBoardArray[column][row].hit(column);
+      // gameBoardArray[column][row].hit(row);
+
+      console.table(gameBoardArray[column][row].getShipArray());
     }
+    /* 
+      1. Take the column and row to be the coordinate.
+      2. If the coordinates are not null, then call the hit function on that coordinate.
+    */
   };
 
   //Placing each ship in their respective positions
