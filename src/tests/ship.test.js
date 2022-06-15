@@ -34,10 +34,14 @@ describe.only("Checking to see if the hit function is working, and the length is
   });
 });
 
-test("Checking to see if the ship is hit #1", () => {
-  const myFirstShip = Ship(3);
-  myFirstShip.hit(0);
-  expect(myFirstShip.getShipArray().at(0)).toBe("hit");
+describe.only("Checking to see if the hit function is working, and the length is decreased by 1", () => {
+  test("Checking to see if the length is decreased by 1 for the Ship", () => {
+    const myFirstShip = Ship(4, "Destroyer");
+    expect(myFirstShip.hit()).toEqual([null, null, null]);
+    expect(myFirstShip.hit()).toEqual([null, null]);
+    expect(myFirstShip.hit()).toEqual([null]);
+    expect(myFirstShip.hit()).toEqual([]);
+  });
 });
 
 test("Checking to see if the ship is hit #2", () => {
