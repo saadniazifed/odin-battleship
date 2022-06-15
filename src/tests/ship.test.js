@@ -5,27 +5,34 @@ let gameboard;
 // beforeAll(() => {
 //   gameboard = Gameboard();
 // });
-
-test("Is Ship Returning Us Something", () => {
-  expect(Ship()).toBeDefined();
+describe("First function to be tested", () => {
+  test("Is Ship Returning Us Something", () => {
+    expect(Ship()).toBeDefined();
+  });
 });
 
-test("Correct length of Ship", () => {
-  const myFirstShip = Ship(3);
-  expect(myFirstShip.length).toEqual(3);
+describe("Testing the Length of the Ship", () => {
+  test("Correct length of Ship", () => {
+    const myFirstShip = Ship(3);
+    expect(myFirstShip.length).toEqual(3);
+  });
 });
 
-test("Correct length of Ship #2", () => {
-  const mySecondShip = Ship(1);
-  expect(mySecondShip.length).toEqual(1);
+describe("Testing the length of the Ship #2", () => {
+  test("Correct length of Ship #2", () => {
+    const mySecondShip = Ship(1);
+    expect(mySecondShip.length).toEqual(1);
+  });
 });
 
-test("Correct length of Ship #3", () => {
-  const myThirdShip = Ship(2);
-  expect(myThirdShip.length).toEqual(2);
+describe("Testing the length of the Ship #3", () => {
+  test("Correct length of Ship #3", () => {
+    const myThirdShip = Ship(2);
+    expect(myThirdShip.length).toEqual(2);
+  });
 });
 
-describe.only("Checking to see if the hit function is working, and the length is decreased by 1", () => {
+describe("Checking to see if the hit function is working, and the length is decreased by 1", () => {
   test("Checking to see if the length is decreased by 1 for the Ship", () => {
     const myFirstShip = Ship(2, "Patroller");
     expect(myFirstShip.hit()).toEqual([null]);
@@ -33,7 +40,7 @@ describe.only("Checking to see if the hit function is working, and the length is
   });
 });
 
-describe.only("Checking to see if the hit function is working, and the length is decreased by 1", () => {
+describe("Checking to see if the hit function is working, and the length is decreased by 1", () => {
   test("Checking to see if the length is decreased by 1 for the Ship", () => {
     const myFirstShip = Ship(4, "Destroyer");
     expect(myFirstShip.hit()).toEqual([null, null, null]);
@@ -43,7 +50,7 @@ describe.only("Checking to see if the hit function is working, and the length is
   });
 });
 
-describe.only("Checking to see if the hit function is working, and the length is decreased by 1", () => {
+describe("Checking to see if the hit function is working, and the length is decreased by 1", () => {
   test("Checking to see if the length is decreased by 1 for the Ship", () => {
     const myFirstShip = Ship(5, "Water Carrier");
     expect(myFirstShip.hit()).toEqual([null, null, null, null]);
@@ -54,7 +61,7 @@ describe.only("Checking to see if the hit function is working, and the length is
   });
 });
 
-describe.only("Checking to see if the hit function is working, and the length is decreased by 1", () => {
+describe("Checking to see if the hit function is working, and the length is decreased by 1", () => {
   test("Checking to see if the length is decreased by 1 for the Ship", () => {
     const myFirstShip = Ship(3, "Submarine");
     expect(myFirstShip.hit()).toEqual([null, null]);
@@ -63,7 +70,7 @@ describe.only("Checking to see if the hit function is working, and the length is
   });
 });
 
-describe.only("Checking to see if the hit function is working, and the length is decreased by 1", () => {
+describe("Checking to see if the hit function is working, and the length is decreased by 1", () => {
   test("Checking to see if the length is decreased by 1 for the Ship", () => {
     const myFirstShip = Ship(4, "Battleship");
     expect(myFirstShip.hit()).toEqual([null, null, null]);
@@ -73,7 +80,7 @@ describe.only("Checking to see if the hit function is working, and the length is
   });
 });
 
-describe.only("When the hit functions are called, length must be equal to zero and isSunk function returns true", () => {
+describe("When the hit functions are called, length must be equal to zero and isSunk function returns true", () => {
   test("Testing the isSunk function", () => {
     const myFirstShip = Ship(5, "Water Carrier");
     myFirstShip.hit(0);
@@ -87,7 +94,7 @@ describe.only("When the hit functions are called, length must be equal to zero a
   });
 });
 
-describe.only("When the hit functions are called, length must be equal to zero and isSunk function returns true", () => {
+describe("When the hit functions are called, length must be equal to zero and isSunk function returns true", () => {
   test("Testing the isSunk function", () => {
     const myFirstShip = Ship(4, "Destroyer");
     myFirstShip.hit(0);
@@ -100,7 +107,7 @@ describe.only("When the hit functions are called, length must be equal to zero a
   });
 });
 
-describe.only("When the hit functions are called, length must be equal to zero and isSunk function returns true", () => {
+describe("When the hit functions are called, length must be equal to zero and isSunk function returns true", () => {
   test("Testing the isSunk function", () => {
     const myFirstShip = Ship(4, "Battleship");
     myFirstShip.hit(0);
@@ -113,7 +120,7 @@ describe.only("When the hit functions are called, length must be equal to zero a
   });
 });
 
-describe.only("When the hit functions are called, length must be equal to zero and isSunk function returns true", () => {
+describe("When the hit functions are called, length must be equal to zero and isSunk function returns true", () => {
   test("Testing the isSunk function", () => {
     const myFirstShip = Ship(3, "Submarine");
     myFirstShip.hit(0);
@@ -125,7 +132,7 @@ describe.only("When the hit functions are called, length must be equal to zero a
   });
 });
 
-describe.only("When the hit functions are called, length must be equal to zero and isSunk function returns true", () => {
+describe("When the hit functions are called, length must be equal to zero and isSunk function returns true", () => {
   test("Testing the isSunk function", () => {
     const myFirstShip = Ship(2, "Patroller");
     myFirstShip.hit(0);
