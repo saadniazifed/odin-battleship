@@ -11,7 +11,7 @@ test("Checking to see if the Gameboard factory function returns us something", (
   expect(Gameboard()).toBeDefined();
 });
 
-describe.skip("Water Carrier Ship Tests are inside this block", () => {
+describe("Water Carrier Ship Tests are inside this block", () => {
   test("Placement of Water Carrier Ship", () => {
     gameboard.placeShip().placeWaterCarrier(1, 4, "horizontal");
 
@@ -23,7 +23,7 @@ describe.skip("Water Carrier Ship Tests are inside this block", () => {
   });
 });
 
-describe.skip("Destroyer Ship Tests are inside this block", () => {
+describe("Destroyer Ship Tests are inside this block", () => {
   test("Placement of Destroyer Ship", () => {
     gameboard.placeShip().placeDestroyer(1, 3, "horizontal");
 
@@ -33,7 +33,7 @@ describe.skip("Destroyer Ship Tests are inside this block", () => {
   });
 });
 
-describe.skip("Battleship Ship Tests are inside this block", () => {
+describe("Battleship Ship Tests are inside this block", () => {
   test("Placement of the Battleship", () => {
     gameboard.placeShip().placeBattleship(1, 2, "horizontal");
 
@@ -44,7 +44,7 @@ describe.skip("Battleship Ship Tests are inside this block", () => {
   });
 });
 
-describe.skip("Submarine Tests are inside this block", () => {
+describe("Submarine Tests are inside this block", () => {
   beforeAll(() => {
     gameboard.placeShip().placeSubmarine(1, 1, "horizontal");
   });
@@ -56,7 +56,7 @@ describe.skip("Submarine Tests are inside this block", () => {
   });
 });
 
-describe.skip("Patroller Ship Tests are inside this block", () => {
+describe("Patroller Ship Tests are inside this block", () => {
   test("Placement of the Patroller", () => {
     gameboard.placeShip().placePatroller(2, 0, "horizontal");
 
@@ -65,7 +65,7 @@ describe.skip("Patroller Ship Tests are inside this block", () => {
   });
 });
 
-describe.skip("Checking for the receiveAttack function in this block", () => {
+describe("Checking for the receiveAttack function in this block", () => {
   test("If, the ship isn't there, place a miss string in there ", () => {
     gameboard.placeShip().placePatroller(0, 0, "horizontal");
     gameboard.receiveAttack(0, 2);
@@ -112,7 +112,7 @@ describe("Checking if receiveAttack invokes ships hit function correctly", () =>
   });
 });
 
-describe.only("Checking if receiveAttack invokes ships hit function correctly #2", () => {
+describe("Checking if receiveAttack invokes ships hit function correctly #2", () => {
   test("Checking if receiveAttack invokes ships hit function correctly", () => {
     gameboard.placeShip().placeWaterCarrier(0, 0, "horizontal");
     gameboard.receiveAttack(0, 0);
@@ -126,5 +126,18 @@ describe.only("Checking if receiveAttack invokes ships hit function correctly #2
     expect(gameboard.gameBoardArray[0][2].getShipArray()[2]).toEqual();
     expect(gameboard.gameBoardArray[0][3].getShipArray()[3]).toEqual();
     expect(gameboard.gameBoardArray[0][4].getShipArray()[4]).toEqual();
+  });
+});
+
+describe.only("Checking if receiveAttack invokes ships hit function correctly #3", () => {
+  test("Checking if receiveAttack invokes ships hit function correctly", () => {
+    gameboard.placeShip().placeDestroyer(0, 0, "horizontal");
+    gameboard.receiveAttack(0, 0);
+    gameboard.receiveAttack(0, 1);
+    gameboard.receiveAttack(0, 2);
+
+    expect(gameboard.gameBoardArray[0][0].getShipArray()[0]).toEqual();
+    expect(gameboard.gameBoardArray[0][1].getShipArray()[1]).toEqual();
+    expect(gameboard.gameBoardArray[0][2].getShipArray()[2]).toEqual();
   });
 });
