@@ -42,25 +42,20 @@ const Gameboard = () => {
 
     if (direction === "horizontal") {
       for (let i = 0; i < shipLength; i++) {
-        if (gameBoardArray[row + i][column] === null) {
-          checkIfEmpty = true;
-          return checkIfEmpty;
-        } else if (gameBoardArray[row + i][column] !== null) {
+        if (gameBoardArray[row + i][column] !== null) {
           checkIfEmpty = false;
           break;
         }
       }
     } else if (direction === "vertical") {
       for (let i = 0; i < shipLength; i++) {
-        if (gameBoardArray[row + i][column] === null) {
-          checkIfEmpty = true;
-          return checkIfEmpty;
-        } else if (gameBoardArray[row + i][column] !== null) {
+        if (gameBoardArray[row + i][column] !== null) {
           checkIfEmpty = false;
           break;
         }
       }
     }
+    return checkIfEmpty;
   };
 
   //  x axis is a column shift, y axis is a row shift.
