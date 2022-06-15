@@ -63,6 +63,16 @@ describe.only("Checking to see if the hit function is working, and the length is
   });
 });
 
+describe.only("Checking to see if the hit function is working, and the length is decreased by 1", () => {
+  test("Checking to see if the length is decreased by 1 for the Ship", () => {
+    const myFirstShip = Ship(4, "Battleship");
+    expect(myFirstShip.hit()).toEqual([null, null, null]);
+    expect(myFirstShip.hit()).toEqual([null, null]);
+    expect(myFirstShip.hit()).toEqual([null]);
+    expect(myFirstShip.hit()).toEqual([]);
+  });
+});
+
 test("when ship sinks, ship array must be correctly marked and isSunk should be true #1", () => {
   const myFirstShip = Ship(3);
   myFirstShip.hit(0);
