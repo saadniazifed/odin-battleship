@@ -476,8 +476,13 @@ describe("Checking the directionOfShips function with Ship Length 5", () => {
   });
 });
 
-// describe("Checking the receiveAttack function", () => {
-//   test("Checking the receiveAttack function for the miss value", () => {
-//     //
-//   });
-// });
+describe.only("Checking the receiveAttack function", () => {
+  test("Checking the receiveAttack function for the miss value", () => {
+    const myFirstShip = Ship(2);
+    gameboard.gameBoardArray[0][0] = myFirstShip;
+    gameboard.gameBoardArray[0][1] = myFirstShip;
+    gameboard.receiveAttack([0, 2]);
+    console.table(gameboard.gameBoardArray);
+    expect(gameboard.receiveAttack([0, 2])).toEqual("miss");
+  });
+});
