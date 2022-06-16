@@ -230,7 +230,7 @@ describe("Checking placeHorizontalShip function for Ship length 3", () => {
   });
 });
 
-describe.only("Checking placeHorizontalShip function for Ship length 4", () => {
+describe.only("Checking placeHorizontalShip function for Ship length 3", () => {
   test("placeHorizontalShip function for Ship length 3", () => {
     const myFirstShip = Ship(3, "Destroyer");
     gameboard.gameBoardArray[(0, 0)] = myFirstShip;
