@@ -256,15 +256,15 @@ describe.only("Checking placeHorizontalShip function for Ship length 3", () => {
     expect(
       gameboard.placeHorizontalShips([0, 0], myFirstShip, "horizontal")
     ).toEqual(true);
-    // expect(
-    //   gameboard.placeHorizontalShips([0, 1], myFirstShip, "horizontal")
-    // ).toEqual(true);
-    // expect(
-    //   gameboard.placeHorizontalShips([0, 2], myFirstShip, "horizontal")
-    // ).toEqual(true);
-    // expect(
-    //   gameboard.placeHorizontalShips([0, 7], myFirstShip, "horizontal")
-    // ).toEqual(false);
+    expect(
+      gameboard.placeHorizontalShips([1, 0], myFirstShip, "horizontal")
+    ).toEqual(true);
+    expect(
+      gameboard.placeHorizontalShips([2, 0], myFirstShip, "horizontal")
+    ).toEqual(true);
+    expect(
+      gameboard.placeHorizontalShips([0, 1], myFirstShip, "horizontal")
+    ).toEqual(false);
   });
 });
 
