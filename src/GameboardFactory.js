@@ -76,18 +76,29 @@ const Gameboard = () => {
   };
 
   //  x axis is a column shift, y axis is a row shift.
-  const placeVerticalShips = (column, row, ship, direction) => {
+  const placeVerticalShips = (cell, ship, direction) => {
+    let row = cell[0];
+    let column = cell[1];
+    let checkIfEmpty = true;
+
     let isShipFit = shipFit([row, column], direction, ship.length);
     let isPositionEmpty = positionEmpty([row, column], direction, ship.length);
 
-    if (isShipFit === true && isPositionEmpty === true) {
+    if (isShipFit !== true && isPositionEmpty !== true) {
+      for (let i = 0; i < ship.length; i++) {
+        checkIfEmpty = false;
+        break;
+      }
+    } else if (isShipFit === true && isPositionEmpty === true) {
       for (let i = 0; i < ship.length; i++) {
         gameBoardArray[row + i][column] = ship;
       }
-    } else if (isShipFit !== true) {
-      console.log("Oops, ships cannot be placed vertically here.");
     }
-    return gameBoardArray;
+    if (gameBoardArray[column][row] === null) {
+      return (checkIfEmpty = false);
+    } else if (gameBoardArray[column][row] !== null) {
+      return checkIfEmpty;
+    }
   };
 
   const placeHorizontalShips = (column, row, ship, direction) => {
@@ -172,6 +183,8 @@ const Gameboard = () => {
     receiveAttack,
     shipFit,
     positionEmpty,
+    placeHorizontalShips,
+    placeVerticalShips,
   };
 };
 
