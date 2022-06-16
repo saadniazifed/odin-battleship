@@ -137,12 +137,11 @@ const Gameboard = () => {
     }
   };
 
-  const receiveAttack = (column, row) => {
+  const receiveAttack = (cell) => {
+    let column = cell[0];
+    let row = cell[1];
     if (gameBoardArray[column][row] === null) {
-      gameBoardArray[column][row] = "miss";
-      if (gameBoardArray[column][row] === "miss") {
-        return;
-      }
+      return (gameBoardArray[column][row] = "miss");
     } else if (gameBoardArray[column][row] !== null) {
       gameBoardArray[column][row].hit();
       allShipsSunk();
@@ -199,6 +198,7 @@ const Gameboard = () => {
     placeHorizontalShips,
     placeVerticalShips,
     directionOfShips,
+    receiveAttack,
   };
 };
 

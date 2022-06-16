@@ -533,6 +533,12 @@ describe("Checking the directionOfShips function with Ship Length 5", () => {
   });
 });
 
+describe("Checking the receiveAttack function", () => {
+  test("Checking the receiveAttack function for the miss value", () => {
+    //
+  });
+});
+
 // describe("Checking placeVerticalShips function for Ship Length 2", () => {
 //   test("placeVerticalShips function for Ship Length 2", () => {
 //     const myFirstShip = Ship(2, "Patroller");
