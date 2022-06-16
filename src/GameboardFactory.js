@@ -24,13 +24,13 @@ const Gameboard = () => {
 
   //Checking to see if the Ship Fits.
   const shipFit = (cell, direction, shipLength) => {
-    let column = cell[0];
-    let row = cell[1];
+    let row = cell[0];
+    let column = cell[1];
     if (direction === "horizontal") {
       if (
         row >= 0 &&
         column >= 0 &&
-        row + shipLength - 1 < gameBoardArray.length
+        column + shipLength - 1 < gameBoardArray.length
       ) {
         return true;
       }
@@ -39,7 +39,7 @@ const Gameboard = () => {
       if (
         column >= 0 &&
         row >= 0 &&
-        column + shipLength - 1 < gameBoardArray.length
+        row + shipLength - 1 < gameBoardArray.length
       ) {
         return true;
       }
@@ -55,7 +55,7 @@ const Gameboard = () => {
 
     if (direction === "horizontal") {
       for (let i = 0; i < shipLength; i++) {
-        if (gameBoardArray[row][column + i] !== null) {
+        if (gameBoardArray[column + i][row] !== null) {
           checkIfEmpty = false;
           break;
         }

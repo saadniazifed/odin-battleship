@@ -15,6 +15,7 @@ describe("Checking shipFit function working correctly", () => {
   test("Checking shipFit Example 1 (Horizontal)", () => {
     expect(gameboard.shipFit([0, 8], "horizontal", 1)).toEqual(true);
     expect(gameboard.shipFit([0, 8], "horizontal", 2)).toEqual(true);
+    expect(gameboard.shipFit([0, 8], "horizontal", 4)).toEqual(false);
     expect(gameboard.shipFit([0, 8], "horizontal", 3)).toEqual(false);
   });
 });
@@ -36,57 +37,14 @@ describe("Checking shipFit function working correctly", () => {
   });
 });
 
-describe("Checking positionEmpty function working correctly", () => {
-  test("Checking positionEmpty Example 1 (Horizontal, Ship Length 2)", () => {
-    const myFirstShip = Ship(2);
-    gameboard.gameBoardArray[3][3] = myFirstShip;
-    gameboard.gameBoardArray[3][4] = myFirstShip;
-
+describe.only("Checking positionEmpty function for Ship Length 1", () => {
+  test("Checking positionEmpty function, Example 1 (Horizontal)", () => {
+    const myFirstShip = Ship(1);
+    gameboard.gameBoardArray[0][0] = myFirstShip;
     console.table(gameboard.gameBoardArray);
-    //Check for empty positions
-    expect(gameboard.positionEmpty([4, 4], "horizontal", 2)).toEqual(true);
-    expect(gameboard.positionEmpty([5, 4], "horizontal", 2)).toEqual(true);
-
-    //Check if ship is in that position
-    expect(gameboard.positionEmpty([3, 3], "horizontal", 2)).toEqual(false);
-    expect(gameboard.positionEmpty([3, 4], "horizontal", 2)).toEqual(false);
-  });
-});
-
-describe("Checking positionEmpty function working correctly", () => {
-  test("Checking positionEmpty Example 1 (Vertical, Ship Length 2)", () => {
-    const myFirstShip = Ship(2);
-    gameboard.gameBoardArray[3][3] = myFirstShip;
-    gameboard.gameBoardArray[4][3] = myFirstShip;
-
-    console.table(gameboard.gameBoardArray);
-    //Check for empty positions
-    expect(gameboard.positionEmpty([4, 4], "vertical", 2)).toEqual(true);
-    expect(gameboard.positionEmpty([5, 4], "vertical", 2)).toEqual(true);
-
-    //Check if ship is in that position
-    expect(gameboard.positionEmpty([3, 3], "horizontal", 2)).toEqual(false);
-    expect(gameboard.positionEmpty([4, 3], "horizontal", 2)).toEqual(false);
-  });
-});
-
-describe.only("Checking positionEmpty function working correctly", () => {
-  test("Checking positionEmpty Example 1 (Horizontal, Ship Length 3)", () => {
-    const myFirstShip = Ship(3);
-    gameboard.gameBoardArray[3][3] = myFirstShip;
-    gameboard.gameBoardArray[3][4] = myFirstShip;
-    gameboard.gameBoardArray[3][5] = myFirstShip;
-
-    console.table(gameboard.gameBoardArray);
-    //Check for empty positions
-    expect(gameboard.positionEmpty([4, 4], "horizontal", 2)).toEqual(true);
-    expect(gameboard.positionEmpty([5, 4], "horizontal", 2)).toEqual(true);
-    expect(gameboard.positionEmpty([6, 4], "horizontal", 2)).toEqual(true);
-
-    //Check if ship is in that position
-    expect(gameboard.positionEmpty([3, 3], "horizontal", 2)).toEqual(false);
-    expect(gameboard.positionEmpty([3, 4], "horizontal", 2)).toEqual(false);
-    expect(gameboard.positionEmpty([3, 5], "horizontal", 2)).toEqual(false);
+    expect(gameboard.positionEmpty([0, 0], "horizontal", 1)).toEqual(false);
+    expect(gameboard.positionEmpty([0, 1], "horizontal", 1)).toEqual(true);
+    expect(gameboard.positionEmpty([0, 2], "horizontal", 1)).toEqual(true);
   });
 });
 
