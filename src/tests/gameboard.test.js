@@ -436,26 +436,17 @@ describe("Checking the directionOfShips function with Ship Length 5", () => {
   });
 });
 
-describe.only("Checking the directionOfShips function with Ship Length 2", () => {
-  test("Check the vertical direction", () => {
-    const myFirstShip = Ship(2);
-    // expect(gameboard.directionOfShips([6, 3], myFirstShip, "vertical")).toEqual(
-    //   true
-    // );
-  });
-});
-
 describe("Checking the directionOfShips function with Ship Length 2", () => {
   test("Check the vertical direction", () => {
     const myFirstShip = Ship(2);
-    expect(gameboard.directionOfShips([0, 0], myFirstShip, "vertical")).toEqual(
+    expect(gameboard.directionOfShips([4, 4], myFirstShip, "vertical")).toEqual(
       true
     );
-    expect(gameboard.directionOfShips([1, 0], myFirstShip, "vertical")).toEqual(
+    expect(gameboard.directionOfShips([5, 4], myFirstShip, "vertical")).toEqual(
       true
     );
 
-    expect(gameboard.directionOfShips([5, 0], myFirstShip, "vertical")).toEqual(
+    expect(gameboard.directionOfShips([7, 4], myFirstShip, "vertical")).toEqual(
       false
     );
   });
