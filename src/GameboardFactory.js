@@ -7,6 +7,7 @@ let column = cell[1];
 
 const Gameboard = () => {
   const gameBoardArray = [];
+  const showBoard = () => [...gameBoardArray];
 
   for (let i = 0; i < 10; i++) {
     gameBoardArray[i] = [];
@@ -55,81 +56,61 @@ const Gameboard = () => {
 
     if (direction === "horizontal") {
       for (let i = 0; i < shipLength; i++) {
-        if (gameBoardArray[row][column + i] !== null) {
+        if (
+          column >= 0 &&
+          row >= 0 &&
+          row + shipLength - 1 < gameBoardArray.length &&
+          gameBoardArray[row][column + i] !== null
+        ) {
           checkIfEmpty = false;
           break;
         }
       }
     } else if (direction === "vertical") {
       for (let i = 0; i < shipLength; i++) {
-        if (gameBoardArray[row + i][column] !== null) {
+        if (
+          column >= 0 &&
+          row >= 0 &&
+          row + shipLength - 1 < gameBoardArray.length &&
+          gameBoardArray[row + i][column] !== null
+        ) {
           checkIfEmpty = false;
           break;
         }
       }
     }
-    if (gameBoardArray[column][row] === null) {
-      return checkIfEmpty;
-    } else if (gameBoardArray[column][row] !== null) {
-      return (checkIfEmpty = false);
-    }
+    return checkIfEmpty;
   };
 
   const placeHorizontalShips = (cell, ship, direction) => {
-    let column = cell[0];
-    let row = cell[1];
-    let checkIfEmpty = true;
+    let row = cell[0];
+    let column = cell[1];
 
     let isShipFit = shipFit([row, column], direction, ship.length);
     let isPositionEmpty = positionEmpty([row, column], direction, ship.length);
 
-    if (isShipFit !== true && isPositionEmpty !== true) {
-      for (let i = 0; i < ship.length; i++) {
-        checkIfEmpty = false;
-        break;
-      }
-    } else if (isShipFit === true && isPositionEmpty === true) {
+    if (isShipFit && isPositionEmpty) {
       for (let i = 0; i < ship.length; i++) {
         gameBoardArray[row][column + i] = ship;
       }
+      return true;
     }
-    if (gameBoardArray[column][row] !== null) {
-      return checkIfEmpty;
-    } else if (gameBoardArray[column][row] === null) {
-      return (checkIfEmpty = false);
-    }
+    return false;
   };
 
   //  x axis is a column shift, y axis is a row shift.
   const placeVerticalShips = (cell, ship, direction) => {
-    let column = cell[0];
-    let row = cell[1];
-    let checkIfEmpty = true;
-
-    let isShipFit = shipFit([row, column], direction, ship.length);
-    let isPositionEmpty = positionEmpty([row, column], direction, ship.length);
-
-    if (isShipFit !== true && isPositionEmpty !== true) {
-      for (let i = 0; i < ship.length; i++) {
-        checkIfEmpty = false;
-        break;
-      }
-    } else if (isShipFit === true && isPositionEmpty === true) {
-      for (let i = 0; i < ship.length; i++) {
-        gameBoardArray[row + i][column] = ship;
-      }
+    if (!shipFit(cell, direction, ship.length)) return false;
+    if (!positionEmpty(cell, direction, ship.length)) return false;
+    for (let i = 0; i < ship.length; i++) {
+      gameBoardArray[cell[0] + i][cell[1]] = ship;
     }
-    if (gameBoardArray[column][row] === null) {
-      return (checkIfEmpty = false);
-    } else if (gameBoardArray[column][row] !== null) {
-      return checkIfEmpty;
-    }
+    return true;
   };
-
   //Direction of Ships is controlled from here. Whether the ships will be placed horizontally or vertically.
   const directionOfShips = (cell, ship, direction) => {
-    let column = cell[0]; //row
-    let row = cell[1]; //column
+    let row = cell[0]; //row
+    let column = cell[1]; //column
     if (direction === "vertical") {
       return placeVerticalShips([column, row], ship, direction);
     } else if (direction === "horizontal") {
@@ -192,6 +173,7 @@ const Gameboard = () => {
   return {
     placeShip,
     gameBoardArray,
+    showBoard,
     receiveAttack,
     shipFit,
     positionEmpty,
