@@ -394,7 +394,7 @@ describe("Checking the directionOfShips function with Ship Length 5", () => {
   });
 });
 
-describe.only("Checking the directionOfShips function with Ship Length 2", () => {
+describe("Checking the directionOfShips function with Ship Length 2", () => {
   test("Check the horizontal direction", () => {
     const myFirstShip = Ship(2);
     expect(
@@ -410,7 +410,7 @@ describe.only("Checking the directionOfShips function with Ship Length 2", () =>
   });
 });
 
-describe.only("Checking the directionOfShips function with Ship Length 3", () => {
+describe("Checking the directionOfShips function with Ship Length 3", () => {
   test("Check the horizontal direction", () => {
     const myFirstShip = Ship(3);
     expect(
@@ -429,7 +429,7 @@ describe.only("Checking the directionOfShips function with Ship Length 3", () =>
   });
 });
 
-describe.only("Checking the directionOfShips function with Ship Length 4", () => {
+describe("Checking the directionOfShips function with Ship Length 4", () => {
   test("Check the horizontal direction", () => {
     const myFirstShip = Ship(4);
     expect(
@@ -443,6 +443,31 @@ describe.only("Checking the directionOfShips function with Ship Length 4", () =>
     ).toEqual(true);
     expect(
       gameboard.directionOfShips([3, 0], myFirstShip, "horizontal")
+    ).toEqual(true);
+
+    expect(
+      gameboard.directionOfShips([0, 1], myFirstShip, "horizontal")
+    ).toEqual(false);
+  });
+});
+
+describe("Checking the directionOfShips function with Ship Length 5", () => {
+  test("Check the horizontal direction", () => {
+    const myFirstShip = Ship(5);
+    expect(
+      gameboard.directionOfShips([0, 0], myFirstShip, "horizontal")
+    ).toEqual(true);
+    expect(
+      gameboard.directionOfShips([1, 0], myFirstShip, "horizontal")
+    ).toEqual(true);
+    expect(
+      gameboard.directionOfShips([2, 0], myFirstShip, "horizontal")
+    ).toEqual(true);
+    expect(
+      gameboard.directionOfShips([3, 0], myFirstShip, "horizontal")
+    ).toEqual(true);
+    expect(
+      gameboard.directionOfShips([4, 0], myFirstShip, "horizontal")
     ).toEqual(true);
 
     expect(
