@@ -41,7 +41,6 @@ describe("Checking positionEmpty function for Ship Length 1", () => {
   test("Checking positionEmpty function, Example 1 (Horizontal)", () => {
     const myFirstShip = Ship(1);
     gameboard.gameBoardArray[0][0] = myFirstShip;
-    console.table(gameboard.gameBoardArray);
     expect(gameboard.positionEmpty([0, 0], "horizontal", 1)).toEqual(false);
     expect(gameboard.positionEmpty([0, 1], "horizontal", 1)).toEqual(true);
     expect(gameboard.positionEmpty([0, 2], "horizontal", 1)).toEqual(true);
@@ -52,7 +51,6 @@ describe("Checking positionEmpty function for Ship Length 1", () => {
   test("Checking positionEmpty function, Example 1 (Vertical)", () => {
     const myFirstShip = Ship(1);
     gameboard.gameBoardArray[0][0] = myFirstShip;
-    console.table(gameboard.gameBoardArray);
     expect(gameboard.positionEmpty([0, 0], "vertical", 1)).toEqual(false);
     expect(gameboard.positionEmpty([1, 0], "vertical", 1)).toEqual(true);
     expect(gameboard.positionEmpty([2, 0], "vertical", 1)).toEqual(true);
@@ -77,7 +75,6 @@ describe("Checking positionEmpty function for Ship Length 2", () => {
     gameboard.gameBoardArray[0][0] = myFirstShip;
     gameboard.gameBoardArray[1][0] = myFirstShip;
 
-    console.table(gameboard.gameBoardArray);
     expect(gameboard.positionEmpty([0, 0], "vertical", 2)).toEqual(false);
     expect(gameboard.positionEmpty([1, 0], "vertical", 2)).toEqual(false);
     expect(gameboard.positionEmpty([1, 2], "vertical", 2)).toEqual(true);
@@ -436,6 +433,31 @@ describe("Checking the directionOfShips function with Ship Length 5", () => {
     expect(
       gameboard.directionOfShips([0, 5], myFirstShip, "horizontal")
     ).toEqual(false);
+  });
+});
+
+describe.only("Checking the directionOfShips function with Ship Length 2", () => {
+  test("Check the vertical direction", () => {
+    const myFirstShip = Ship(2);
+    // expect(gameboard.directionOfShips([6, 3], myFirstShip, "vertical")).toEqual(
+    //   true
+    // );
+  });
+});
+
+describe("Checking the directionOfShips function with Ship Length 2", () => {
+  test("Check the vertical direction", () => {
+    const myFirstShip = Ship(2);
+    expect(gameboard.directionOfShips([0, 0], myFirstShip, "vertical")).toEqual(
+      true
+    );
+    expect(gameboard.directionOfShips([1, 0], myFirstShip, "vertical")).toEqual(
+      true
+    );
+
+    expect(gameboard.directionOfShips([5, 0], myFirstShip, "vertical")).toEqual(
+      false
+    );
   });
 });
 
