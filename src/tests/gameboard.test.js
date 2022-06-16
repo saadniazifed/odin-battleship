@@ -246,6 +246,31 @@ describe("Checking placeVerticalShip function for Ship length 4", () => {
   });
 });
 
+describe("Checking placeVerticalShip function for Ship length 5", () => {
+  test("placeVerticalShip function for Ship length 5", () => {
+    const myFirstShip = Ship(5);
+    expect(
+      gameboard.placeVerticalShips([0, 0], myFirstShip, "vertical")
+    ).toEqual(true);
+    expect(
+      gameboard.placeVerticalShips([1, 0], myFirstShip, "vertical")
+    ).toEqual(true);
+    expect(
+      gameboard.placeVerticalShips([2, 0], myFirstShip, "vertical")
+    ).toEqual(true);
+    expect(
+      gameboard.placeVerticalShips([3, 0], myFirstShip, "vertical")
+    ).toEqual(true);
+    expect(
+      gameboard.placeVerticalShips([4, 0], myFirstShip, "vertical")
+    ).toEqual(true);
+
+    expect(
+      gameboard.placeVerticalShips([2, 3], myFirstShip, "vertical")
+    ).toEqual(false);
+  });
+});
+
 describe("Checking placeHorizontalShip function for Ship length 2", () => {
   test("placeHorizontalShip function for Ship length 2", () => {
     const myFirstShip = Ship(2);
