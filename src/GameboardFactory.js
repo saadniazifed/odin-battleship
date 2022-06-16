@@ -76,8 +76,8 @@ const Gameboard = () => {
   };
 
   const placeHorizontalShips = (cell, ship, direction) => {
-    let row = cell[0];
-    let column = cell[1];
+    let column = cell[0];
+    let row = cell[1];
     let checkIfEmpty = true;
 
     let isShipFit = shipFit([row, column], direction, ship.length);
@@ -102,8 +102,8 @@ const Gameboard = () => {
 
   //  x axis is a column shift, y axis is a row shift.
   const placeVerticalShips = (cell, ship, direction) => {
-    let row = cell[0];
-    let column = cell[1];
+    let column = cell[0];
+    let row = cell[1];
     let checkIfEmpty = true;
 
     let isShipFit = shipFit([row, column], direction, ship.length);
@@ -127,13 +127,11 @@ const Gameboard = () => {
   };
 
   //Direction of Ships is controlled from here. Whether the ships will be placed horizontally or vertically.
-  const directionOfShips = (cell, ship, direction) => {
-    let column = cell[0];
-    let row = cell[1];
+  const directionOfShips = (x, y, ship, direction) => {
     if (direction === "vertical") {
-      return placeVerticalShips([row, column], ship, direction);
+      return placeVerticalShips(x, y, ship, direction);
     } else if (direction === "horizontal") {
-      return placeHorizontalShips([row, column], ship, direction);
+      return placeHorizontalShips(x, y, ship, direction);
     }
   };
 
@@ -198,7 +196,6 @@ const Gameboard = () => {
     positionEmpty,
     placeHorizontalShips,
     placeVerticalShips,
-    directionOfShips,
   };
 };
 
