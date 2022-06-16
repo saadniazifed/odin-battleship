@@ -268,7 +268,7 @@ describe("Checking placeHorizontalShip function for Ship length 3", () => {
   });
 });
 
-describe.only("Checking placeHorizontalShip function for Ship length 4", () => {
+describe("Checking placeHorizontalShip function for Ship length 4", () => {
   test("placeHorizontalShip function for Ship length 4", () => {
     const myFirstShip = Ship(4);
 
@@ -291,7 +291,7 @@ describe.only("Checking placeHorizontalShip function for Ship length 4", () => {
   });
 });
 
-describe.only("Checking placeHorizontalShip function for Ship length 5", () => {
+describe("Checking placeHorizontalShip function for Ship length 5", () => {
   test("placeHorizontalShip function for Ship length 5", () => {
     const myFirstShip = Ship(5);
 
@@ -316,21 +316,20 @@ describe.only("Checking placeHorizontalShip function for Ship length 5", () => {
   });
 });
 
-// describe("Checking the directionOfShips function with Ship Length 2", () => {
-//   test("Check the horizontal direction", () => {
-//     const myFirstShip = Ship(2);
-//     expect(
-//       gameboard.directionOfShips([0, 0], myFirstShip, "horizontal")
-//     ).toEqual(true);
-//     expect(
-//       gameboard.directionOfShips([0, 1], myFirstShip, "horizontal")
-//     ).toEqual(true);
-
-//     expect(
-//       gameboard.directionOfShips([0, 5], myFirstShip, "horizontal")
-//     ).toEqual(false);
-//   });
-// });
+describe.only("Checking the directionOfShips function with Ship Length 2", () => {
+  test("Check the vertical direction", () => {
+    const myFirstShip = Ship(2);
+    expect(gameboard.directionOfShips([0, 0], myFirstShip, "vertical")).toEqual(
+      true
+    );
+    expect(gameboard.directionOfShips([0, 1], myFirstShip, "vertical")).toEqual(
+      true
+    );
+    expect(
+      gameboard.directionOfShips([(1, 0)], myFirstShip, "vertical")
+    ).toEqual(false);
+  });
+});
 
 // describe("Checking the directionOfShips function with Ship Length 3", () => {
 //   test("Check the horizontal direction", () => {
