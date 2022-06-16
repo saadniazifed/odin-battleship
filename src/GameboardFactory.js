@@ -86,8 +86,10 @@ const Gameboard = () => {
     if (!shipFit(cell, direction, ship.length)) return false;
     if (!positionEmpty(cell, direction, ship.length)) return false;
     for (let i = 0; i < ship.length; i++) {
-      gameBoardArray[cell[0]][cell[1 + i]] = ship;
+      gameBoardArray[cell[0]][cell[1] + i] = ship;
     }
+    console.table(gameBoardArray);
+
     return true;
   };
 
@@ -98,9 +100,11 @@ const Gameboard = () => {
     for (let i = 0; i < ship.length; i++) {
       gameBoardArray[cell[0] + i][cell[1]] = ship;
     }
+    console.table(gameBoardArray);
+
     return true;
   };
-  //Direction of Ships is controlled from here. Whether the ships will be placed horizontally or vertically.
+
   const directionOfShips = (cell, ship, direction) => {
     let row = cell[0]; //row
     let column = cell[1]; //column
