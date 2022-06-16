@@ -392,6 +392,28 @@ describe("Checking the directionOfShips function with Ship Length 3", () => {
   });
 });
 
+describe("Checking the directionOfShips function with Ship Length 4", () => {
+  test("Check the horizontal direction", () => {
+    const myFirstShip = Ship(4);
+    expect(
+      gameboard.directionOfShips([0, 0], myFirstShip, "horizontal")
+    ).toEqual(true);
+    expect(
+      gameboard.directionOfShips([0, 1], myFirstShip, "horizontal")
+    ).toEqual(true);
+    expect(
+      gameboard.directionOfShips([0, 2], myFirstShip, "horizontal")
+    ).toEqual(true);
+    expect(
+      gameboard.directionOfShips([0, 3], myFirstShip, "horizontal")
+    ).toEqual(true);
+
+    expect(
+      gameboard.directionOfShips([0, 5], myFirstShip, "horizontal")
+    ).toEqual(false);
+  });
+});
+
 // describe("Checking placeVerticalShips function for Ship Length 2", () => {
 //   test("placeVerticalShips function for Ship Length 2", () => {
 //     const myFirstShip = Ship(2, "Patroller");
