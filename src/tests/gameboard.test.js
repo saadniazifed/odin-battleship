@@ -200,24 +200,24 @@ describe("Checking placeHorizontalShip function for Ship length 2", () => {
     ).toEqual(true);
     //Checking to see if the ship can be placed in another coordinate. It can't because the length is 2 and i am trying to get the 3rd index filled.
     expect(
-      gameboard.placeHorizontalShips([0, 2], myFirstShip, "horizontal")
+      gameboard.placeHorizontalShips([0, 7], myFirstShip, "horizontal")
     ).toEqual(false);
   });
 });
 
-describe.only("Checking placeVerticalShip function for Ship length 2", () => {
+describe("Checking placeVerticalShip function for Ship length 2", () => {
   test("placeHorizontalShip function for Ship length 2", () => {
     const myFirstShip = Ship(2);
 
     expect(
-      gameboard.placeVerticalShips([0, 0], myFirstShip, "vertical")
+      gameboard.placeVerticalShips([1, 1], myFirstShip, "vertical")
     ).toEqual(true);
     expect(
-      gameboard.placeVerticalShips([1, 0], myFirstShip, "vertical")
+      gameboard.placeVerticalShips([2, 1], myFirstShip, "vertical")
     ).toEqual(true);
     //Checking to see if the ship can be placed in another coordinate. It can't because the length is 2 and i am trying to get the 3rd index filled.
     expect(
-      gameboard.placeVerticalShips([2, 0], myFirstShip, "vertical")
+      gameboard.placeVerticalShips([2, 3], myFirstShip, "vertical")
     ).toEqual(false);
   });
 });
