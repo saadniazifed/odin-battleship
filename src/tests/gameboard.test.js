@@ -96,6 +96,8 @@ describe("Checking positionEmpty function for Ship Length 3", () => {
     expect(gameboard.positionEmpty([0, 1], "horizontal", 3)).toEqual(false);
     expect(gameboard.positionEmpty([0, 2], "horizontal", 3)).toEqual(false);
     expect(gameboard.positionEmpty([0, 3], "horizontal", 3)).toEqual(true);
+    //Checking for empty space around the ship
+    expect(gameboard.positionEmpty([0, 4], "horizontal", 3)).toEqual(true);
   });
 });
 
@@ -110,6 +112,8 @@ describe("Checking positionEmpty function for Ship Length 3", () => {
     expect(gameboard.positionEmpty([1, 0], "vertical", 3)).toEqual(false);
     expect(gameboard.positionEmpty([2, 0], "vertical", 3)).toEqual(false);
     expect(gameboard.positionEmpty([3, 0], "vertical", 3)).toEqual(true);
+    // Checking for empty space around the ship
+    expect(gameboard.positionEmpty([4, 0], "vertical", 3)).toEqual(true);
   });
 });
 
@@ -125,6 +129,8 @@ describe("Checking positionEmpty function for Ship Length 4", () => {
     expect(gameboard.positionEmpty([0, 1], "horizontal", 4)).toEqual(false);
     expect(gameboard.positionEmpty([0, 2], "horizontal", 4)).toEqual(false);
     expect(gameboard.positionEmpty([0, 3], "horizontal", 4)).toEqual(false);
+    //Checking for an empty space around the ship
+    expect(gameboard.positionEmpty([0, 4], "horizontal", 4)).toEqual(true);
   });
 });
 
@@ -140,6 +146,8 @@ describe("Checking positionEmpty function for Ship Length 4", () => {
     expect(gameboard.positionEmpty([1, 0], "vertical", 4)).toEqual(false);
     expect(gameboard.positionEmpty([2, 0], "vertical", 4)).toEqual(false);
     expect(gameboard.positionEmpty([3, 0], "vertical", 4)).toEqual(false);
+    //Checking for an empty space around the ship
+    expect(gameboard.positionEmpty([4, 0], "vertical", 4)).toEqual(true);
   });
 });
 
