@@ -101,18 +101,29 @@ const Gameboard = () => {
     }
   };
 
-  const placeHorizontalShips = (column, row, ship, direction) => {
+  const placeHorizontalShips = (cell, ship, direction) => {
+    let row = cell[0];
+    let column = cell[1];
+    let checkIfEmpty = true;
+
     let isShipFit = shipFit([row, column], direction, ship.length);
     let isPositionEmpty = positionEmpty([row, column], direction, ship.length);
 
-    if (isShipFit === true && isPositionEmpty === true) {
+    if (isShipFit !== true && isPositionEmpty !== true) {
+      for (let i = 0; i < ship.length; i++) {
+        checkIfEmpty = false;
+        break;
+      }
+    } else if (isShipFit === true && isPositionEmpty === true) {
       for (let i = 0; i < ship.length; i++) {
         gameBoardArray[row][column + i] = ship;
       }
-    } else if (isShipFit !== true) {
-      console.log("Oops ships are not fitting in there");
     }
-    return gameBoardArray;
+    if (gameBoardArray[column][row] === null) {
+      return (checkIfEmpty = false);
+    } else if (gameBoardArray[column][row] !== null) {
+      return checkIfEmpty;
+    }
   };
 
   //Direction of Ships is controlled from here. Whether the ships will be placed horizontally or vertically.

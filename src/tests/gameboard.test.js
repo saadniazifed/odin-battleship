@@ -189,22 +189,40 @@ describe("Checking positionEmpty function for Ship Length 5", () => {
   });
 });
 
-describe.only("Checking placeVerticalShips function for Ship Length 2", () => {
-  test("placeVerticalShips function for Ship Length 2", () => {
+describe.only("Checking placeHorizontalShip function for Ship length 2", () => {
+  test("placeHorizontalShip function for Ship length 2", () => {
     const myFirstShip = Ship(2, "Patroller");
+    gameboard.gameBoardArray[(0, 0)] = myFirstShip;
+    gameboard.gameBoardArray[(0, 1)] = myFirstShip;
     expect(
-      gameboard.placeVerticalShips([0, 0], myFirstShip, "vertical")
+      gameboard.placeHorizontalShips([0, 0], myFirstShip, "horizontal")
     ).toEqual(true);
     expect(
-      gameboard.placeVerticalShips([0, 1], myFirstShip, "vertical")
+      gameboard.placeHorizontalShips([0, 1], myFirstShip, "horizontal")
     ).toEqual(true);
-
-    //Checking to see if the vertical ship is placed there or not.
+    //Checking to see if the ship can be placed in another coordinate. It can't because the length is 2 and i am trying to get the 3rd index filled.
     expect(
-      gameboard.placeVerticalShips([0, 2], myFirstShip, "vertical")
+      gameboard.placeHorizontalShips([0, 2], myFirstShip, "horizontal")
     ).toEqual(false);
   });
 });
+
+// describe("Checking placeVerticalShips function for Ship Length 2", () => {
+//   test("placeVerticalShips function for Ship Length 2", () => {
+//     const myFirstShip = Ship(2, "Patroller");
+//     expect(
+//       gameboard.placeVerticalShips([0, 0], myFirstShip, "vertical")
+//     ).toEqual(true);
+//     expect(
+//       gameboard.placeVerticalShips([1, 0], myFirstShip, "vertical")
+//     ).toEqual(true);
+
+//     //Checking to see if the vertical ship is placed there or not.
+//     expect(
+//       gameboard.placeVerticalShips([2, 2], myFirstShip, "vertical")
+//     ).toEqual(false);
+//   });
+// });
 
 // describe.only("Water Carrier Ship Tests are inside this block", () => {
 //   test("Placement of Water Carrier Ship", () => {
