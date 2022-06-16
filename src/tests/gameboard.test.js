@@ -207,7 +207,7 @@ describe("Checking placeHorizontalShip function for Ship length 2", () => {
   });
 });
 
-describe.only("Checking placeHorizontalShip function for Ship length 3", () => {
+describe("Checking placeHorizontalShip function for Ship length 3", () => {
   test("placeHorizontalShip function for Ship length 3", () => {
     const myFirstShip = Ship(3, "Submarine");
     gameboard.gameBoardArray[(0, 0)] = myFirstShip;
@@ -230,6 +230,28 @@ describe.only("Checking placeHorizontalShip function for Ship length 3", () => {
   });
 });
 
+describe.only("Checking placeHorizontalShip function for Ship length 4", () => {
+  test("placeHorizontalShip function for Ship length 3", () => {
+    const myFirstShip = Ship(3, "Destroyer");
+    gameboard.gameBoardArray[(0, 0)] = myFirstShip;
+    gameboard.gameBoardArray[(0, 1)] = myFirstShip;
+    gameboard.gameBoardArray[(0, 2)] = myFirstShip;
+
+    expect(
+      gameboard.placeHorizontalShips([0, 0], myFirstShip, "horizontal")
+    ).toEqual(true);
+    expect(
+      gameboard.placeHorizontalShips([0, 1], myFirstShip, "horizontal")
+    ).toEqual(true);
+    expect(
+      gameboard.placeHorizontalShips([0, 2], myFirstShip, "horizontal")
+    ).toEqual(true);
+    //Checking to see if the ship can be placed in another coordinate. It can't because the length is 3 and i am trying to get the 4th index filled.
+    expect(
+      gameboard.placeHorizontalShips([0, 3], myFirstShip, "horizontal")
+    ).toEqual(false);
+  });
+});
 // describe("Checking placeVerticalShips function for Ship Length 2", () => {
 //   test("placeVerticalShips function for Ship Length 2", () => {
 //     const myFirstShip = Ship(2, "Patroller");
