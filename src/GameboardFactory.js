@@ -75,6 +75,31 @@ const Gameboard = () => {
     }
   };
 
+  const placeHorizontalShips = (cell, ship, direction) => {
+    let row = cell[0];
+    let column = cell[1];
+    let checkIfEmpty = true;
+
+    let isShipFit = shipFit([row, column], direction, ship.length);
+    let isPositionEmpty = positionEmpty([row, column], direction, ship.length);
+
+    if (isShipFit !== true && isPositionEmpty !== true) {
+      for (let i = 0; i < ship.length; i++) {
+        checkIfEmpty = false;
+        break;
+      }
+    } else if (isShipFit === true && isPositionEmpty === true) {
+      for (let i = 0; i < ship.length; i++) {
+        gameBoardArray[row][column + i] = ship;
+      }
+    }
+    if (gameBoardArray[column][row] !== null) {
+      return checkIfEmpty;
+    } else if (gameBoardArray[column][row] === null) {
+      return (checkIfEmpty = false);
+    }
+  };
+
   //  x axis is a column shift, y axis is a row shift.
   const placeVerticalShips = (cell, ship, direction) => {
     let row = cell[0];
@@ -92,31 +117,6 @@ const Gameboard = () => {
     } else if (isShipFit === true && isPositionEmpty === true) {
       for (let i = 0; i < ship.length; i++) {
         gameBoardArray[row + i][column] = ship;
-      }
-    }
-    if (gameBoardArray[column][row] === null) {
-      return (checkIfEmpty = false);
-    } else if (gameBoardArray[column][row] !== null) {
-      return checkIfEmpty;
-    }
-  };
-
-  const placeHorizontalShips = (cell, ship, direction) => {
-    let row = cell[0];
-    let column = cell[1];
-    let checkIfEmpty = true;
-
-    let isShipFit = shipFit([row, column], direction, ship.length);
-    let isPositionEmpty = positionEmpty([row, column], direction, ship.length);
-
-    if (isShipFit !== true && isPositionEmpty !== true) {
-      for (let i = 0; i < ship.length; i++) {
-        checkIfEmpty = false;
-        break;
-      }
-    } else if (isShipFit === true && isPositionEmpty === true) {
-      for (let i = 0; i < ship.length; i++) {
-        gameBoardArray[row][column + i] = ship;
       }
     }
     if (gameBoardArray[column][row] === null) {
