@@ -128,7 +128,7 @@ describe("Checking positionEmpty function for Ship Length 4", () => {
   });
 });
 
-describe.only("Checking positionEmpty function for Ship Length 4", () => {
+describe("Checking positionEmpty function for Ship Length 4", () => {
   test("Checking positionEmpty function, Example 4 (Vertical)", () => {
     const myFirstShip = Ship(4);
     gameboard.gameBoardArray[0][0] = myFirstShip;
@@ -140,6 +140,24 @@ describe.only("Checking positionEmpty function for Ship Length 4", () => {
     expect(gameboard.positionEmpty([1, 0], "vertical", 4)).toEqual(false);
     expect(gameboard.positionEmpty([2, 0], "vertical", 4)).toEqual(false);
     expect(gameboard.positionEmpty([3, 0], "vertical", 4)).toEqual(false);
+  });
+});
+
+describe("Checking positionEmpty function for Ship Length 5", () => {
+  test("Checking positionEmpty function, Example 5 (Horizontal)", () => {
+    const myFirstShip = Ship(5);
+    gameboard.gameBoardArray[0][0] = myFirstShip;
+    gameboard.gameBoardArray[0][1] = myFirstShip;
+    gameboard.gameBoardArray[0][2] = myFirstShip;
+    gameboard.gameBoardArray[0][3] = myFirstShip;
+    gameboard.gameBoardArray[0][4] = myFirstShip;
+
+    expect(gameboard.positionEmpty([0, 0], "horizontal", 5)).toEqual(false);
+    expect(gameboard.positionEmpty([0, 1], "horizontal", 5)).toEqual(false);
+    expect(gameboard.positionEmpty([0, 2], "horizontal", 5)).toEqual(false);
+    expect(gameboard.positionEmpty([0, 3], "horizontal", 5)).toEqual(false);
+    expect(gameboard.positionEmpty([0, 4], "horizontal", 5)).toEqual(false);
+    expect(gameboard.positionEmpty([0, 5], "horizontal", 5)).toEqual(true);
   });
 });
 
