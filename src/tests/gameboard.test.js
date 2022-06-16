@@ -291,31 +291,30 @@ describe.only("Checking placeHorizontalShip function for Ship length 4", () => {
   });
 });
 
-// describe("Checking placeHorizontalShip function for Ship length 5", () => {
-//   test("placeHorizontalShip function for Ship length 5", () => {
-//     const myFirstShip = Ship(5);
+describe.only("Checking placeHorizontalShip function for Ship length 5", () => {
+  test("placeHorizontalShip function for Ship length 5", () => {
+    const myFirstShip = Ship(5);
 
-//     expect(
-//       gameboard.placeHorizontalShips([0, 0], myFirstShip, "horizontal")
-//     ).toEqual(true);
-//     expect(
-//       gameboard.placeHorizontalShips([0, 1], myFirstShip, "horizontal")
-//     ).toEqual(true);
-//     expect(
-//       gameboard.placeHorizontalShips([0, 2], myFirstShip, "horizontal")
-//     ).toEqual(true);
-//     expect(
-//       gameboard.placeHorizontalShips([0, 3], myFirstShip, "horizontal")
-//     ).toEqual(true);
-//     expect(
-//       gameboard.placeHorizontalShips([0, 4], myFirstShip, "horizontal")
-//     ).toEqual(true);
-//     //Checking to see if the ship can be placed in another coordinate. It can't because the length is 2 and i am trying to get the 3rd index filled.
-//     expect(
-//       gameboard.placeHorizontalShips([0, 7], myFirstShip, "horizontal")
-//     ).toEqual(false);
-//   });
-// });
+    expect(
+      gameboard.placeHorizontalShips([0, 0], myFirstShip, "horizontal")
+    ).toEqual(true);
+    expect(
+      gameboard.placeHorizontalShips([1, 0], myFirstShip, "horizontal")
+    ).toEqual(true);
+    expect(
+      gameboard.placeHorizontalShips([2, 0], myFirstShip, "horizontal")
+    ).toEqual(true);
+    expect(
+      gameboard.placeHorizontalShips([3, 0], myFirstShip, "horizontal")
+    ).toEqual(true);
+    expect(
+      gameboard.placeHorizontalShips([4, 0], myFirstShip, "horizontal")
+    ).toEqual(true);
+    expect(
+      gameboard.placeHorizontalShips([0, 7], myFirstShip, "horizontal")
+    ).toEqual(false);
+  });
+});
 
 // describe("Checking the directionOfShips function with Ship Length 2", () => {
 //   test("Check the horizontal direction", () => {
