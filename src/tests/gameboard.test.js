@@ -48,6 +48,17 @@ describe.only("Checking positionEmpty function for Ship Length 1", () => {
   });
 });
 
+describe.only("Checking positionEmpty function for Ship Length 1", () => {
+  test("Checking positionEmpty function, Example 1 (Vertical)", () => {
+    const myFirstShip = Ship(1);
+    gameboard.gameBoardArray[0][0] = myFirstShip;
+    console.table(gameboard.gameBoardArray);
+    expect(gameboard.positionEmpty([0, 0], "vertical", 1)).toEqual(false);
+    expect(gameboard.positionEmpty([1, 0], "vertical", 1)).toEqual(true);
+    expect(gameboard.positionEmpty([2, 0], "vertical", 1)).toEqual(true);
+  });
+});
+
 // describe.only("Water Carrier Ship Tests are inside this block", () => {
 //   test("Placement of Water Carrier Ship", () => {
 //     gameboard.placeShip().placeWaterCarrier(1, 4, "horizontal");
