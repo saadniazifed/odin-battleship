@@ -37,7 +37,7 @@ describe("Checking shipFit function working correctly", () => {
   });
 });
 
-describe.only("Checking positionEmpty function for Ship Length 1", () => {
+describe("Checking positionEmpty function for Ship Length 1", () => {
   test("Checking positionEmpty function, Example 1 (Horizontal)", () => {
     const myFirstShip = Ship(1);
     gameboard.gameBoardArray[0][0] = myFirstShip;
@@ -48,7 +48,7 @@ describe.only("Checking positionEmpty function for Ship Length 1", () => {
   });
 });
 
-describe.only("Checking positionEmpty function for Ship Length 1", () => {
+describe("Checking positionEmpty function for Ship Length 1", () => {
   test("Checking positionEmpty function, Example 1 (Vertical)", () => {
     const myFirstShip = Ship(1);
     gameboard.gameBoardArray[0][0] = myFirstShip;
@@ -56,6 +56,46 @@ describe.only("Checking positionEmpty function for Ship Length 1", () => {
     expect(gameboard.positionEmpty([0, 0], "vertical", 1)).toEqual(false);
     expect(gameboard.positionEmpty([1, 0], "vertical", 1)).toEqual(true);
     expect(gameboard.positionEmpty([2, 0], "vertical", 1)).toEqual(true);
+  });
+});
+
+describe("Checking positionEmpty function for Ship Length 2", () => {
+  test("Checking positionEmpty function, Example 2 (Horizontal)", () => {
+    const myFirstShip = Ship(2);
+    gameboard.gameBoardArray[0][0] = myFirstShip;
+    gameboard.gameBoardArray[0][1] = myFirstShip;
+
+    console.table(gameboard.gameBoardArray);
+    expect(gameboard.positionEmpty([0, 0], "horizontal", 2)).toEqual(false);
+    expect(gameboard.positionEmpty([0, 1], "horizontal", 2)).toEqual(false);
+    expect(gameboard.positionEmpty([0, 2], "horizontal", 2)).toEqual(true);
+  });
+});
+
+describe("Checking positionEmpty function for Ship Length 2", () => {
+  test("Checking positionEmpty function, Example 2 (Vertical)", () => {
+    const myFirstShip = Ship(2);
+    gameboard.gameBoardArray[0][0] = myFirstShip;
+    gameboard.gameBoardArray[1][0] = myFirstShip;
+
+    console.table(gameboard.gameBoardArray);
+    expect(gameboard.positionEmpty([0, 0], "vertical", 2)).toEqual(false);
+    expect(gameboard.positionEmpty([1, 0], "vertical", 2)).toEqual(false);
+    expect(gameboard.positionEmpty([1, 2], "vertical", 2)).toEqual(true);
+  });
+});
+
+describe.only("Checking positionEmpty function for Ship Length 3", () => {
+  test("Checking positionEmpty function, Example 3 (Horizontal)", () => {
+    const myFirstShip = Ship(3);
+    gameboard.gameBoardArray[0][0] = myFirstShip;
+    gameboard.gameBoardArray[0][1] = myFirstShip;
+    gameboard.gameBoardArray[0][2] = myFirstShip;
+
+    expect(gameboard.positionEmpty([0, 0], "horizontal", 3)).toEqual(false);
+    expect(gameboard.positionEmpty([0, 1], "horizontal", 3)).toEqual(false);
+    expect(gameboard.positionEmpty([0, 2], "horizontal", 3)).toEqual(false);
+    expect(gameboard.positionEmpty([0, 3], "horizontal", 3)).toEqual(true);
   });
 });
 

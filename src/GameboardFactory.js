@@ -55,14 +55,14 @@ const Gameboard = () => {
 
     if (direction === "horizontal") {
       for (let i = 0; i < shipLength; i++) {
-        if (gameBoardArray[column + i][row] !== null) {
+        if (gameBoardArray[row][column + i] !== null) {
           checkIfEmpty = false;
           break;
         }
       }
     } else if (direction === "vertical") {
       for (let i = 0; i < shipLength; i++) {
-        if (gameBoardArray[column][row + i] !== null) {
+        if (gameBoardArray[row + i][column] !== null) {
           checkIfEmpty = false;
           break;
         }
