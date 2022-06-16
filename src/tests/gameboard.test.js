@@ -38,11 +38,18 @@ describe.only("Checking shipFit function working correctly", () => {
 
 describe.only("Checking positionEmpty function working correctly", () => {
   test("Checking positionEmpty Example 1", () => {
-    const myFirstShip = Ship(3);
+    const myFirstShip = Ship(2);
     gameboard.gameBoardArray[3][3] = myFirstShip;
+    gameboard.gameBoardArray[3][4] = myFirstShip;
+
+    console.table(gameboard.gameBoardArray);
     expect(gameboard.positionEmpty([4, 4], "horizontal", 2)).toEqual(true);
-    expect(gameboard.positionEmpty([3, 4], "horizontal", 2)).toEqual(true);
-    expect(gameboard.positionEmpty([3, 2], "horizontal", 2)).toEqual(false);
+    expect(gameboard.positionEmpty([5, 4], "horizontal", 2)).toEqual(true);
+
+    //
+
+    expect(gameboard.positionEmpty([3, 3], "horizontal", 2)).toEqual(false);
+    expect(gameboard.positionEmpty([3, 4], "horizontal", 2)).toEqual(false);
   });
 });
 
