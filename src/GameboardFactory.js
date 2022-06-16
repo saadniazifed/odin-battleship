@@ -57,9 +57,9 @@ const Gameboard = () => {
     if (direction === "horizontal") {
       for (let i = 0; i < shipLength; i++) {
         if (
-          column >= 0 &&
           row >= 0 &&
-          row + shipLength - 1 < gameBoardArray.length &&
+          column >= 0 &&
+          column + shipLength - 1 < gameBoardArray.length &&
           gameBoardArray[row][column + i] !== null
         ) {
           checkIfEmpty = false;
@@ -83,19 +83,12 @@ const Gameboard = () => {
   };
 
   const placeHorizontalShips = (cell, ship, direction) => {
-    let row = cell[0];
-    let column = cell[1];
-
-    let isShipFit = shipFit([row, column], direction, ship.length);
-    let isPositionEmpty = positionEmpty([row, column], direction, ship.length);
-
-    if (isShipFit && isPositionEmpty) {
-      for (let i = 0; i < ship.length; i++) {
-        gameBoardArray[row][column + i] = ship;
-      }
-      return true;
+    if (!shipFit(cell, direction, ship.length)) return false;
+    if (!positionEmpty(cell, direction, ship.length)) return false;
+    for (let i = 0; i < ship.length; i++) {
+      gameBoardArray[cell[0]][cell[1 + i]] = ship;
     }
-    return false;
+    return true;
   };
 
   //  x axis is a column shift, y axis is a row shift.
