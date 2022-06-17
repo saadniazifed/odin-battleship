@@ -118,13 +118,9 @@ const Gameboard = () => {
   const receiveAttack = (cell) => {
     let column = cell[0];
     let row = cell[1];
-    /*
-    1. Since, we don't have the ship here, we can't use the ship.length to iterate over the array.
-    2. Will we be using gameBoardArray.length somehow to iterate over the 2D array?
-    3. After getting an answer to the above question, then add an if condition:
-        3.1 If the gameBoardArray[row][column] === null, add a `miss` string to that location
-        3.2 If the gameBoardArray[row][column] !== null, then call the hit function
-    */
+    if (gameBoardArray[column][row] === null) {
+      return (gameBoardArray[column][row] = "miss");
+    }
   };
 
   const allShipsSunk = () => {
