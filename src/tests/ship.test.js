@@ -33,3 +33,12 @@ describe("Testing the Length of the Ship", () => {
     expect(myFirstShip.getShipArray()).toHaveLength(5);
   });
 });
+
+describe("Testing the hit function in the ship of length 2", () => {
+  test("Testing hit function", () => {
+    const myFirstShip = Ship(2);
+    myFirstShip.hit();
+    myFirstShip.hit();
+    expect(myFirstShip.getShipArray()).toEqual([]);
+  });
+});
