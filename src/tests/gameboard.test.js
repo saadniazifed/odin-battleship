@@ -493,7 +493,7 @@ describe("Checking the receiveAttack function", () => {
 });
 
 describe.only("Checking the receiveAttack function for the hit method of the ship", () => {
-  test("Checking the hit method for the Ship object", () => {
+  test("Checking the hit method for the Ship object length 2", () => {
     const myFirstShip = Ship(2);
     gameboard.gameBoardArray[0][0] = myFirstShip;
     gameboard.gameBoardArray[0][1] = myFirstShip;
