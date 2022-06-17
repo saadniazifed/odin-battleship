@@ -535,3 +535,22 @@ describe.only("Checking the receiveAttack function for the hit method of the shi
     expect(myFirstShip.getShipArray()).toHaveLength(0);
   });
 });
+
+describe.only("Checking the receiveAttack function for the hit method of the ship", () => {
+  test("Checking the hit method for the Ship object length 5", () => {
+    const myFirstShip = Ship(4);
+    gameboard.gameBoardArray[0][0] = myFirstShip;
+    gameboard.gameBoardArray[0][1] = myFirstShip;
+    gameboard.gameBoardArray[0][2] = myFirstShip;
+    gameboard.gameBoardArray[0][3] = myFirstShip;
+    gameboard.gameBoardArray[0][4] = myFirstShip;
+
+    gameboard.receiveAttack([0, 0]);
+    gameboard.receiveAttack([0, 1]);
+    gameboard.receiveAttack([0, 2]);
+    gameboard.receiveAttack([0, 3]);
+    gameboard.receiveAttack([0, 4]);
+
+    expect(myFirstShip.getShipArray()).toHaveLength(0);
+  });
+});
