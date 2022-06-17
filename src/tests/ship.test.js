@@ -6,12 +6,12 @@ describe("First function to be tested", () => {
   });
 });
 
-// describe("Testing the Length of the Ship", () => {
-//   test("Correct length of Ship", () => {
-//     const myFirstShip = Ship(3);
-//     expect(myFirstShip.length).toEqual(3);
-//   });
-// });
+describe("Testing the Length of the Ship", () => {
+  test("Correct length of Ship 2", () => {
+    const myFirstShip = Ship(2);
+    expect(myFirstShip.getShipArray()).toHaveLength(2);
+  });
+});
 
 // describe("Testing the length of the Ship #2", () => {
 //   test("Correct length of Ship #2", () => {
