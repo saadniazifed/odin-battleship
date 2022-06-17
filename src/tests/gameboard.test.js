@@ -476,7 +476,7 @@ describe("Checking the directionOfShips function with Ship Length 5", () => {
   });
 });
 
-describe.only("Checking the receiveAttack function", () => {
+describe("Checking the receiveAttack function", () => {
   test("Checking the receiveAttack function for the miss value", () => {
     const myFirstShip = Ship(2);
     gameboard.gameBoardArray[0][0] = myFirstShip;
@@ -485,8 +485,21 @@ describe.only("Checking the receiveAttack function", () => {
     gameboard.receiveAttack([0, 3]);
     gameboard.receiveAttack([0, 4]);
 
+    console.table(gameboard.gameBoardArray);
     expect(gameboard.gameBoardArray[0][2]).toBe("miss");
     expect(gameboard.gameBoardArray[0][3]).toBe("miss");
     expect(gameboard.gameBoardArray[0][4]).toBe("miss");
+  });
+});
+
+describe.only("Checking the receiveAttack function for the hit method of the ship", () => {
+  test("Checking the hit method for the Ship object", () => {
+    const myFirstShip = Ship(2);
+    gameboard.gameBoardArray[0][0] = myFirstShip;
+    gameboard.gameBoardArray[0][1] = myFirstShip;
+    gameboard.receiveAttack([0, 0]);
+    gameboard.receiveAttack([0, 1]);
+
+    expect(myFirstShip.getShipArray()).toHaveLength(0);
   });
 });
