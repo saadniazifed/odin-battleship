@@ -126,20 +126,7 @@ const Gameboard = () => {
   };
 
   const allSunk = () => {
-    //iterating over the array.
-    for (let rows = 0; rows < gameBoardArray.length; rows++) {
-      for (let col = 0; col < gameBoardArray[rows].length; col++) {
-        //Then check whether the ship object gameBoardArray[row][column].isSunk is true or not
-        if (gameBoardArray[rows][col] !== null) {
-          gameBoardArray[rows][col].isSunk();
-          if (gameBoardArray[rows][col].isSunk() !== true) {
-            return false;
-          } else if (gameBoardArray[rows][col].isSunk() === true) {
-            return true;
-          }
-        }
-      }
-    }
+    //
   };
 
   //Placing each ship in their respective positions
