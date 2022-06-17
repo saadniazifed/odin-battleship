@@ -14,6 +14,7 @@ function Ship(length, name) {
     }
     return false;
   };
+
   return {
     shipName,
     getShipArray,

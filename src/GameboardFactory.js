@@ -114,18 +114,32 @@ const Gameboard = () => {
   };
 
   const receiveAttack = (cell) => {
-    let column = cell[0];
-    let row = cell[1];
+    let row = cell[0];
+    let column = cell[1];
 
-    if (gameBoardArray[column][row] === null) {
-      return (gameBoardArray[column][row] = "miss");
-    } else if (gameBoardArray[column][row] !== null) {
-      gameBoardArray[column][row].hit();
+    if (gameBoardArray[row][column] === null) {
+      return (gameBoardArray[row][column] = "miss");
+    } else if (gameBoardArray[row][column] !== null) {
+      gameBoardArray[row][column].hit();
+      allSunk();
     }
   };
 
-  const allShipSunk = () => {
-    //
+  const allSunk = () => {
+    //iterating over the array.
+    for (let rows = 0; rows < gameBoardArray.length; rows++) {
+      for (let col = 0; col < gameBoardArray[rows].length; col++) {
+        //Then check whether the ship object gameBoardArray[row][column].isSunk is true or not
+        if (gameBoardArray[rows][col] !== null) {
+          gameBoardArray[rows][col].isSunk();
+          if (gameBoardArray[rows][col].isSunk() !== true) {
+            return false;
+          } else if (gameBoardArray[rows][col].isSunk() === true) {
+            return true;
+          }
+        }
+      }
+    }
   };
 
   //Placing each ship in their respective positions
@@ -169,6 +183,7 @@ const Gameboard = () => {
     placeVerticalShips,
     directionOfShips,
     receiveAttack,
+    allSunk,
   };
 };
 

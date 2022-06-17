@@ -562,33 +562,13 @@ describe.only("Checking receiveAttack function to report if All Ships are sunk",
     const submarine = Ship(3, "Submarine");
     const patroller = Ship(2, "Patroller");
 
-    //Place waterCarrier ship.
-    gameboard.gameBoardArray[0][0] = waterCarrier;
-    gameboard.gameBoardArray[0][1] = waterCarrier;
-    gameboard.gameBoardArray[0][2] = waterCarrier;
-    gameboard.gameBoardArray[0][3] = waterCarrier;
-    gameboard.gameBoardArray[0][4] = waterCarrier;
+    gameboard.placeHorizontalShips([0, 0], waterCarrier, "horizontal");
+    gameboard.placeHorizontalShips([1, 0], battleShip, "horizontal");
+    gameboard.placeHorizontalShips([2, 0], destroyer, "horizontal");
+    gameboard.placeHorizontalShips([3, 0], submarine, "horizontal");
+    gameboard.placeHorizontalShips([4, 0], patroller, "horizontal");
 
-    //Placing battleship
-    gameboard.gameBoardArray[1][0] = battleShip;
-    gameboard.gameBoardArray[1][1] = battleShip;
-    gameboard.gameBoardArray[1][2] = battleShip;
-    gameboard.gameBoardArray[1][3] = battleShip;
-
-    //Placing destroyer
-    gameboard.gameBoardArray[2][0] = destroyer;
-    gameboard.gameBoardArray[2][1] = destroyer;
-    gameboard.gameBoardArray[2][2] = destroyer;
-
-    //Placing submarine
-    gameboard.gameBoardArray[3][0] = submarine;
-    gameboard.gameBoardArray[3][1] = submarine;
-    gameboard.gameBoardArray[3][2] = submarine;
-
-    //Placing patroller ship
-    gameboard.gameBoardArray[4][0] = patroller;
-    gameboard.gameBoardArray[4][1] = patroller;
-
+    console.table(gameboard.gameBoardArray);
     //Attacking the water carrier ship
     gameboard.receiveAttack([0, 0]);
     gameboard.receiveAttack([0, 1]);
@@ -612,30 +592,11 @@ describe.only("Checking receiveAttack function to report if All Ships are sunk",
     gameboard.receiveAttack([3, 1]);
     gameboard.receiveAttack([3, 2]);
 
-    //Attacking the patroller
+    // Attacking the patroller
     gameboard.receiveAttack([4, 0]);
-    gameboard.receiveAttack([4, 1]);
+    // gameboard.receiveAttack([4, 1]);
 
-    expect(gameboard.gameBoardArray[0][0].getShipArray()).toHaveLength(0);
-    expect(gameboard.gameBoardArray[0][1].getShipArray()).toHaveLength(0);
-    expect(gameboard.gameBoardArray[0][2].getShipArray()).toHaveLength(0);
-    expect(gameboard.gameBoardArray[0][3].getShipArray()).toHaveLength(0);
-    expect(gameboard.gameBoardArray[0][4].getShipArray()).toHaveLength(0);
-
-    expect(gameboard.gameBoardArray[1][0].getShipArray()).toHaveLength(0);
-    expect(gameboard.gameBoardArray[1][1].getShipArray()).toHaveLength(0);
-    expect(gameboard.gameBoardArray[1][2].getShipArray()).toHaveLength(0);
-    expect(gameboard.gameBoardArray[1][3].getShipArray()).toHaveLength(0);
-
-    expect(gameboard.gameBoardArray[2][0].getShipArray()).toHaveLength(0);
-    expect(gameboard.gameBoardArray[2][1].getShipArray()).toHaveLength(0);
-    expect(gameboard.gameBoardArray[2][2].getShipArray()).toHaveLength(0);
-
-    expect(gameboard.gameBoardArray[3][0].getShipArray()).toHaveLength(0);
-    expect(gameboard.gameBoardArray[3][1].getShipArray()).toHaveLength(0);
-    expect(gameboard.gameBoardArray[3][2].getShipArray()).toHaveLength(0);
-
-    expect(gameboard.gameBoardArray[4][0].getShipArray()).toHaveLength(0);
-    expect(gameboard.gameBoardArray[4][1].getShipArray()).toHaveLength(0);
+    // expect(gameboard.allSunk()).toBe(true);
+    expect(gameboard.allSunk()).toBe(false);
   });
 });
