@@ -20,6 +20,13 @@ describe("Testing the Length of the Ship", () => {
   });
 });
 
+describe("Testing the Length of the Ship", () => {
+  test("Correct length of Ship 3", () => {
+    const myFirstShip = Ship(4);
+    expect(myFirstShip.getShipArray()).toHaveLength(4);
+  });
+});
+
 // describe("Testing the length of the Ship #2", () => {
 //   test("Correct length of Ship #2", () => {
 //     const mySecondShip = Ship(1);
