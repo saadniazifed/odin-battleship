@@ -118,3 +118,15 @@ describe("Testing the isSunk function in the ship of length 3", () => {
     expect(myFirstShip.isSunk()).toEqual(false);
   });
 });
+
+describe("Testing the isSunk function in the ship of length 4", () => {
+  test("Testing hit function", () => {
+    const myFirstShip = Ship(4);
+    myFirstShip.hit();
+    myFirstShip.hit();
+    myFirstShip.hit();
+    myFirstShip.hit();
+
+    expect(myFirstShip.isSunk()).toEqual(true);
+  });
+});
