@@ -554,49 +554,44 @@ describe("Checking the receiveAttack function for the hit method of the ship", (
   });
 });
 
-// describe.only("Checking receiveAttack function to report if All Ships are sunk", () => {
-//   test("Checking to see if all ships are sunk or not", () => {
-//     const waterCarrier = Ship(5, "Water Carrier");
-//     const battleShip = Ship(4, "Battleship");
-//     const destroyer = Ship(3, "Destroyer");
-//     const submarine = Ship(3, "Submarine");
-//     const patroller = Ship(2, "Patroller");
+describe.only("Testing the allSunk method to see if all ships have been sunk or not", () => {
+  test("Check if all ships have sunk or not", () => {
+    const waterCarrier = Ship(5, "Water Carrier");
+    const battleShip = Ship(4, "Battleship");
+    const destroyer = Ship(3, "Destroyer");
+    const submarine = Ship(3, "Submarine");
+    const patroller = Ship(2, "Patroller");
 
-//     gameboard.placeHorizontalShips([0, 0], waterCarrier, "horizontal");
-//     gameboard.placeHorizontalShips([1, 0], battleShip, "horizontal");
-//     gameboard.placeHorizontalShips([2, 0], destroyer, "horizontal");
-//     gameboard.placeHorizontalShips([3, 0], submarine, "horizontal");
-//     gameboard.placeHorizontalShips([4, 0], patroller, "horizontal");
+    gameboard.placeHorizontalShips([0, 0], waterCarrier, "horizontal");
+    gameboard.placeHorizontalShips([1, 0], battleShip, "horizontal");
+    gameboard.placeHorizontalShips([2, 0], destroyer, "horizontal");
+    gameboard.placeHorizontalShips([3, 0], submarine, "horizontal");
+    gameboard.placeHorizontalShips([4, 0], patroller, "horizontal");
 
-//     console.table(gameboard.gameBoardArray);
-//     //Attacking the water carrier ship
-//     gameboard.receiveAttack([0, 0]);
-//     gameboard.receiveAttack([0, 1]);
-//     gameboard.receiveAttack([0, 2]);
-//     gameboard.receiveAttack([0, 3]);
-//     gameboard.receiveAttack([0, 4]);
+    gameboard.receiveAttack([0, 0]);
+    gameboard.receiveAttack([0, 1]);
+    gameboard.receiveAttack([0, 2]);
+    gameboard.receiveAttack([0, 3]);
+    gameboard.receiveAttack([0, 4]);
 
-//     //Attacking the battleship
-//     gameboard.receiveAttack([1, 0]);
-//     gameboard.receiveAttack([1, 1]);
-//     gameboard.receiveAttack([1, 2]);
-//     gameboard.receiveAttack([1, 3]);
+    gameboard.receiveAttack([1, 0]);
+    gameboard.receiveAttack([1, 1]);
+    gameboard.receiveAttack([1, 2]);
+    gameboard.receiveAttack([1, 3]);
 
-//     //Attacking the destroyer
-//     gameboard.receiveAttack([2, 0]);
-//     gameboard.receiveAttack([2, 1]);
-//     gameboard.receiveAttack([2, 2]);
+    gameboard.receiveAttack([2, 0]);
+    gameboard.receiveAttack([2, 1]);
+    gameboard.receiveAttack([2, 2]);
 
-//     //Attacking the submarine
-//     gameboard.receiveAttack([3, 0]);
-//     gameboard.receiveAttack([3, 1]);
-//     gameboard.receiveAttack([3, 2]);
+    gameboard.receiveAttack([3, 0]);
+    gameboard.receiveAttack([3, 1]);
+    gameboard.receiveAttack([3, 2]);
 
-//     // Attacking the patroller
-//     gameboard.receiveAttack([4, 0]);
-//     // gameboard.receiveAttack([4, 1]);
+    gameboard.receiveAttack([4, 0]);
+    gameboard.receiveAttack([4, 1]);
 
-//     // expect(gameboard.allSunk()).toBe(true);
-//     expect(gameboard.allSunk()).toBe(false);
-//   });
-// });
+    console.table(gameboard.gameBoardArray);
+
+    // expect(gameboard.allSunk()).toBeTruthy();
+  });
+});

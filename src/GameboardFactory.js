@@ -107,9 +107,9 @@ const Gameboard = () => {
     let row = cell[0];
     let column = cell[1];
     if (direction === "vertical") {
-      return placeVerticalShips([row, column], ship, direction);
+      return placeVerticalShips([column, row], ship, direction);
     } else if (direction === "horizontal") {
-      return placeHorizontalShips([row, column], ship, direction);
+      return placeHorizontalShips([column, row], ship, direction);
     }
   };
 
