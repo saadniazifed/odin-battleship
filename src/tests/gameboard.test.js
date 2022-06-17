@@ -483,8 +483,10 @@ describe.only("Checking the receiveAttack function", () => {
     gameboard.gameBoardArray[0][1] = myFirstShip;
     gameboard.receiveAttack([0, 2]);
     gameboard.receiveAttack([0, 3]);
+    gameboard.receiveAttack([0, 4]);
 
     expect(gameboard.gameBoardArray[0][2]).toBe("miss");
     expect(gameboard.gameBoardArray[0][3]).toBe("miss");
+    expect(gameboard.gameBoardArray[0][4]).toBe("miss");
   });
 });
