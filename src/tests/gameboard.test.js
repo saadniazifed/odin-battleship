@@ -535,7 +535,7 @@ describe("Checking the receiveAttack function for the hit method of the ship", (
   });
 });
 
-describe("Checking the receiveAttack function for the hit method of the ship", () => {
+describe.only("Checking the receiveAttack function for the hit method of the ship", () => {
   test("Checking the hit method for the Ship object length 5", () => {
     const myFirstShip = Ship(4);
     gameboard.gameBoardArray[0][0] = myFirstShip;
@@ -551,5 +551,91 @@ describe("Checking the receiveAttack function for the hit method of the ship", (
     gameboard.receiveAttack([0, 4]);
 
     expect(myFirstShip.getShipArray()).toHaveLength(0);
+  });
+});
+
+describe.only("Checking receiveAttack function to report if All Ships are sunk", () => {
+  test("Checking to see if all ships are sunk or not", () => {
+    const waterCarrier = Ship(5, "Water Carrier");
+    const battleShip = Ship(4, "Battleship");
+    const destroyer = Ship(3, "Destroyer");
+    const submarine = Ship(3, "Submarine");
+    const patroller = Ship(2, "Patroller");
+
+    //Place waterCarrier ship.
+    gameboard.gameBoardArray[0][0] = waterCarrier;
+    gameboard.gameBoardArray[0][1] = waterCarrier;
+    gameboard.gameBoardArray[0][2] = waterCarrier;
+    gameboard.gameBoardArray[0][3] = waterCarrier;
+    gameboard.gameBoardArray[0][4] = waterCarrier;
+
+    //Placing battleship
+    gameboard.gameBoardArray[1][0] = battleShip;
+    gameboard.gameBoardArray[1][1] = battleShip;
+    gameboard.gameBoardArray[1][2] = battleShip;
+    gameboard.gameBoardArray[1][3] = battleShip;
+
+    //Placing destroyer
+    gameboard.gameBoardArray[2][0] = destroyer;
+    gameboard.gameBoardArray[2][1] = destroyer;
+    gameboard.gameBoardArray[2][2] = destroyer;
+
+    //Placing submarine
+    gameboard.gameBoardArray[3][0] = submarine;
+    gameboard.gameBoardArray[3][1] = submarine;
+    gameboard.gameBoardArray[3][2] = submarine;
+
+    //Placing patroller ship
+    gameboard.gameBoardArray[4][0] = patroller;
+    gameboard.gameBoardArray[4][1] = patroller;
+
+    //Attacking the water carrier ship
+    gameboard.receiveAttack([0, 0]);
+    gameboard.receiveAttack([0, 1]);
+    gameboard.receiveAttack([0, 2]);
+    gameboard.receiveAttack([0, 3]);
+    gameboard.receiveAttack([0, 4]);
+
+    //Attacking the battleship
+    gameboard.receiveAttack([1, 0]);
+    gameboard.receiveAttack([1, 1]);
+    gameboard.receiveAttack([1, 2]);
+    gameboard.receiveAttack([1, 3]);
+
+    //Attacking the destroyer
+    gameboard.receiveAttack([2, 0]);
+    gameboard.receiveAttack([2, 1]);
+    gameboard.receiveAttack([2, 2]);
+
+    //Attacking the submarine
+    gameboard.receiveAttack([3, 0]);
+    gameboard.receiveAttack([3, 1]);
+    gameboard.receiveAttack([3, 2]);
+
+    //Attacking the patroller
+    gameboard.receiveAttack([4, 0]);
+    gameboard.receiveAttack([4, 1]);
+
+    expect(gameboard.gameBoardArray[0][0].getShipArray()).toHaveLength(0);
+    expect(gameboard.gameBoardArray[0][1].getShipArray()).toHaveLength(0);
+    expect(gameboard.gameBoardArray[0][2].getShipArray()).toHaveLength(0);
+    expect(gameboard.gameBoardArray[0][3].getShipArray()).toHaveLength(0);
+    expect(gameboard.gameBoardArray[0][4].getShipArray()).toHaveLength(0);
+
+    expect(gameboard.gameBoardArray[1][0].getShipArray()).toHaveLength(0);
+    expect(gameboard.gameBoardArray[1][1].getShipArray()).toHaveLength(0);
+    expect(gameboard.gameBoardArray[1][2].getShipArray()).toHaveLength(0);
+    expect(gameboard.gameBoardArray[1][3].getShipArray()).toHaveLength(0);
+
+    expect(gameboard.gameBoardArray[2][0].getShipArray()).toHaveLength(0);
+    expect(gameboard.gameBoardArray[2][1].getShipArray()).toHaveLength(0);
+    expect(gameboard.gameBoardArray[2][2].getShipArray()).toHaveLength(0);
+
+    expect(gameboard.gameBoardArray[3][0].getShipArray()).toHaveLength(0);
+    expect(gameboard.gameBoardArray[3][1].getShipArray()).toHaveLength(0);
+    expect(gameboard.gameBoardArray[3][2].getShipArray()).toHaveLength(0);
+
+    expect(gameboard.gameBoardArray[4][0].getShipArray()).toHaveLength(0);
+    expect(gameboard.gameBoardArray[4][1].getShipArray()).toHaveLength(0);
   });
 });

@@ -116,24 +116,18 @@ const Gameboard = () => {
   const receiveAttack = (cell) => {
     let column = cell[0];
     let row = cell[1];
+
     if (gameBoardArray[column][row] === null) {
       return (gameBoardArray[column][row] = "miss");
     } else if (gameBoardArray[column][row] !== null) {
-      return gameBoardArray[column][row].hit();
+      gameBoardArray[column][row].hit();
     }
   };
 
-  const allShipsSunk = () => {
-    if (
-      waterCarrier.isSunk() === true &&
-      destroyer.isSunk() === true &&
-      battleShip.isSunk() === true &&
-      submarine.isSunk() === true &&
-      patroller.isSunk() === true
-    ) {
-      console.log("All Ships have sunk");
-    }
+  const allShipSunk = () => {
+    //
   };
+
   //Placing each ship in their respective positions
   const placeShip = () => {
     const placeWaterCarrier = (x, y, direction) => {
