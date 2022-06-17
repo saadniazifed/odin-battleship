@@ -88,7 +88,6 @@ const Gameboard = () => {
     for (let i = 0; i < ship.length; i++) {
       gameBoardArray[cell[0]][cell[1] + i] = ship;
     }
-    console.table(gameBoardArray);
 
     return true;
   };
@@ -100,7 +99,6 @@ const Gameboard = () => {
     for (let i = 0; i < ship.length; i++) {
       gameBoardArray[cell[0] + i][cell[1]] = ship;
     }
-    console.table(gameBoardArray);
 
     return true;
   };

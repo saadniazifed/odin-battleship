@@ -485,7 +485,6 @@ describe("Checking the receiveAttack function", () => {
     gameboard.receiveAttack([0, 3]);
     gameboard.receiveAttack([0, 4]);
 
-    console.table(gameboard.gameBoardArray);
     expect(gameboard.gameBoardArray[0][2]).toBe("miss");
     expect(gameboard.gameBoardArray[0][3]).toBe("miss");
     expect(gameboard.gameBoardArray[0][4]).toBe("miss");
@@ -504,7 +503,7 @@ describe("Checking the receiveAttack function for the hit method of the ship", (
   });
 });
 
-describe.only("Checking the receiveAttack function for the hit method of the ship", () => {
+describe("Checking the receiveAttack function for the hit method of the ship", () => {
   test("Checking the hit method for the Ship object length 3", () => {
     const myFirstShip = Ship(3);
     gameboard.gameBoardArray[0][0] = myFirstShip;
@@ -519,7 +518,7 @@ describe.only("Checking the receiveAttack function for the hit method of the shi
   });
 });
 
-describe.only("Checking the receiveAttack function for the hit method of the ship", () => {
+describe("Checking the receiveAttack function for the hit method of the ship", () => {
   test("Checking the hit method for the Ship object length 4", () => {
     const myFirstShip = Ship(4);
     gameboard.gameBoardArray[0][0] = myFirstShip;
@@ -536,7 +535,7 @@ describe.only("Checking the receiveAttack function for the hit method of the shi
   });
 });
 
-describe.only("Checking the receiveAttack function for the hit method of the ship", () => {
+describe("Checking the receiveAttack function for the hit method of the ship", () => {
   test("Checking the hit method for the Ship object length 5", () => {
     const myFirstShip = Ship(4);
     gameboard.gameBoardArray[0][0] = myFirstShip;
