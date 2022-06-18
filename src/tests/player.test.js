@@ -79,9 +79,8 @@ describe.only("Checking if Computer Player has a playerNum ", () => {
   });
 });
 
-describe("Checking if Computer Player has a gameboard property ", () => {
+describe.only("Checking if Computer Player has a gameboard property ", () => {
   test("Checking for the ComputerPlayer factory gameboard property", () => {
-    const computer = ComputerPlayer("Computer", 2);
     expect(computer).toHaveProperty("gameboard");
   });
 });
