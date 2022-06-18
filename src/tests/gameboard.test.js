@@ -588,3 +588,36 @@ describe.only("Checking allSunk function if the ships have been sunk or not", ()
     console.table(gameboard.gameBoardArray);
   });
 });
+
+describe.only("Checking allSunk function if the ships have been sunk or not", () => {
+  test("Checking if all ships have sunk or not", () => {
+    gameboard.placeShip().placeWaterCarrier([0, 0], "horizontal");
+    gameboard.placeShip().placeBattleship([1, 0], "horizontal");
+    gameboard.placeShip().placeDestroyer([2, 0], "horizontal");
+    gameboard.placeShip().placeSubmarine([3, 0], "horizontal");
+    gameboard.placeShip().placePatroller([4, 0], "horizontal");
+    //Attacking water carrier.
+    gameboard.receiveAttack([0, 0]);
+    gameboard.receiveAttack([0, 1]);
+    gameboard.receiveAttack([0, 2]);
+    gameboard.receiveAttack([0, 3]);
+    gameboard.receiveAttack([0, 4]);
+    //Attacking Battleship
+    gameboard.receiveAttack([1, 0]);
+    gameboard.receiveAttack([1, 1]);
+    gameboard.receiveAttack([1, 2]);
+    gameboard.receiveAttack([1, 3]);
+    //Attacking Destroyer
+    gameboard.receiveAttack([2, 0]);
+    gameboard.receiveAttack([2, 1]);
+    gameboard.receiveAttack([2, 2]);
+    //Attacking Submarine
+    gameboard.receiveAttack([3, 0]);
+    gameboard.receiveAttack([3, 1]);
+    gameboard.receiveAttack([3, 2]);
+    //Attacking Patroller
+    gameboard.receiveAttack([4, 0]);
+
+    expect(gameboard.allSunk()).toEqual(false);
+  });
+});
