@@ -201,14 +201,14 @@ describe("Checking sendAttack method functionality for Patroller", () => {
     computerPlayer.gameboard.placeShip().placePatroller([4, 0], "horizontal");
 
     //Miss Coordinates
-    playerOne.sendAttack([4, 9]);
-    playerOne.sendAttack([4, 8]);
-    playerOne.sendAttack([4, 7]);
-    playerOne.sendAttack([4, 6]);
-    playerOne.sendAttack([4, 5]);
+    computerPlayer.gameboard.receiveAttack([4, 9]);
+    computerPlayer.gameboard.receiveAttack([4, 8]);
+    computerPlayer.gameboard.receiveAttack([4, 7]);
+    computerPlayer.gameboard.receiveAttack([4, 6]);
+    computerPlayer.gameboard.receiveAttack([4, 5]);
     //Attack Coordinates
-    playerOne.sendAttack([4, 0]);
-    playerOne.sendAttack([4, 1]);
+    computerPlayer.gameboard.receiveAttack([4, 0]);
+    computerPlayer.gameboard.receiveAttack([4, 1]);
 
     expect(computerPlayer.gameboard.gameBoardArray[4][9]).toEqual("miss");
     expect(computerPlayer.gameboard.gameBoardArray[4][8]).toEqual("miss");
