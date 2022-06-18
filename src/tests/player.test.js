@@ -15,7 +15,14 @@ describe.only("Checking if Player Factory returns a name", () => {
 
 describe.only("Checking if Player Factory returns playerNum", () => {
   test("Checking the playerNum function to be 1", () => {
-    const playerOne = Player("Saad", 1);
+    const playerOne = Player("Human", 1);
     expect(playerOne.getPlayerNum()).toEqual(1);
+  });
+});
+
+describe.only("Checking if Player Factory returns playerNum", () => {
+  test("Checking the playerNum function to be 1", () => {
+    const playerOne = Player("Mark", 2);
+    expect(playerOne.getPlayerNum()).toEqual(2);
   });
 });
