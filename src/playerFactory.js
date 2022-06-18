@@ -4,17 +4,11 @@ const Player = (name, playerNum) => {
   const getName = () => name;
   const getPlayerNum = () => playerNum;
   const gameboard = Gameboard();
-  const sendAttack = (cell) => {
-    let row = cell[0];
-    let column = cell[1];
-    return computer.gameboard.receiveAttack([row, column]);
-  };
 
   return {
     getName,
     getPlayerNum,
     gameboard,
-    sendAttack,
   };
 };
 
