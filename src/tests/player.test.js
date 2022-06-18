@@ -98,13 +98,16 @@ describe.only("Checking the sendAttack method inside the Player factory function
     computer.gameboard.placeShip().placePatroller([4, 0], "horizontal");
     console.table(computer.gameboard.gameBoardArray);
 
+    //Missing coordinates for the water carrier.
     player.sendAttack([0, 9]);
     player.sendAttack([0, 8]);
     player.sendAttack([0, 7]);
     player.sendAttack([0, 6]);
-
-    player.sendAttack([0, 0]);
-
+    //Missing coordinates for the Battleship
+    player.sendAttack([1, 9]);
+    player.sendAttack([1, 8]);
+    player.sendAttack([1, 7]);
+    player.sendAttack([1, 6]);
     //Hitting the miss values on row 0.
     expect(computer.gameboard.gameBoardArray[0][9]).toEqual("miss");
     expect(computer.gameboard.gameBoardArray[0][8]).toEqual("miss");
