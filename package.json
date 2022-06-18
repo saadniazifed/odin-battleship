@@ -8,7 +8,7 @@
   "private": true,
   "scripts": {
     "start": "webpack serve --open",
-    "watch": "jest --watch gameboard.test.js",
+    "watch": "jest --watch player.test.js",
     "build": "webpack",
     "test": "jest"
   },

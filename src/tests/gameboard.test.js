@@ -585,7 +585,6 @@ describe.only("Checking allSunk function if the ships have been sunk or not", ()
     gameboard.receiveAttack([4, 1]);
 
     expect(gameboard.allSunk()).toEqual(true);
-    console.table(gameboard.gameBoardArray);
   });
 });
 
