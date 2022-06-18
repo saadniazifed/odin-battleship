@@ -34,9 +34,8 @@ describe.only("Checking if Player Factory returns playerNum", () => {
   });
 });
 
-describe("Checking if each player object has a gameboard property", () => {
+describe.only("Checking if each player object has a gameboard property", () => {
   test("Checking .toHaveProperty of gameboard on player object", () => {
-    // const playerOne = Player("Human", 1);
     expect(playerOne).toHaveProperty("gameboard");
   });
 });
