@@ -112,7 +112,6 @@ describe("Checking sendAttack function for WaterCarrier", () => {
     player.sendAttack([0, 1]);
     player.sendAttack([0, 0]);
 
-    console.table(computer.gameboard.allSunk());
     expect(computer.gameboard.gameBoardArray[0][0].getShipArray()).toHaveLength(
       0
     );
@@ -225,7 +224,7 @@ describe("Checking sendAttack function for WaterCarrier", () => {
   });
 });
 
-describe.only("Checking to see if all the Ships have sunk", () => {
+describe("Checking to see if all the Ships have sunk", () => {
   test("Computer ship all sunk or not", () => {
     computer.gameboard.placeShip().placeWaterCarrier([0, 0], "horizontal");
     computer.gameboard.placeShip().placeBattleship([1, 0], "horizontal");
@@ -250,24 +249,8 @@ describe.only("Checking to see if all the Ships have sunk", () => {
     player.sendAttack([0, 3]);
     player.sendAttack([0, 2]);
     player.sendAttack([0, 1]);
-    player.sendAttack([0, 0]);
-
-    expect(computer.gameboard.gameBoardArray[4][0].getShipArray()).toHaveLength(
-      0
-    );
-    expect(computer.gameboard.gameBoardArray[3][0].getShipArray()).toHaveLength(
-      0
-    );
-    expect(computer.gameboard.gameBoardArray[2][0].getShipArray()).toHaveLength(
-      0
-    );
-    expect(computer.gameboard.gameBoardArray[1][0].getShipArray()).toHaveLength(
-      0
-    );
-    expect(computer.gameboard.gameBoardArray[0][0].getShipArray()).toHaveLength(
-      0
-    );
-
+    // player.sendAttack([0, 0]);
+    console.table(computer.gameboard.allSunk());
     expect(computer.gameboard.allSunk()).toBe(true);
   });
 });
