@@ -243,3 +243,38 @@ describe("Checking sendAttack function for Patroller", () => {
     expect(computer.gameboard.gameBoardArray[4][1].isSunk()).toBe(true);
   });
 });
+
+describe("Checking if computer all ships have been sunk", () => {
+  test("All ships sunk or not for computer", () => {
+    computer.gameboard.placeShip().placeWaterCarrier([0, 0], "horizontal");
+    computer.gameboard.placeShip().placeBattleship([1, 0], "horizontal");
+    computer.gameboard.placeShip().placeDestroyer([2, 0], "horizontal");
+    computer.gameboard.placeShip().placeSubmarine([3, 0], "horizontal");
+    computer.gameboard.placeShip().placePatroller([4, 0], "horizontal");
+
+    //Sinking Patroller
+    player.sendAttack([4, 1]);
+    player.sendAttack([4, 0]);
+    //Sinking submarine.
+    player.sendAttack([3, 2]);
+    player.sendAttack([3, 1]);
+    player.sendAttack([3, 0]);
+    //Sinking destroyer.
+    player.sendAttack([2, 2]);
+    player.sendAttack([2, 1]);
+    player.sendAttack([2, 0]);
+    //Sinking battleship.
+    player.sendAttack([1, 3]);
+    player.sendAttack([1, 2]);
+    player.sendAttack([1, 1]);
+    player.sendAttack([1, 0]);
+    //Sinking water carrier.
+    player.sendAttack([0, 4]);
+    player.sendAttack([0, 3]);
+    player.sendAttack([0, 2]);
+    player.sendAttack([0, 1]);
+    player.sendAttack([0, 0]);
+
+    expect(computer.gameboard.allSunk()).toBe(true);
+  });
+});
