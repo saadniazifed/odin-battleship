@@ -143,3 +143,31 @@ describe("Checking sendAttack method functionality for Battleship", () => {
     expect(computerPlayer.gameboard.gameBoardArray[1][0].isSunk()).toBe(true);
   });
 });
+
+describe("Checking sendAttack method functionality for Destroyer", () => {
+  test("sendAttack in player factory function", () => {
+    computerPlayer.gameboard.placeShip().placeDestroyer([2, 0], "horizontal");
+
+    //Miss Coordinates
+    playerOne.sendAttack([2, 9]);
+    playerOne.sendAttack([2, 8]);
+    playerOne.sendAttack([2, 7]);
+    playerOne.sendAttack([2, 6]);
+    playerOne.sendAttack([2, 5]);
+    //Attack Coordinates
+    playerOne.sendAttack([2, 0]);
+    playerOne.sendAttack([2, 1]);
+    playerOne.sendAttack([2, 2]);
+
+    console.table(computer.gameboard.gameBoardArray);
+    expect(computerPlayer.gameboard.gameBoardArray[2][9]).toEqual("miss");
+    expect(computerPlayer.gameboard.gameBoardArray[2][8]).toEqual("miss");
+    expect(computerPlayer.gameboard.gameBoardArray[2][7]).toEqual("miss");
+    expect(computerPlayer.gameboard.gameBoardArray[2][6]).toEqual("miss");
+    expect(computerPlayer.gameboard.gameBoardArray[2][5]).toEqual("miss");
+    expect(
+      computerPlayer.gameboard.gameBoardArray[2][0].getShipArray()
+    ).toHaveLength(0);
+    expect(computerPlayer.gameboard.gameBoardArray[2][0].isSunk()).toBe(true);
+  });
+});
