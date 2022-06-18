@@ -118,7 +118,7 @@ describe("Checking sendAttack function for WaterCarrier", () => {
   });
 });
 
-describe.only("Checking sendAttack function for Battleship", () => {
+describe("Checking sendAttack function for Battleship", () => {
   test("Check Battleship", () => {
     computer.gameboard.placeShip().placeBattleship([1, 0], "horizontal");
     //Missing coordinates for the water carrier.
@@ -142,6 +142,33 @@ describe.only("Checking sendAttack function for Battleship", () => {
       0
     );
     expect(computer.gameboard.gameBoardArray[1][0].isSunk()).toEqual(true);
+  });
+});
+
+describe.only("Checking sendAttack function for Destroyer", () => {
+  test("Check destroyer", () => {
+    computer.gameboard.placeShip().placeDestroyer([2, 0], "horizontal");
+    //Missing coordinates for the water carrier.
+    player.sendAttack([2, 9]);
+    player.sendAttack([2, 8]);
+    player.sendAttack([2, 7]);
+    player.sendAttack([2, 6]);
+    player.sendAttack([2, 5]);
+    //Hitting the miss values on row
+    expect(computer.gameboard.gameBoardArray[2][9]).toEqual("miss");
+    expect(computer.gameboard.gameBoardArray[2][8]).toEqual("miss");
+    expect(computer.gameboard.gameBoardArray[2][7]).toEqual("miss");
+    expect(computer.gameboard.gameBoardArray[2][6]).toEqual("miss");
+    expect(computer.gameboard.gameBoardArray[2][5]).toEqual("miss");
+    //Actual coordinates for the water carrier ship
+
+    player.sendAttack([2, 2]);
+    player.sendAttack([2, 1]);
+    player.sendAttack([2, 0]);
+    expect(computer.gameboard.gameBoardArray[2][0].getShipArray()).toHaveLength(
+      0
+    );
+    expect(computer.gameboard.gameBoardArray[2][0].isSunk()).toEqual(true);
   });
 });
 
