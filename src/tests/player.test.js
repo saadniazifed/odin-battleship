@@ -91,18 +91,11 @@ describe("Checking if Computer Player has a gameboard property ", () => {
 
 describe("Checking the sendAttack method inside the Player factory function", () => {
   test("sendAttack Method", () => {
-    computer.gameboard.placeShip().placeWaterCarrier([0, 0], "horizontal");
     computer.gameboard.placeShip().placeBattleship([1, 0], "horizontal");
     computer.gameboard.placeShip().placeDestroyer([2, 0], "horizontal");
     computer.gameboard.placeShip().placeSubmarine([3, 0], "horizontal");
     computer.gameboard.placeShip().placePatroller([4, 0], "horizontal");
     console.table(computer.gameboard.gameBoardArray);
-
-    //Missing coordinates for the water carrier.
-    player.sendAttack([0, 9]);
-    player.sendAttack([0, 8]);
-    player.sendAttack([0, 7]);
-    player.sendAttack([0, 6]);
     //Missing coordinates for the Battleship
     player.sendAttack([1, 9]);
     player.sendAttack([1, 8]);
@@ -128,10 +121,25 @@ describe.only("Checking sendAttack function for WaterCarrier", () => {
     player.sendAttack([0, 8]);
     player.sendAttack([0, 7]);
     player.sendAttack([0, 6]);
+    player.sendAttack([0, 5]);
+    //Actual coordinates for the water carrier ship
+    player.sendAttack([0, 4]);
+    player.sendAttack([0, 3]);
+    player.sendAttack([0, 2]);
+    player.sendAttack([0, 1]);
+    player.sendAttack([0, 0]);
+
     //Hitting the miss values on row 0.
     expect(computer.gameboard.gameBoardArray[0][9]).toEqual("miss");
     expect(computer.gameboard.gameBoardArray[0][8]).toEqual("miss");
     expect(computer.gameboard.gameBoardArray[0][7]).toEqual("miss");
     expect(computer.gameboard.gameBoardArray[0][6]).toEqual("miss");
+    expect(computer.gameboard.gameBoardArray[0][5]).toEqual("miss");
+    //Hitting the actual values on row 0.
+    expect(computer.gameboard.gameBoardArray[0][0].isSunk()).toBe(true);
+    expect(computer.gameboard.gameBoardArray[0][1].isSunk()).toBe(true);
+    expect(computer.gameboard.gameBoardArray[0][2].isSunk()).toBe(true);
+    expect(computer.gameboard.gameBoardArray[0][3].isSunk()).toBe(true);
+    expect(computer.gameboard.gameBoardArray[0][4].isSunk()).toBe(true);
   });
 });
