@@ -89,7 +89,7 @@ describe("Checking if Computer Player has a gameboard property ", () => {
   });
 });
 
-describe.only("Checking the sendAttack method inside the Player factory function", () => {
+describe("Checking the sendAttack method inside the Player factory function", () => {
   test("sendAttack Method", () => {
     computer.gameboard.placeShip().placeWaterCarrier([0, 0], "horizontal");
     computer.gameboard.placeShip().placeBattleship([1, 0], "horizontal");
@@ -112,6 +112,22 @@ describe.only("Checking the sendAttack method inside the Player factory function
     player.sendAttack([2, 9]);
     player.sendAttack([2, 8]);
     player.sendAttack([2, 7]);
+    //Hitting the miss values on row 0.
+    expect(computer.gameboard.gameBoardArray[0][9]).toEqual("miss");
+    expect(computer.gameboard.gameBoardArray[0][8]).toEqual("miss");
+    expect(computer.gameboard.gameBoardArray[0][7]).toEqual("miss");
+    expect(computer.gameboard.gameBoardArray[0][6]).toEqual("miss");
+  });
+});
+
+describe.only("Checking sendAttack function for WaterCarrier", () => {
+  test("Check sendAttack for WaterCarrier ship", () => {
+    computer.gameboard.placeShip().placeWaterCarrier([0, 0], "horizontal");
+    //Missing coordinates for the water carrier.
+    player.sendAttack([0, 9]);
+    player.sendAttack([0, 8]);
+    player.sendAttack([0, 7]);
+    player.sendAttack([0, 6]);
     //Hitting the miss values on row 0.
     expect(computer.gameboard.gameBoardArray[0][9]).toEqual("miss");
     expect(computer.gameboard.gameBoardArray[0][8]).toEqual("miss");
