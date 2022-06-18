@@ -7,7 +7,8 @@ const Player = (name, playerNum) => {
   const sendAttack = (cell) => {
     let row = cell[0];
     let column = cell[1];
-    return computer.gameboard.receiveAttack([row, column]);
+    return (computer.gameboard.gameBoardArray[row][column] =
+      computer.gameboard.receiveAttack([row, column]));
   };
 
   return {
@@ -30,4 +31,4 @@ const ComputerPlayer = () => {
 const player = Player("Human", 1);
 const computer = ComputerPlayer("Computer", 2);
 
-export { Player, ComputerPlayer };
+export { Player, ComputerPlayer, player, computer };
