@@ -9,5 +9,6 @@ describe.only("Checking if Player Factory is returning us defined or undefined",
 describe.only("Checking if Player Factory returns a name", () => {
   test("Checking the getName function", () => {
     const playerOne = Player("Saad");
-    expect(playerOne.getName()).toEqual('Saad')
+    expect(playerOne.getName()).toEqual("Saad");
+  });
 });
