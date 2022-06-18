@@ -73,7 +73,7 @@ describe("Checking if Computer Player has a name ", () => {
 
 describe("Checking if Computer Player has a playerNum ", () => {
   test("Checking for the ComputerPlayer factory function getPlayerNum property", () => {
-    expect(computer.getPlayerNum()).toEqual(2);
+    expect(computerPlayer.getPlayerNum()).toEqual(2);
   });
 });
 
