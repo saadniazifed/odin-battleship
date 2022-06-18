@@ -224,7 +224,7 @@ describe("Checking sendAttack function for WaterCarrier", () => {
   });
 });
 
-describe("Checking to see if all the Ships have sunk", () => {
+describe.only("Checking to see if all the Ships have sunk", () => {
   test("Computer ship all sunk or not", () => {
     computer.gameboard.placeShip().placeWaterCarrier([0, 0], "horizontal");
     computer.gameboard.placeShip().placeBattleship([1, 0], "horizontal");
@@ -249,8 +249,7 @@ describe("Checking to see if all the Ships have sunk", () => {
     player.sendAttack([0, 3]);
     player.sendAttack([0, 2]);
     player.sendAttack([0, 1]);
-    // player.sendAttack([0, 0]);
-    console.table(computer.gameboard.allSunk());
-    expect(computer.gameboard.allSunk()).toBe(true);
+    player.sendAttack([0, 0]);
+    console.table(computer.gameboard.allSunk()).toEqual(true);
   });
 });
