@@ -1,11 +1,11 @@
-import { computer, ComputerPlayer, player, Player } from "../playerFactory";
+import { ComputerPlayer, Player } from "../playerFactory";
 
 let playerOne;
 let computerPlayer;
 
 beforeEach(() => {
-  playerOne = player;
-  computerPlayer = computer;
+  playerOne = Player("Human", 1);
+  computerPlayer = ComputerPlayer("Computer", 2);
 });
 
 describe("Checking if Player Factory is returning us defined or undefined", () => {
@@ -225,36 +225,38 @@ describe("Checking sendAttack method functionality for Patroller", () => {
 });
 
 describe("Checking allSunk function with sendAttack", () => {
-  const newCPU = ComputerPlayer("Computer", 2);
-  console.table(newCPU.gameboard.gameBoardArray);
+  //   console.table(newCPU.gameboard.gameBoardArray);
   test("Checking allSunk function", () => {
-    newCPU.gameboard.placeShip().placeWaterCarrier([5, 0], "horizontal");
-    newCPU.gameboard.placeShip().placeBattleship([6, 0], "horizontal");
-    newCPU.gameboard.placeShip().placeDestroyer([7, 0], "horizontal");
-    newCPU.gameboard.placeShip().placeSubmarine([8, 0], "horizontal");
-    newCPU.gameboard.placeShip().placePatroller([9, 0], "horizontal");
+    computerPlayer.gameboard
+      .placeShip()
+      .placeWaterCarrier([5, 0], "horizontal");
+    computerPlayer.gameboard.placeShip().placeBattleship([6, 0], "horizontal");
+    computerPlayer.gameboard.placeShip().placeDestroyer([7, 0], "horizontal");
+    computerPlayer.gameboard.placeShip().placeSubmarine([8, 0], "horizontal");
+    computerPlayer.gameboard.placeShip().placePatroller([9, 0], "horizontal");
 
     //Attack Coordinates.
-    newCPU.gameboard.receiveAttack([5, 0]);
-    newCPU.gameboard.receiveAttack([5, 1]);
-    newCPU.gameboard.receiveAttack([5, 2]);
-    newCPU.gameboard.receiveAttack([5, 3]);
-    newCPU.gameboard.receiveAttack([5, 4]);
-    newCPU.gameboard.receiveAttack([6, 0]);
-    newCPU.gameboard.receiveAttack([6, 1]);
-    newCPU.gameboard.receiveAttack([6, 2]);
-    newCPU.gameboard.receiveAttack([6, 3]);
-    newCPU.gameboard.receiveAttack([7, 0]);
-    newCPU.gameboard.receiveAttack([7, 1]);
-    newCPU.gameboard.receiveAttack([7, 2]);
-    newCPU.gameboard.receiveAttack([8, 0]);
-    newCPU.gameboard.receiveAttack([8, 1]);
-    newCPU.gameboard.receiveAttack([8, 2]);
-    newCPU.gameboard.receiveAttack([9, 0]);
-    // newCPU.gameboard.receiveAttack([9, 1]);
+    computerPlayer.gameboard.receiveAttack([5, 0]);
+    computerPlayer.gameboard.receiveAttack([5, 1]);
+    computerPlayer.gameboard.receiveAttack([5, 2]);
+    computerPlayer.gameboard.receiveAttack([5, 3]);
+    computerPlayer.gameboard.receiveAttack([5, 4]);
+    computerPlayer.gameboard.receiveAttack([6, 0]);
+    computerPlayer.gameboard.receiveAttack([6, 1]);
+    computerPlayer.gameboard.receiveAttack([6, 2]);
+    computerPlayer.gameboard.receiveAttack([6, 3]);
+    computerPlayer.gameboard.receiveAttack([7, 0]);
+    computerPlayer.gameboard.receiveAttack([7, 1]);
+    computerPlayer.gameboard.receiveAttack([7, 2]);
+    computerPlayer.gameboard.receiveAttack([8, 0]);
+    computerPlayer.gameboard.receiveAttack([8, 1]);
+    computerPlayer.gameboard.receiveAttack([8, 2]);
+    computerPlayer.gameboard.receiveAttack([8, 3]);
+    computerPlayer.gameboard.receiveAttack([9, 0]);
+    computerPlayer.gameboard.receiveAttack([9, 1]);
 
-    // computerPlayer.gameboard.receiveAttack([4, 1]);
+    console.table(computerPlayer.gameboard.gameBoardArray);
 
-    expect(newCPU.gameboard.allSunk()).toBe(true);
+    expect(computerPlayer.gameboard.allSunk()).toBe(true);
   });
 });

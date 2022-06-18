@@ -21,7 +21,4 @@ const ComputerPlayer = () => {
   return { gameboard, getName, getPlayerNum };
 };
 
-const player = Player("Human", 1);
-const computer = ComputerPlayer("Computer", 2);
-
-export { Player, ComputerPlayer, player, computer };
+export { Player, ComputerPlayer };
