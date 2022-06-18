@@ -40,6 +40,8 @@ describe.only("Checking if gameboard are functional for the player object", () =
     expect(
       playerOne.gameboard.placeShip().placeWaterCarrier([0, 0], "horizontal")
     ).toEqual(true);
-    console.table(playerOne.gameboard.gameBoardArray);
+    expect(
+      playerOne.gameboard.placeShip().placeBattleship([1, 0], "horizontal")
+    ).toEqual(true);
   });
 });
