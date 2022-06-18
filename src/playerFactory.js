@@ -14,9 +14,8 @@ const Player = (name, playerNum) => {
 
 const ComputerPlayer = () => {
   const prototype = Player("Computer", 2);
-  // const { gameboard } = Player("computer", 2);
-  // const makeRandomAttack = () => {};
-  // return { gameboard, makeRandomAttack };
+  const randomAttack = () => {};
+
   return Object.assign({}, prototype);
 };
 
