@@ -61,7 +61,7 @@ describe.only("Checking if gameboard are functional for the player object", () =
 });
 
 //Checking for the Computer now.
-describe("Checking if Computer Player returns us defined", () => {
+describe.only("Checking if Computer Player returns us defined", () => {
   test("Checking for the ComputerPlayer factory function", () => {
     expect(ComputerPlayer()).toBeDefined();
   });
