@@ -34,7 +34,7 @@ describe("Checking if Player Factory returns playerNum", () => {
 
 describe("Checking if each player object has a gameboard property", () => {
   test("Checking .toHaveProperty of gameboard on player object", () => {
-    expect(player).toHaveProperty("gameboard");
+    expect(playerOne).toHaveProperty("gameboard");
   });
 });
 
