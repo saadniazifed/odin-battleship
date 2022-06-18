@@ -174,15 +174,15 @@ describe("Checking sendAttack method functionality for Submarine", () => {
     computerPlayer.gameboard.placeShip().placeSubmarine([3, 0], "horizontal");
 
     //Miss Coordinates
-    playerOne.sendAttack([3, 9]);
-    playerOne.sendAttack([3, 8]);
-    playerOne.sendAttack([3, 7]);
-    playerOne.sendAttack([3, 6]);
-    playerOne.sendAttack([3, 5]);
+    computerPlayer.gameboard.receiveAttack([3, 9]);
+    computerPlayer.gameboard.receiveAttack([3, 8]);
+    computerPlayer.gameboard.receiveAttack([3, 7]);
+    computerPlayer.gameboard.receiveAttack([3, 6]);
+    computerPlayer.gameboard.receiveAttack([3, 5]);
     //Attack Coordinates
-    playerOne.sendAttack([3, 0]);
-    playerOne.sendAttack([3, 1]);
-    playerOne.sendAttack([3, 2]);
+    computerPlayer.gameboard.receiveAttack([3, 0]);
+    computerPlayer.gameboard.receiveAttack([3, 1]);
+    computerPlayer.gameboard.receiveAttack([3, 2]);
 
     expect(computerPlayer.gameboard.gameBoardArray[3][9]).toEqual("miss");
     expect(computerPlayer.gameboard.gameBoardArray[3][8]).toEqual("miss");
