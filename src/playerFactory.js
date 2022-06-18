@@ -9,7 +9,6 @@ const Player = (name, playerNum) => {
     let column = cell[1];
     return computer.gameboard.receiveAttack([row, column]);
   };
-  //will the sendAttack be a method of Player factory function? or will the logic be something else completely different?
 
   return {
     getName,
@@ -31,4 +30,4 @@ const ComputerPlayer = () => {
 const player = Player("Human", 1);
 const computer = ComputerPlayer("Computer", 2);
 
-export { Player, ComputerPlayer, player, computer };
+export { Player, ComputerPlayer };
