@@ -41,19 +41,19 @@ describe("Checking if each player object has a gameboard property", () => {
 describe("Checking if gameboard are functional for the player object", () => {
   test("gameboard functionality check", () => {
     expect(
-      player.gameboard.placeShip().placeWaterCarrier([0, 0], "horizontal")
+      playerOne.gameboard.placeShip().placeWaterCarrier([0, 0], "horizontal")
     ).toEqual(true);
     expect(
-      player.gameboard.placeShip().placeBattleship([1, 0], "horizontal")
+      playerOne.gameboard.placeShip().placeBattleship([1, 0], "horizontal")
     ).toEqual(true);
     expect(
-      player.gameboard.placeShip().placeDestroyer([2, 0], "horizontal")
+      playerOne.gameboard.placeShip().placeDestroyer([2, 0], "horizontal")
     ).toEqual(true);
     expect(
-      player.gameboard.placeShip().placeSubmarine([3, 0], "horizontal")
+      playerOne.gameboard.placeShip().placeSubmarine([3, 0], "horizontal")
     ).toEqual(true);
     expect(
-      player.gameboard.placeShip().placePatroller([4, 0], "horizontal")
+      playerOne.gameboard.placeShip().placePatroller([4, 0], "horizontal")
     ).toEqual(true);
   });
 });
