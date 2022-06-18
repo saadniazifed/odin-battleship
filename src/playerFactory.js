@@ -1,11 +1,13 @@
 import { Gameboard } from "./GameboardFactory";
 
-const playerFactory = (name) => {
-  // const getName = () => name;
-  return {};
+const Player = (name) => {
+  const getName = () => name;
+  return {
+    getName,
+  };
 };
 
 const playerOneBoard = "";
 const playerTwoBoard = "";
 
-export { playerFactory, playerOneBoard, playerTwoBoard };
+export { Player, playerOneBoard, playerTwoBoard };
