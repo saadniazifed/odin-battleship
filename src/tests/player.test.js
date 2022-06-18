@@ -88,11 +88,19 @@ describe("Checking sendAttack method functionality for Water Carrier", () => {
     computerPlayer.gameboard
       .placeShip()
       .placeWaterCarrier([0, 0], "horizontal");
+
+    //Miss Coordinates
     playerOne.sendAttack([0, 9]);
     playerOne.sendAttack([0, 8]);
     playerOne.sendAttack([0, 7]);
     playerOne.sendAttack([0, 6]);
     playerOne.sendAttack([0, 5]);
+    //Attack Coordinates
+    playerOne.sendAttack([0, 0]);
+    playerOne.sendAttack([0, 1]);
+    playerOne.sendAttack([0, 2]);
+    playerOne.sendAttack([0, 3]);
+    playerOne.sendAttack([0, 4]);
 
     console.table(computer.gameboard.gameBoardArray);
     expect(computerPlayer.gameboard.gameBoardArray[0][9]).toEqual("miss");
@@ -100,6 +108,10 @@ describe("Checking sendAttack method functionality for Water Carrier", () => {
     expect(computerPlayer.gameboard.gameBoardArray[0][7]).toEqual("miss");
     expect(computerPlayer.gameboard.gameBoardArray[0][6]).toEqual("miss");
     expect(computerPlayer.gameboard.gameBoardArray[0][5]).toEqual("miss");
+    expect(
+      computerPlayer.gameboard.gameBoardArray[0][0].getShipArray()
+    ).toHaveLength(0);
+    expect(computerPlayer.gameboard.gameBoardArray[0][0].isSunk()).toBe(true);
   });
 });
 
