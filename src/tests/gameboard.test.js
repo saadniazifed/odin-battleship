@@ -322,11 +322,11 @@ describe("Checking the directionOfShips function with Ship Length 2", () => {
     expect(gameboard.directionOfShips([0, 0], myFirstShip, "vertical")).toEqual(
       true
     );
-    expect(gameboard.directionOfShips([0, 1], myFirstShip, "vertical")).toEqual(
+    expect(gameboard.directionOfShips([1, 0], myFirstShip, "vertical")).toEqual(
       true
     );
     expect(
-      gameboard.directionOfShips([(1, 0)], myFirstShip, "vertical")
+      gameboard.directionOfShips([(0, 1)], myFirstShip, "vertical")
     ).toEqual(false);
   });
 });
@@ -554,44 +554,44 @@ describe("Checking the receiveAttack function for the hit method of the ship", (
   });
 });
 
-describe.only("Testing the allSunk method to see if all ships have been sunk or not", () => {
-  test("Check if all ships have sunk or not", () => {
-    const waterCarrier = Ship(5, "Water Carrier");
-    const battleShip = Ship(4, "Battleship");
-    const destroyer = Ship(3, "Destroyer");
-    const submarine = Ship(3, "Submarine");
-    const patroller = Ship(2, "Patroller");
+// describe.only("Testing the allSunk method to see if all ships have been sunk or not", () => {
+//   test("Check if all ships have sunk or not", () => {
+//     const waterCarrier = Ship(5, "Water Carrier");
+//     const battleShip = Ship(4, "Battleship");
+//     const destroyer = Ship(3, "Destroyer");
+//     const submarine = Ship(3, "Submarine");
+//     const patroller = Ship(2, "Patroller");
 
-    gameboard.placeHorizontalShips([0, 0], waterCarrier, "horizontal");
-    gameboard.placeHorizontalShips([1, 0], battleShip, "horizontal");
-    gameboard.placeHorizontalShips([2, 0], destroyer, "horizontal");
-    gameboard.placeHorizontalShips([3, 0], submarine, "horizontal");
-    gameboard.placeHorizontalShips([4, 0], patroller, "horizontal");
+//     gameboard.placeHorizontalShips([0, 0], waterCarrier, "horizontal");
+//     gameboard.placeHorizontalShips([1, 0], battleShip, "horizontal");
+//     gameboard.placeHorizontalShips([2, 0], destroyer, "horizontal");
+//     gameboard.placeHorizontalShips([3, 0], submarine, "horizontal");
+//     gameboard.placeHorizontalShips([4, 0], patroller, "horizontal");
 
-    gameboard.receiveAttack([0, 0]);
-    gameboard.receiveAttack([0, 1]);
-    gameboard.receiveAttack([0, 2]);
-    gameboard.receiveAttack([0, 3]);
-    gameboard.receiveAttack([0, 4]);
+//     gameboard.receiveAttack([0, 0]);
+//     gameboard.receiveAttack([0, 1]);
+//     gameboard.receiveAttack([0, 2]);
+//     gameboard.receiveAttack([0, 3]);
+//     gameboard.receiveAttack([0, 4]);
 
-    gameboard.receiveAttack([1, 0]);
-    gameboard.receiveAttack([1, 1]);
-    gameboard.receiveAttack([1, 2]);
-    gameboard.receiveAttack([1, 3]);
+//     gameboard.receiveAttack([1, 0]);
+//     gameboard.receiveAttack([1, 1]);
+//     gameboard.receiveAttack([1, 2]);
+//     gameboard.receiveAttack([1, 3]);
 
-    gameboard.receiveAttack([2, 0]);
-    gameboard.receiveAttack([2, 1]);
-    gameboard.receiveAttack([2, 2]);
+//     gameboard.receiveAttack([2, 0]);
+//     gameboard.receiveAttack([2, 1]);
+//     gameboard.receiveAttack([2, 2]);
 
-    gameboard.receiveAttack([3, 0]);
-    gameboard.receiveAttack([3, 1]);
-    gameboard.receiveAttack([3, 2]);
+//     gameboard.receiveAttack([3, 0]);
+//     gameboard.receiveAttack([3, 1]);
+//     gameboard.receiveAttack([3, 2]);
 
-    gameboard.receiveAttack([4, 0]);
-    gameboard.receiveAttack([4, 1]);
+//     gameboard.receiveAttack([4, 0]);
+//     gameboard.receiveAttack([4, 1]);
 
-    console.table(gameboard.gameBoardArray);
+//     console.table(gameboard.gameBoardArray);
 
-    // expect(gameboard.allSunk()).toBeTruthy();
-  });
-});
+//     // expect(gameboard.allSunk()).toBeTruthy();
+//   });
+// });

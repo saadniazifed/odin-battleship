@@ -23,6 +23,8 @@ const Gameboard = () => {
   const submarine = Ship(3, "Submarine");
   const patroller = Ship(2, "Patroller");
 
+  // const allShips = [waterCarrier, battleShip, ]
+
   //Checking to see if the Ship Fits.
   const shipFit = (cell, direction, shipLength) => {
     let row = cell[0];
