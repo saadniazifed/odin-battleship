@@ -145,7 +145,7 @@ describe("Checking sendAttack function for Battleship", () => {
   });
 });
 
-describe.only("Checking sendAttack function for Destroyer", () => {
+describe("Checking sendAttack function for Destroyer", () => {
   test("Check destroyer", () => {
     computer.gameboard.placeShip().placeDestroyer([2, 0], "horizontal");
     //Missing coordinates for the water carrier.
@@ -172,7 +172,7 @@ describe.only("Checking sendAttack function for Destroyer", () => {
   });
 });
 
-describe.only("Checking sendAttack function for Submarine", () => {
+describe("Checking sendAttack function for Submarine", () => {
   test("Check submarine", () => {
     computer.gameboard.placeShip().placeSubmarine([3, 0], "horizontal");
     //Missing coordinates for the water carrier.
@@ -195,6 +195,31 @@ describe.only("Checking sendAttack function for Submarine", () => {
       0
     );
     expect(computer.gameboard.gameBoardArray[3][0].isSunk()).toEqual(true);
+  });
+});
+
+describe.only("Checking sendAttack function for WaterCarrier", () => {
+  test("Check waterCarrier", () => {
+    computer.gameboard.placeShip().placePatroller([4, 0], "horizontal");
+    //Missing coordinates for the water carrier.
+    player.sendAttack([4, 9]);
+    player.sendAttack([4, 8]);
+    player.sendAttack([4, 7]);
+    player.sendAttack([4, 6]);
+    player.sendAttack([4, 5]);
+    //Hitting the miss values on row
+    expect(computer.gameboard.gameBoardArray[4][9]).toEqual("miss");
+    expect(computer.gameboard.gameBoardArray[4][8]).toEqual("miss");
+    expect(computer.gameboard.gameBoardArray[4][7]).toEqual("miss");
+    expect(computer.gameboard.gameBoardArray[4][6]).toEqual("miss");
+    expect(computer.gameboard.gameBoardArray[4][5]).toEqual("miss");
+    //Actual coordinates for the water carrier ship
+    player.sendAttack([4, 1]);
+    player.sendAttack([4, 0]);
+    expect(computer.gameboard.gameBoardArray[4][0].getShipArray()).toHaveLength(
+      0
+    );
+    expect(computer.gameboard.gameBoardArray[4][0].isSunk()).toEqual(true);
   });
 });
 
