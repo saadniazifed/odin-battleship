@@ -553,7 +553,7 @@ describe("Checking the receiveAttack function for the hit method of the ship", (
   });
 });
 
-describe.only("Checking allSunk function if the ships have been sunk or not", () => {
+describe("Checking allSunk function if the ships have been sunk or not", () => {
   test("Checking if all ships have sunk or not", () => {
     gameboard.placeShip().placeWaterCarrier([0, 0], "horizontal");
     gameboard.placeShip().placeBattleship([1, 0], "horizontal");
@@ -587,7 +587,7 @@ describe.only("Checking allSunk function if the ships have been sunk or not", ()
   });
 });
 
-describe.only("Checking allSunk function if the ships have been sunk or not", () => {
+describe("Checking allSunk function if the ships have been sunk or not", () => {
   test("Checking if all ships have sunk or not", () => {
     gameboard.placeShip().placeWaterCarrier([0, 0], "horizontal");
     gameboard.placeShip().placeBattleship([1, 0], "horizontal");
