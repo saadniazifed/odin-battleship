@@ -26,3 +26,10 @@ describe.only("Checking if Player Factory returns playerNum", () => {
     expect(playerOne.getPlayerNum()).toEqual(2);
   });
 });
+
+describe.only("Checking if each player object has a gameboard property", () => {
+  test("Checking .toHaveProperty of gameboard on player object", () => {
+    const playerOne = Player("Human", 1);
+    expect(playerOne).toHaveProperty("gameboard");
+  });
+});
