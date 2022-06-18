@@ -49,5 +49,8 @@ describe.only("Checking if gameboard are functional for the player object", () =
     expect(
       playerOne.gameboard.placeShip().placeSubmarine([3, 0], "horizontal")
     ).toEqual(true);
+    expect(
+      playerOne.gameboard.placeShip().placePatroller([4, 0], "horizontal")
+    ).toEqual(true);
   });
 });
