@@ -172,6 +172,32 @@ describe.only("Checking sendAttack function for Destroyer", () => {
   });
 });
 
+describe.only("Checking sendAttack function for Submarine", () => {
+  test("Check submarine", () => {
+    computer.gameboard.placeShip().placeSubmarine([3, 0], "horizontal");
+    //Missing coordinates for the water carrier.
+    player.sendAttack([3, 9]);
+    player.sendAttack([3, 8]);
+    player.sendAttack([3, 7]);
+    player.sendAttack([3, 6]);
+    player.sendAttack([3, 5]);
+    //Hitting the miss values on row
+    expect(computer.gameboard.gameBoardArray[3][9]).toEqual("miss");
+    expect(computer.gameboard.gameBoardArray[3][8]).toEqual("miss");
+    expect(computer.gameboard.gameBoardArray[3][7]).toEqual("miss");
+    expect(computer.gameboard.gameBoardArray[3][6]).toEqual("miss");
+    expect(computer.gameboard.gameBoardArray[3][5]).toEqual("miss");
+    //Actual coordinates for the water carrier ship
+    player.sendAttack([3, 2]);
+    player.sendAttack([3, 1]);
+    player.sendAttack([3, 0]);
+    expect(computer.gameboard.gameBoardArray[3][0].getShipArray()).toHaveLength(
+      0
+    );
+    expect(computer.gameboard.gameBoardArray[3][0].isSunk()).toEqual(true);
+  });
+});
+
 // describe("Checking sendAttack function for WaterCarrier", () => {
 //   test("Check sendAttack for WaterCarrier ship", () => {
 //     computer.gameboard.placeShip().placeWaterCarrier([0, 0], "horizontal");
