@@ -23,7 +23,7 @@ const Gameboard = () => {
   const submarine = Ship(3, "Submarine");
   const patroller = Ship(2, "Patroller");
 
-  // const allShips = [waterCarrier, battleShip, ]
+  const allShips = [waterCarrier, battleShip, destroyer, submarine, patroller];
 
   //Checking to see if the Ship Fits.
   const shipFit = (cell, direction, shipLength) => {
@@ -128,29 +128,39 @@ const Gameboard = () => {
   };
 
   const allSunk = () => {
-    //
+    return allShips.every((ship) => ship.isSunk());
   };
 
   //Placing each ship in their respective positions
   const placeShip = () => {
-    const placeWaterCarrier = (x, y, direction) => {
-      return directionOfShips(x, y, waterCarrier, direction);
+    const placeWaterCarrier = (cell, direction) => {
+      let row = cell[0];
+      let column = cell[1];
+      return directionOfShips([row, column], waterCarrier, direction);
     };
 
-    const placeDestroyer = (x, y, direction) => {
-      return directionOfShips(x, y, destroyer, direction);
+    const placeDestroyer = (cell, direction) => {
+      let row = cell[0];
+      let column = cell[1];
+      return directionOfShips([row, column], destroyer, direction);
     };
 
-    const placeBattleship = (x, y, direction) => {
-      return directionOfShips(x, y, battleShip, direction);
+    const placeBattleship = (cell, direction) => {
+      let row = cell[0];
+      let column = cell[1];
+      return directionOfShips([row, column], battleShip, direction);
     };
 
-    const placeSubmarine = (x, y, direction) => {
-      return directionOfShips(x, y, submarine, direction);
+    const placeSubmarine = (cell, direction) => {
+      let row = cell[0];
+      let column = cell[1];
+      return directionOfShips([row, column], submarine, direction);
     };
 
-    const placePatroller = (x, y, direction) => {
-      return directionOfShips(x, y, patroller, direction);
+    const placePatroller = (cell, direction) => {
+      let row = cell[0];
+      let column = cell[1];
+      return directionOfShips([row, column], patroller, direction);
     };
 
     return {
