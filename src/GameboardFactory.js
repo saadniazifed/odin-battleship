@@ -128,7 +128,8 @@ const Gameboard = () => {
   };
 
   const allSunk = () => {
-    return allShips.every((ship) => ship.isSunk());
+    const arraySunkStatus = (eachShip) => eachShip.isSunk();
+    return allShips.every(arraySunkStatus);
   };
 
   //Placing each ship in their respective positions

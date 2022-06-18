@@ -111,6 +111,8 @@ describe("Checking sendAttack function for WaterCarrier", () => {
     player.sendAttack([0, 2]);
     player.sendAttack([0, 1]);
     player.sendAttack([0, 0]);
+
+    console.table(computer.gameboard.allSunk());
     expect(computer.gameboard.gameBoardArray[0][0].getShipArray()).toHaveLength(
       0
     );
