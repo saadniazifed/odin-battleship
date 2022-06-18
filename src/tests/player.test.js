@@ -220,3 +220,26 @@ describe("Checking sendAttack function for Submarine", () => {
     expect(computer.gameboard.gameBoardArray[3][2].isSunk()).toBe(true);
   });
 });
+
+describe("Checking sendAttack function for Patroller", () => {
+  test("Check sendAttack for Patroller ship", () => {
+    computer.gameboard.placeShip().placePatroller([4, 0], "horizontal");
+    //Missing coordinates for the ship.
+    player.sendAttack([4, 9]);
+    player.sendAttack([4, 8]);
+    player.sendAttack([4, 7]);
+    player.sendAttack([4, 6]);
+    //Actual coordinates for the ship.
+    player.sendAttack([4, 1]);
+    player.sendAttack([4, 0]);
+
+    //Hitting the miss values on row.
+    expect(computer.gameboard.gameBoardArray[4][9]).toEqual("miss");
+    expect(computer.gameboard.gameBoardArray[4][8]).toEqual("miss");
+    expect(computer.gameboard.gameBoardArray[4][7]).toEqual("miss");
+    expect(computer.gameboard.gameBoardArray[4][6]).toEqual("miss");
+    //Hitting the actual values on row.
+    expect(computer.gameboard.gameBoardArray[4][0].isSunk()).toBe(true);
+    expect(computer.gameboard.gameBoardArray[4][1].isSunk()).toBe(true);
+  });
+});
