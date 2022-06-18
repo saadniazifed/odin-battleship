@@ -13,8 +13,9 @@ describe.only("Checking if Player Factory returns a name", () => {
   });
 });
 
-// describe.only("Checking if players have their own gameboard property", () => {
-//   test("Checking for the gameboard property", () => {
-// //     const playerOne = Player("Saad");
-// //   });
-// });
+describe.only("Checking if Player Factory returns playerNum", () => {
+  test("Checking the playerNum function to be 1", () => {
+    const playerOne = Player("Saad", 1);
+    expect(playerOne.getPlayerNum()).toEqual(1);
+  });
+});
