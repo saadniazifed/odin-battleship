@@ -16,7 +16,7 @@ describe("Checking if Player Factory is returning us defined or undefined", () =
 
 describe("Checking if Player Factory returns a name", () => {
   test("Checking the getName function", () => {
-    expect(player.getName()).toEqual("John");
+    expect(playerOne.getName()).toEqual("Human");
   });
 });
 
@@ -83,7 +83,7 @@ describe("Checking if Computer Player has a gameboard property ", () => {
   });
 });
 
-describe.only("Checking sendAttack method functionality", () => {
+describe("Checking sendAttack method functionality", () => {
   test("sendAttack in player factory function", () => {
     computerPlayer.gameboard
       .placeShip()
