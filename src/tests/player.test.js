@@ -143,6 +143,8 @@ describe("Checking sendAttack method functionality for Battleship", () => {
 });
 
 describe("Checking sendAttack method functionality for Destroyer", () => {
+  const newCPU = ComputerPlayer("Computer", 2);
+
   test("sendAttack in player factory function", () => {
     computerPlayer.gameboard.placeShip().placeDestroyer([2, 0], "horizontal");
 
@@ -223,34 +225,36 @@ describe("Checking sendAttack method functionality for Patroller", () => {
 });
 
 describe("Checking allSunk function with sendAttack", () => {
+  const newCPU = ComputerPlayer("Computer", 2);
+  console.table(newCPU.gameboard.gameBoardArray);
   test("Checking allSunk function", () => {
-    computerPlayer.gameboard
-      .placeShip()
-      .placeWaterCarrier([0, 0], "horizontal");
-    computerPlayer.gameboard.placeShip().placeBattleship([1, 0], "horizontal");
-    computerPlayer.gameboard.placeShip().placeDestroyer([2, 0], "horizontal");
-    computerPlayer.gameboard.placeShip().placeSubmarine([3, 0], "horizontal");
-    computerPlayer.gameboard.placeShip().placePatroller([4, 0], "horizontal");
+    newCPU.gameboard.placeShip().placeWaterCarrier([5, 0], "horizontal");
+    newCPU.gameboard.placeShip().placeBattleship([6, 0], "horizontal");
+    newCPU.gameboard.placeShip().placeDestroyer([7, 0], "horizontal");
+    newCPU.gameboard.placeShip().placeSubmarine([8, 0], "horizontal");
+    newCPU.gameboard.placeShip().placePatroller([9, 0], "horizontal");
 
     //Attack Coordinates.
-    // playerOne.sendAttack([0, 0]);
-    playerOne.sendAttack([0, 1]);
-    playerOne.sendAttack([0, 2]);
-    playerOne.sendAttack([0, 3]);
-    playerOne.sendAttack([0, 4]);
-    playerOne.sendAttack([1, 0]);
-    playerOne.sendAttack([1, 1]);
-    playerOne.sendAttack([1, 2]);
-    playerOne.sendAttack([1, 3]);
-    playerOne.sendAttack([2, 0]);
-    playerOne.sendAttack([2, 1]);
-    playerOne.sendAttack([2, 2]);
-    playerOne.sendAttack([3, 0]);
-    playerOne.sendAttack([3, 1]);
-    playerOne.sendAttack([3, 2]);
-    playerOne.sendAttack([4, 0]);
-    playerOne.sendAttack([4, 1]);
+    newCPU.gameboard.receiveAttack([5, 0]);
+    newCPU.gameboard.receiveAttack([5, 1]);
+    newCPU.gameboard.receiveAttack([5, 2]);
+    newCPU.gameboard.receiveAttack([5, 3]);
+    newCPU.gameboard.receiveAttack([5, 4]);
+    newCPU.gameboard.receiveAttack([6, 0]);
+    newCPU.gameboard.receiveAttack([6, 1]);
+    newCPU.gameboard.receiveAttack([6, 2]);
+    newCPU.gameboard.receiveAttack([6, 3]);
+    newCPU.gameboard.receiveAttack([7, 0]);
+    newCPU.gameboard.receiveAttack([7, 1]);
+    newCPU.gameboard.receiveAttack([7, 2]);
+    newCPU.gameboard.receiveAttack([8, 0]);
+    newCPU.gameboard.receiveAttack([8, 1]);
+    newCPU.gameboard.receiveAttack([8, 2]);
+    newCPU.gameboard.receiveAttack([9, 0]);
+    // newCPU.gameboard.receiveAttack([9, 1]);
 
-    expect(computer.gameboard.allSunk()).toBe(true);
+    // computerPlayer.gameboard.receiveAttack([4, 1]);
+
+    expect(newCPU.gameboard.allSunk()).toBe(true);
   });
 });
