@@ -4,6 +4,7 @@ const Player = (name, playerNum) => {
   const getName = () => name;
   const getPlayerNum = () => playerNum;
   const gameboard = Gameboard();
+  const sendAttack = () => {}; //will the sendAttack be a method of Player factory function? or will the logic be something else completely different?
 
   return {
     getName,
@@ -13,10 +14,15 @@ const Player = (name, playerNum) => {
 };
 
 const ComputerPlayer = () => {
-  const prototype = Player("Computer", 2);
-  const randomAttack = () => {};
+  const { gameboard, getName, getPlayerNum } = Player("Computer", 2); //Inheriting these 3 methods from Player factory functions.
 
-  return Object.assign({}, prototype);
+  const randomAttack = () => {};
+  const randomNumberGenerator = () => {};
+
+  return { gameboard, getName, getPlayerNum };
 };
+
+const player = Player("Mark", 1);
+const computer = ComputerPlayer("Computer", 2);
 
 export { Player, ComputerPlayer };
