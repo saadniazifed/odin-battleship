@@ -89,31 +89,31 @@ describe("Checking if Computer Player has a gameboard property ", () => {
   });
 });
 
-describe("Checking the sendAttack method inside the Player factory function", () => {
-  test("sendAttack Method", () => {
-    computer.gameboard.placeShip().placeBattleship([1, 0], "horizontal");
-    computer.gameboard.placeShip().placeDestroyer([2, 0], "horizontal");
-    computer.gameboard.placeShip().placeSubmarine([3, 0], "horizontal");
-    computer.gameboard.placeShip().placePatroller([4, 0], "horizontal");
-    console.table(computer.gameboard.gameBoardArray);
-    //Missing coordinates for the Battleship
-    player.sendAttack([1, 9]);
-    player.sendAttack([1, 8]);
-    player.sendAttack([1, 7]);
-    player.sendAttack([1, 6]);
-    //Missing coordinates for the Destroyer
-    player.sendAttack([2, 9]);
-    player.sendAttack([2, 8]);
-    player.sendAttack([2, 7]);
-    //Hitting the miss values on row 0.
-    expect(computer.gameboard.gameBoardArray[0][9]).toEqual("miss");
-    expect(computer.gameboard.gameBoardArray[0][8]).toEqual("miss");
-    expect(computer.gameboard.gameBoardArray[0][7]).toEqual("miss");
-    expect(computer.gameboard.gameBoardArray[0][6]).toEqual("miss");
-  });
-});
+// describe("Checking the sendAttack method inside the Player factory function", () => {
+//   test("sendAttack Method", () => {
+//     computer.gameboard.placeShip().placeBattleship([1, 0], "horizontal");
+//     computer.gameboard.placeShip().placeDestroyer([2, 0], "horizontal");
+//     computer.gameboard.placeShip().placeSubmarine([3, 0], "horizontal");
+//     computer.gameboard.placeShip().placePatroller([4, 0], "horizontal");
+//     console.table(computer.gameboard.gameBoardArray);
+//     //Missing coordinates for the Battleship
+//     player.sendAttack([1, 9]);
+//     player.sendAttack([1, 8]);
+//     player.sendAttack([1, 7]);
+//     player.sendAttack([1, 6]);
+//     //Missing coordinates for the Destroyer
+//     player.sendAttack([2, 9]);
+//     player.sendAttack([2, 8]);
+//     player.sendAttack([2, 7]);
+//     //Hitting the miss values on row 0.
+//     expect(computer.gameboard.gameBoardArray[0][9]).toEqual("miss");
+//     expect(computer.gameboard.gameBoardArray[0][8]).toEqual("miss");
+//     expect(computer.gameboard.gameBoardArray[0][7]).toEqual("miss");
+//     expect(computer.gameboard.gameBoardArray[0][6]).toEqual("miss");
+//   });
+// });
 
-describe.only("Checking sendAttack function for WaterCarrier", () => {
+describe("Checking sendAttack function for WaterCarrier", () => {
   test("Check sendAttack for WaterCarrier ship", () => {
     computer.gameboard.placeShip().placeWaterCarrier([0, 0], "horizontal");
     //Missing coordinates for the water carrier.
@@ -141,5 +141,32 @@ describe.only("Checking sendAttack function for WaterCarrier", () => {
     expect(computer.gameboard.gameBoardArray[0][2].isSunk()).toBe(true);
     expect(computer.gameboard.gameBoardArray[0][3].isSunk()).toBe(true);
     expect(computer.gameboard.gameBoardArray[0][4].isSunk()).toBe(true);
+  });
+});
+
+describe("Checking sendAttack function for BattleShip", () => {
+  test("Check sendAttack for Battleship ship", () => {
+    computer.gameboard.placeShip().placeBattleship([1, 0], "horizontal");
+    //Missing coordinates for the water carrier.
+    player.sendAttack([1, 9]);
+    player.sendAttack([1, 8]);
+    player.sendAttack([1, 7]);
+    player.sendAttack([1, 6]);
+    //Actual coordinates for the water carrier ship
+    player.sendAttack([1, 3]);
+    player.sendAttack([1, 2]);
+    player.sendAttack([1, 1]);
+    player.sendAttack([1, 0]);
+
+    //Hitting the miss values on row 1.
+    expect(computer.gameboard.gameBoardArray[1][9]).toEqual("miss");
+    expect(computer.gameboard.gameBoardArray[1][8]).toEqual("miss");
+    expect(computer.gameboard.gameBoardArray[1][7]).toEqual("miss");
+    expect(computer.gameboard.gameBoardArray[1][6]).toEqual("miss");
+    //Hitting the actual values on row 1.
+    expect(computer.gameboard.gameBoardArray[1][0].isSunk()).toBe(true);
+    expect(computer.gameboard.gameBoardArray[1][1].isSunk()).toBe(true);
+    expect(computer.gameboard.gameBoardArray[1][2].isSunk()).toBe(true);
+    expect(computer.gameboard.gameBoardArray[1][3].isSunk()).toBe(true);
   });
 });
