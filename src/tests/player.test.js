@@ -79,7 +79,7 @@ describe("Checking if Computer Player has a playerNum ", () => {
 
 describe("Checking if Computer Player has a gameboard property ", () => {
   test("Checking for the ComputerPlayer factory gameboard property", () => {
-    expect(computer).toHaveProperty("gameboard");
+    expect(computerPlayer).toHaveProperty("gameboard");
   });
 });
 
