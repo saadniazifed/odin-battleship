@@ -22,9 +22,8 @@ describe.only("Checking if Player Factory returns a name", () => {
   });
 });
 
-describe("Checking if Player Factory returns playerNum", () => {
+describe.only("Checking if Player Factory returns playerNum", () => {
   test("Checking the playerNum function to be 1", () => {
-    // const playerOne = Player("Human", 1);
     expect(playerOne.getPlayerNum()).toEqual(1);
   });
 });
