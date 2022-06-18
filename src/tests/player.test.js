@@ -40,11 +40,10 @@ describe.only("Checking if each player object has a gameboard property", () => {
   });
 });
 
-describe("Checking if gameboard are functional for the player object", () => {
+describe.only("Checking if gameboard are functional for the player object", () => {
   test("gameboard functionality check", () => {
-    const playerOne = Player("Human", 1);
     expect(
-      playerOne.gameBoard.placeShip().placeWaterCarrier([0, 0], "horizontal")
+      playerOne.gameboard.placeShip().placeWaterCarrier([0, 0], "horizontal")
     ).toEqual(true);
     expect(
       playerOne.gameboard.placeShip().placeBattleship([1, 0], "horizontal")
