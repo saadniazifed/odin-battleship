@@ -99,8 +99,16 @@ describe.only("Checking the sendAttack method inside the Player factory function
     console.table(computer.gameboard.gameBoardArray);
 
     player.sendAttack([0, 9]);
+    player.sendAttack([0, 8]);
+    player.sendAttack([0, 7]);
+    player.sendAttack([0, 6]);
+
     player.sendAttack([0, 0]);
 
+    //Hitting the miss values on row 0.
     expect(computer.gameboard.gameBoardArray[0][9]).toEqual("miss");
+    expect(computer.gameboard.gameBoardArray[0][8]).toEqual("miss");
+    expect(computer.gameboard.gameBoardArray[0][7]).toEqual("miss");
+    expect(computer.gameboard.gameBoardArray[0][6]).toEqual("miss");
   });
 });
