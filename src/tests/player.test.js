@@ -33,3 +33,13 @@ describe.only("Checking if each player object has a gameboard property", () => {
     expect(playerOne).toHaveProperty("gameboard");
   });
 });
+
+describe.only("Checking if gameboard are functional for the player object", () => {
+  test("gameboard functionality check", () => {
+    const playerOne = Player("Human", 1);
+    expect(
+      playerOne.gameboard.placeShip().placeWaterCarrier([0, 0], "horizontal")
+    ).toEqual(true);
+    console.table(playerOne.gameboard.gameBoardArray);
+  });
+});
