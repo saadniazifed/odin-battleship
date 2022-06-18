@@ -129,13 +129,13 @@ describe("Checking sendAttack function for WaterCarrier", () => {
     player.sendAttack([0, 1]);
     player.sendAttack([0, 0]);
 
-    //Hitting the miss values on row 0.
+    //Hitting the miss values on row
     expect(computer.gameboard.gameBoardArray[0][9]).toEqual("miss");
     expect(computer.gameboard.gameBoardArray[0][8]).toEqual("miss");
     expect(computer.gameboard.gameBoardArray[0][7]).toEqual("miss");
     expect(computer.gameboard.gameBoardArray[0][6]).toEqual("miss");
     expect(computer.gameboard.gameBoardArray[0][5]).toEqual("miss");
-    //Hitting the actual values on row 0.
+    //Hitting the actual values on row
     expect(computer.gameboard.gameBoardArray[0][0].isSunk()).toBe(true);
     expect(computer.gameboard.gameBoardArray[0][1].isSunk()).toBe(true);
     expect(computer.gameboard.gameBoardArray[0][2].isSunk()).toBe(true);
@@ -147,23 +147,23 @@ describe("Checking sendAttack function for WaterCarrier", () => {
 describe("Checking sendAttack function for BattleShip", () => {
   test("Check sendAttack for Battleship ship", () => {
     computer.gameboard.placeShip().placeBattleship([1, 0], "horizontal");
-    //Missing coordinates for the water carrier.
+    //Missing coordinates for the ship
     player.sendAttack([1, 9]);
     player.sendAttack([1, 8]);
     player.sendAttack([1, 7]);
     player.sendAttack([1, 6]);
-    //Actual coordinates for the water carrier ship
+    //Actual coordinates for the ship
     player.sendAttack([1, 3]);
     player.sendAttack([1, 2]);
     player.sendAttack([1, 1]);
     player.sendAttack([1, 0]);
 
-    //Hitting the miss values on row 1.
+    //Hitting the miss values on row
     expect(computer.gameboard.gameBoardArray[1][9]).toEqual("miss");
     expect(computer.gameboard.gameBoardArray[1][8]).toEqual("miss");
     expect(computer.gameboard.gameBoardArray[1][7]).toEqual("miss");
     expect(computer.gameboard.gameBoardArray[1][6]).toEqual("miss");
-    //Hitting the actual values on row 1.
+    //Hitting the actual values on row
     expect(computer.gameboard.gameBoardArray[1][0].isSunk()).toBe(true);
     expect(computer.gameboard.gameBoardArray[1][1].isSunk()).toBe(true);
     expect(computer.gameboard.gameBoardArray[1][2].isSunk()).toBe(true);
@@ -174,24 +174,49 @@ describe("Checking sendAttack function for BattleShip", () => {
 describe("Checking sendAttack function for Destroyer", () => {
   test("Check sendAttack for Destroyer ship", () => {
     computer.gameboard.placeShip().placeDestroyer([2, 0], "horizontal");
-    //Missing coordinates for the water carrier.
+    //Missing coordinates for the ship.
     player.sendAttack([2, 9]);
     player.sendAttack([2, 8]);
     player.sendAttack([2, 7]);
     player.sendAttack([2, 6]);
-    //Actual coordinates for the water carrier ship
+    //Actual coordinates for the ship.
     player.sendAttack([2, 2]);
     player.sendAttack([2, 1]);
     player.sendAttack([2, 0]);
 
-    //Hitting the miss values on row 1.
+    //Hitting the miss values on row
     expect(computer.gameboard.gameBoardArray[2][9]).toEqual("miss");
     expect(computer.gameboard.gameBoardArray[2][8]).toEqual("miss");
     expect(computer.gameboard.gameBoardArray[2][7]).toEqual("miss");
     expect(computer.gameboard.gameBoardArray[2][6]).toEqual("miss");
-    //Hitting the actual values on row 1.
+    //Hitting the actual values on row
     expect(computer.gameboard.gameBoardArray[2][0].isSunk()).toBe(true);
     expect(computer.gameboard.gameBoardArray[2][1].isSunk()).toBe(true);
     expect(computer.gameboard.gameBoardArray[2][2].isSunk()).toBe(true);
+  });
+});
+
+describe("Checking sendAttack function for Submarine", () => {
+  test("Check sendAttack for Submarine ship", () => {
+    computer.gameboard.placeShip().placeSubmarine([3, 0], "horizontal");
+    //Missing coordinates for the ship.
+    player.sendAttack([3, 9]);
+    player.sendAttack([3, 8]);
+    player.sendAttack([3, 7]);
+    player.sendAttack([3, 6]);
+    //Actual coordinates for the ship.
+    player.sendAttack([3, 2]);
+    player.sendAttack([3, 1]);
+    player.sendAttack([3, 0]);
+
+    //Hitting the miss values on row.
+    expect(computer.gameboard.gameBoardArray[3][9]).toEqual("miss");
+    expect(computer.gameboard.gameBoardArray[3][8]).toEqual("miss");
+    expect(computer.gameboard.gameBoardArray[3][7]).toEqual("miss");
+    expect(computer.gameboard.gameBoardArray[3][6]).toEqual("miss");
+    //Hitting the actual values on row.
+    expect(computer.gameboard.gameBoardArray[3][0].isSunk()).toBe(true);
+    expect(computer.gameboard.gameBoardArray[3][1].isSunk()).toBe(true);
+    expect(computer.gameboard.gameBoardArray[3][2].isSunk()).toBe(true);
   });
 });
