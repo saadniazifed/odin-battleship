@@ -67,7 +67,7 @@ describe("Checking if Computer Player returns us defined", () => {
 
 describe("Checking if Computer Player has a name ", () => {
   test("Checking for the ComputerPlayer factory function getName property", () => {
-    expect(computer.getName()).toEqual("Computer");
+    expect(computerPlayer.getName()).toEqual("Computer");
   });
 });
 
