@@ -233,18 +233,24 @@ describe.only("Checking to see if all the Ships have sunk", () => {
     computer.gameboard.placeShip().placePatroller([4, 0], "horizontal");
 
     //Sending correct coordinates.
+
+    //Attacking the Patroller
     player.sendAttack([4, 1]);
     player.sendAttack([4, 0]);
+    //Attacking the Submarine
     player.sendAttack([3, 2]);
     player.sendAttack([3, 1]);
     player.sendAttack([3, 0]);
+    //Attacking the Destroyer
     player.sendAttack([2, 2]);
     player.sendAttack([2, 1]);
     player.sendAttack([2, 0]);
+    //Attacking the Battleship
     player.sendAttack([1, 3]);
     player.sendAttack([1, 2]);
     player.sendAttack([1, 1]);
     player.sendAttack([1, 0]);
+    //Attacking the Water carrier.
     player.sendAttack([0, 4]);
     player.sendAttack([0, 3]);
     player.sendAttack([0, 2]);
