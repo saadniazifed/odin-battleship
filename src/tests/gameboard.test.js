@@ -349,7 +349,7 @@ describe.only("Checking the directionOfShips function with Ship Length 3", () =>
   });
 });
 
-describe("Checking the directionOfShips function with Ship Length 4", () => {
+describe.only("Checking the directionOfShips function with Ship Length 4", () => {
   test("Check the vertical direction", () => {
     const myFirstShip = Ship(4);
     expect(gameboard.directionOfShips([0, 0], myFirstShip, "vertical")).toEqual(
