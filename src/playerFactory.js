@@ -12,4 +12,11 @@ const Player = (name, playerNum) => {
   };
 };
 
-export { Player };
+const ComputerPlayer = () => {
+  // const { gameboard } = Player("computer", 2);
+  // const makeRandomAttack = () => {};
+  // return { gameboard, makeRandomAttack };
+  return {};
+};
+
+export { Player, ComputerPlayer };

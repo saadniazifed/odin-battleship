@@ -1,4 +1,4 @@
-import { Player } from "../playerFactory";
+import { ComputerPlayer, Player } from "../playerFactory";
 
 describe.only("Checking if Player Factory is returning us defined or undefined", () => {
   test("Checking if Player Factory is defined or undefined", () => {
@@ -52,5 +52,12 @@ describe.only("Checking if gameboard are functional for the player object", () =
     expect(
       playerOne.gameboard.placeShip().placePatroller([4, 0], "horizontal")
     ).toEqual(true);
+  });
+});
+
+//Checking for the Computer now.
+describe.only("Checking if Computer Player returns us defined", () => {
+  test("Checking for the ComputerPlayer factory function", () => {
+    expect(ComputerPlayer()).toBeDefined();
   });
 });
