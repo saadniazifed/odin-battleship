@@ -83,7 +83,7 @@ describe("Checking if Computer Player has a gameboard property ", () => {
   });
 });
 
-describe.only("Checking sendAttack method functionality for Water Carrier", () => {
+describe("Checking sendAttack method functionality for Water Carrier", () => {
   test("sendAttack in player factory function", () => {
     computerPlayer.gameboard
       .placeShip()
@@ -114,7 +114,7 @@ describe.only("Checking sendAttack method functionality for Water Carrier", () =
   });
 });
 
-describe.only("Checking sendAttack method functionality for Battleship", () => {
+describe("Checking sendAttack method functionality for Battleship", () => {
   test("sendAttack in player factory function", () => {
     computerPlayer.gameboard.placeShip().placeBattleship([1, 0], "horizontal");
 
@@ -147,15 +147,15 @@ describe("Checking sendAttack method functionality for Destroyer", () => {
     computerPlayer.gameboard.placeShip().placeDestroyer([2, 0], "horizontal");
 
     //Miss Coordinates
-    playerOne.sendAttack([2, 9]);
-    playerOne.sendAttack([2, 8]);
-    playerOne.sendAttack([2, 7]);
-    playerOne.sendAttack([2, 6]);
-    playerOne.sendAttack([2, 5]);
+    computerPlayer.gameboard.receiveAttack([2, 9]);
+    computerPlayer.gameboard.receiveAttack([2, 8]);
+    computerPlayer.gameboard.receiveAttack([2, 7]);
+    computerPlayer.gameboard.receiveAttack([2, 6]);
+    computerPlayer.gameboard.receiveAttack([2, 5]);
     //Attack Coordinates
-    playerOne.sendAttack([2, 0]);
-    playerOne.sendAttack([2, 1]);
-    playerOne.sendAttack([2, 2]);
+    computerPlayer.gameboard.receiveAttack([2, 0]);
+    computerPlayer.gameboard.receiveAttack([2, 1]);
+    computerPlayer.gameboard.receiveAttack([2, 2]);
 
     expect(computerPlayer.gameboard.gameBoardArray[2][9]).toEqual("miss");
     expect(computerPlayer.gameboard.gameBoardArray[2][8]).toEqual("miss");
