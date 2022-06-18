@@ -67,15 +67,8 @@ describe.only("Checking if Computer Player returns us defined", () => {
   });
 });
 
-describe("Checking if Computer Player returns us defined", () => {
-  test("Checking for the ComputerPlayer factory function", () => {
-    expect(ComputerPlayer()).toBeDefined();
-  });
-});
-
-describe("Checking if Computer Player has a name ", () => {
+describe.only("Checking if Computer Player has a name ", () => {
   test("Checking for the ComputerPlayer factory function getName property", () => {
-    const computer = ComputerPlayer("Computer", 2);
     expect(computer.getName()).toEqual("Computer");
   });
 });
