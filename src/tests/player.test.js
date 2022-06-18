@@ -102,7 +102,6 @@ describe("Checking sendAttack method functionality for Water Carrier", () => {
     playerOne.sendAttack([0, 3]);
     playerOne.sendAttack([0, 4]);
 
-    console.table(computer.gameboard.gameBoardArray);
     expect(computerPlayer.gameboard.gameBoardArray[0][9]).toEqual("miss");
     expect(computerPlayer.gameboard.gameBoardArray[0][8]).toEqual("miss");
     expect(computerPlayer.gameboard.gameBoardArray[0][7]).toEqual("miss");
@@ -131,7 +130,6 @@ describe("Checking sendAttack method functionality for Battleship", () => {
     playerOne.sendAttack([1, 2]);
     playerOne.sendAttack([1, 3]);
 
-    console.table(computer.gameboard.gameBoardArray);
     expect(computerPlayer.gameboard.gameBoardArray[1][9]).toEqual("miss");
     expect(computerPlayer.gameboard.gameBoardArray[1][8]).toEqual("miss");
     expect(computerPlayer.gameboard.gameBoardArray[1][7]).toEqual("miss");
@@ -159,7 +157,6 @@ describe("Checking sendAttack method functionality for Destroyer", () => {
     playerOne.sendAttack([2, 1]);
     playerOne.sendAttack([2, 2]);
 
-    console.table(computer.gameboard.gameBoardArray);
     expect(computerPlayer.gameboard.gameBoardArray[2][9]).toEqual("miss");
     expect(computerPlayer.gameboard.gameBoardArray[2][8]).toEqual("miss");
     expect(computerPlayer.gameboard.gameBoardArray[2][7]).toEqual("miss");
@@ -186,10 +183,7 @@ describe("Checking sendAttack method functionality for Submarine", () => {
     playerOne.sendAttack([3, 0]);
     playerOne.sendAttack([3, 1]);
     playerOne.sendAttack([3, 2]);
-    playerOne.sendAttack([3, 3]);
-    playerOne.sendAttack([3, 4]);
 
-    console.table(computer.gameboard.gameBoardArray);
     expect(computerPlayer.gameboard.gameBoardArray[3][9]).toEqual("miss");
     expect(computerPlayer.gameboard.gameBoardArray[3][8]).toEqual("miss");
     expect(computerPlayer.gameboard.gameBoardArray[3][7]).toEqual("miss");
@@ -216,7 +210,6 @@ describe("Checking sendAttack method functionality for Patroller", () => {
     playerOne.sendAttack([4, 0]);
     playerOne.sendAttack([4, 1]);
 
-    console.table(computer.gameboard.gameBoardArray);
     expect(computerPlayer.gameboard.gameBoardArray[4][9]).toEqual("miss");
     expect(computerPlayer.gameboard.gameBoardArray[4][8]).toEqual("miss");
     expect(computerPlayer.gameboard.gameBoardArray[4][7]).toEqual("miss");
@@ -226,5 +219,38 @@ describe("Checking sendAttack method functionality for Patroller", () => {
       computerPlayer.gameboard.gameBoardArray[4][0].getShipArray()
     ).toHaveLength(0);
     expect(computerPlayer.gameboard.gameBoardArray[4][0].isSunk()).toBe(true);
+  });
+});
+
+describe("Checking allSunk function with sendAttack", () => {
+  test("Checking allSunk function", () => {
+    computerPlayer.gameboard
+      .placeShip()
+      .placeWaterCarrier([0, 0], "horizontal");
+    computerPlayer.gameboard.placeShip().placeBattleship([1, 0], "horizontal");
+    computerPlayer.gameboard.placeShip().placeDestroyer([2, 0], "horizontal");
+    computerPlayer.gameboard.placeShip().placeSubmarine([3, 0], "horizontal");
+    computerPlayer.gameboard.placeShip().placePatroller([4, 0], "horizontal");
+
+    //Attack Coordinates.
+    // playerOne.sendAttack([0, 0]);
+    playerOne.sendAttack([0, 1]);
+    playerOne.sendAttack([0, 2]);
+    playerOne.sendAttack([0, 3]);
+    playerOne.sendAttack([0, 4]);
+    playerOne.sendAttack([1, 0]);
+    playerOne.sendAttack([1, 1]);
+    playerOne.sendAttack([1, 2]);
+    playerOne.sendAttack([1, 3]);
+    playerOne.sendAttack([2, 0]);
+    playerOne.sendAttack([2, 1]);
+    playerOne.sendAttack([2, 2]);
+    playerOne.sendAttack([3, 0]);
+    playerOne.sendAttack([3, 1]);
+    playerOne.sendAttack([3, 2]);
+    playerOne.sendAttack([4, 0]);
+    playerOne.sendAttack([4, 1]);
+
+    expect(computer.gameboard.allSunk()).toBe(true);
   });
 });
