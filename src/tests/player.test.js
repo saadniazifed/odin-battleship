@@ -108,6 +108,10 @@ describe.only("Checking the sendAttack method inside the Player factory function
     player.sendAttack([1, 8]);
     player.sendAttack([1, 7]);
     player.sendAttack([1, 6]);
+    //Missing coordinates for the Destroyer
+    player.sendAttack([2, 9]);
+    player.sendAttack([2, 8]);
+    player.sendAttack([2, 7]);
     //Hitting the miss values on row 0.
     expect(computer.gameboard.gameBoardArray[0][9]).toEqual("miss");
     expect(computer.gameboard.gameBoardArray[0][8]).toEqual("miss");
