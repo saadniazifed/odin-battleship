@@ -28,7 +28,7 @@ describe("Checking if Player Factory returns playerNum", () => {
 
 describe("Checking if Player Factory returns playerNum", () => {
   test("Checking the playerNum function to be 2", () => {
-    expect(computer.getPlayerNum()).toEqual(2);
+    expect(computerPlayer.getPlayerNum()).toEqual(2);
   });
 });
 
