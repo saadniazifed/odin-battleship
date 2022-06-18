@@ -1,4 +1,4 @@
-import { ComputerPlayer, Player } from "../playerFactory";
+import { computer, ComputerPlayer, player, Player } from "../playerFactory";
 
 describe("Checking if Player Factory is returning us defined or undefined", () => {
   test("Checking if Player Factory is defined or undefined", () => {
@@ -86,5 +86,21 @@ describe("Checking if Computer Player has a gameboard property ", () => {
   test("Checking for the ComputerPlayer factory gameboard property", () => {
     const computer = ComputerPlayer("Computer", 2);
     expect(computer).toHaveProperty("gameboard");
+  });
+});
+
+describe.only("Checking the sendAttack method inside the Player factory function", () => {
+  test("sendAttack Method", () => {
+    computer.gameboard.placeShip().placeWaterCarrier([0, 0], "horizontal");
+    computer.gameboard.placeShip().placeBattleship([1, 0], "horizontal");
+    computer.gameboard.placeShip().placeDestroyer([2, 0], "horizontal");
+    computer.gameboard.placeShip().placeSubmarine([3, 0], "horizontal");
+    computer.gameboard.placeShip().placePatroller([4, 0], "horizontal");
+    console.table(computer.gameboard.gameBoardArray);
+
+    player.sendAttack([0, 9]);
+    player.sendAttack([0, 0]);
+
+    expect(computer.gameboard.gameBoardArray[0][9]).toEqual("miss");
   });
 });

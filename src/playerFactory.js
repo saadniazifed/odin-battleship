@@ -4,12 +4,18 @@ const Player = (name, playerNum) => {
   const getName = () => name;
   const getPlayerNum = () => playerNum;
   const gameboard = Gameboard();
-  const sendAttack = () => {}; //will the sendAttack be a method of Player factory function? or will the logic be something else completely different?
+  const sendAttack = (cell) => {
+    let row = cell[0];
+    let column = cell[1];
+    return computer.gameboard.receiveAttack([row, column]);
+  };
+  //will the sendAttack be a method of Player factory function? or will the logic be something else completely different?
 
   return {
     getName,
     getPlayerNum,
     gameboard,
+    sendAttack,
   };
 };
 
@@ -22,7 +28,7 @@ const ComputerPlayer = () => {
   return { gameboard, getName, getPlayerNum };
 };
 
-const player = Player("Mark", 1);
+const player = Player("Human", 1);
 const computer = ComputerPlayer("Computer", 2);
 
-export { Player, ComputerPlayer };
+export { Player, ComputerPlayer, player, computer };
