@@ -83,13 +83,23 @@ describe("Checking if Computer Player has a gameboard property ", () => {
   });
 });
 
-describe("Checking sendAttack method functionality", () => {
+describe("Checking sendAttack method functionality for Water Carrier", () => {
   test("sendAttack in player factory function", () => {
     computerPlayer.gameboard
       .placeShip()
       .placeWaterCarrier([0, 0], "horizontal");
     playerOne.sendAttack([0, 9]);
+    playerOne.sendAttack([0, 8]);
+    playerOne.sendAttack([0, 7]);
+    playerOne.sendAttack([0, 6]);
+    playerOne.sendAttack([0, 5]);
+
+    console.table(computer.gameboard.gameBoardArray);
     expect(computerPlayer.gameboard.gameBoardArray[0][9]).toEqual("miss");
+    expect(computerPlayer.gameboard.gameBoardArray[0][8]).toEqual("miss");
+    expect(computerPlayer.gameboard.gameBoardArray[0][7]).toEqual("miss");
+    expect(computerPlayer.gameboard.gameBoardArray[0][6]).toEqual("miss");
+    expect(computerPlayer.gameboard.gameBoardArray[0][5]).toEqual("miss");
   });
 });
 
