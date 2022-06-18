@@ -22,7 +22,7 @@ describe("Checking if Player Factory returns a name", () => {
 
 describe("Checking if Player Factory returns playerNum", () => {
   test("Checking the playerNum function to be 1", () => {
-    expect(player.getPlayerNum()).toEqual(1);
+    expect(playerOne.getPlayerNum()).toEqual(1);
   });
 });
 
