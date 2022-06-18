@@ -89,8 +89,6 @@ describe("Checking sendAttack method functionality", () => {
       .placeShip()
       .placeWaterCarrier([0, 0], "horizontal");
     playerOne.sendAttack([0, 9]);
-    console.table(computerPlayer.gameboard.gameBoardArray);
-
     expect(computerPlayer.gameboard.gameBoardArray[0][9]).toEqual("miss");
   });
 });
