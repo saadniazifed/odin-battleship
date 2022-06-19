@@ -318,24 +318,3 @@ describe("Checking allSunk function on player gameboard", () => {
     expect(playerOne.gameboard.allSunk()).toBe(true);
   });
 });
-
-describe("Checking something", () => {
-  test("Check something", () => {
-    playerOne.gameboard.placeShip().placeWaterCarrier([0, 0], "horizontal");
-    playerOne.gameboard.placeShip().placeBattleship([1, 0], "horizontal");
-    playerOne.gameboard.placeShip().placeDestroyer([2, 0], "horizontal");
-    playerOne.gameboard.placeShip().placeSubmarine([3, 0], "horizontal");
-    playerOne.gameboard.placeShip().placeDestroyer([4, 0], "horizontal");
-
-    computerPlayer.gameboard
-      .placeShip()
-      .placeWaterCarrier([0, 0], "horizontal");
-    computerPlayer.gameboard.placeShip().placeBattleship([1, 0], "horizontal");
-    computerPlayer.gameboard.placeShip().placeDestroyer([2, 0], "horizontal");
-    computerPlayer.gameboard.placeShip().placeSubmarine([3, 0], "horizontal");
-    computerPlayer.gameboard.placeShip().placePatroller([4, 0], "horizontal");
-
-    // expect(computerPlayer.sendAttack([0, 0])).toEqual();
-    // expect(playerOne.sendAttack([0, 9])).toEqual();
-  });
-});

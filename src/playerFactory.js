@@ -15,7 +15,7 @@ const Player = (name, playerNum) => {
   const sendAttack = (cell, player) => {
     let row = cell[0];
     let column = cell[1];
-    player.receiveAttack([row, column]);
+    return player.attackReceived([row, column]);
   };
 
   return {
@@ -59,7 +59,7 @@ const ComputerPlayer = () => {
   const sendAttack = (cell, player) => {
     let row = cell[0];
     let column = cell[1];
-    player.receiveAttack([row, column]);
+    return player.attackReceived([row, column]);
   };
 
   return {
