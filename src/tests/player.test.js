@@ -261,8 +261,7 @@ describe("Checking allSunk function with sendAttack", () => {
   });
 });
 
-describe("Checking allSunk function with sendAttack", () => {
-  //   console.table(newCPU.gameboard.gameBoardArray);
+describe("Checking allSunk function on computer gameboard", () => {
   test("Checking allSunk function", () => {
     computerPlayer.gameboard
       .placeShip()
@@ -295,5 +294,39 @@ describe("Checking allSunk function with sendAttack", () => {
     console.table(computerPlayer.gameboard.gameBoardArray);
 
     expect(computerPlayer.gameboard.allSunk()).toBe(false);
+  });
+});
+
+describe("Checking allSunk function on player gameboard", () => {
+  test("Checking allSunk function", () => {
+    playerOne.gameboard.placeShip().placeWaterCarrier([5, 0], "horizontal");
+    playerOne.gameboard.placeShip().placeBattleship([6, 0], "horizontal");
+    playerOne.gameboard.placeShip().placeDestroyer([7, 0], "horizontal");
+    playerOne.gameboard.placeShip().placeSubmarine([8, 0], "horizontal");
+    playerOne.gameboard.placeShip().placePatroller([9, 0], "horizontal");
+
+    //Attack Coordinates.
+    playerOne.gameboard.receiveAttack([5, 0]);
+    playerOne.gameboard.receiveAttack([5, 1]);
+    playerOne.gameboard.receiveAttack([5, 2]);
+    playerOne.gameboard.receiveAttack([5, 3]);
+    playerOne.gameboard.receiveAttack([5, 4]);
+    playerOne.gameboard.receiveAttack([6, 0]);
+    playerOne.gameboard.receiveAttack([6, 1]);
+    playerOne.gameboard.receiveAttack([6, 2]);
+    playerOne.gameboard.receiveAttack([6, 3]);
+    playerOne.gameboard.receiveAttack([7, 0]);
+    playerOne.gameboard.receiveAttack([7, 1]);
+    playerOne.gameboard.receiveAttack([7, 2]);
+    playerOne.gameboard.receiveAttack([8, 0]);
+    playerOne.gameboard.receiveAttack([8, 1]);
+    playerOne.gameboard.receiveAttack([8, 2]);
+    playerOne.gameboard.receiveAttack([8, 3]);
+    playerOne.gameboard.receiveAttack([9, 0]);
+    playerOne.gameboard.receiveAttack([9, 1]);
+
+    console.table(playerOne.gameboard.gameBoardArray);
+
+    expect(playerOne.gameboard.allSunk()).toBe(true);
   });
 });
