@@ -260,3 +260,40 @@ describe("Checking allSunk function with sendAttack", () => {
     expect(computerPlayer.gameboard.allSunk()).toBe(true);
   });
 });
+
+describe("Checking allSunk function with sendAttack", () => {
+  //   console.table(newCPU.gameboard.gameBoardArray);
+  test("Checking allSunk function", () => {
+    computerPlayer.gameboard
+      .placeShip()
+      .placeWaterCarrier([5, 0], "horizontal");
+    computerPlayer.gameboard.placeShip().placeBattleship([6, 0], "horizontal");
+    computerPlayer.gameboard.placeShip().placeDestroyer([7, 0], "horizontal");
+    computerPlayer.gameboard.placeShip().placeSubmarine([8, 0], "horizontal");
+    computerPlayer.gameboard.placeShip().placePatroller([9, 0], "horizontal");
+
+    //Attack Coordinates.
+    computerPlayer.gameboard.receiveAttack([5, 0]);
+    computerPlayer.gameboard.receiveAttack([5, 1]);
+    computerPlayer.gameboard.receiveAttack([5, 2]);
+    computerPlayer.gameboard.receiveAttack([5, 3]);
+    computerPlayer.gameboard.receiveAttack([5, 4]);
+    computerPlayer.gameboard.receiveAttack([6, 0]);
+    computerPlayer.gameboard.receiveAttack([6, 1]);
+    computerPlayer.gameboard.receiveAttack([6, 2]);
+    computerPlayer.gameboard.receiveAttack([6, 3]);
+    computerPlayer.gameboard.receiveAttack([7, 0]);
+    computerPlayer.gameboard.receiveAttack([7, 1]);
+    computerPlayer.gameboard.receiveAttack([7, 2]);
+    computerPlayer.gameboard.receiveAttack([8, 0]);
+    computerPlayer.gameboard.receiveAttack([8, 1]);
+    computerPlayer.gameboard.receiveAttack([8, 2]);
+    computerPlayer.gameboard.receiveAttack([8, 3]);
+    computerPlayer.gameboard.receiveAttack([9, 0]);
+    // computerPlayer.gameboard.receiveAttack([9, 1]);
+
+    console.table(computerPlayer.gameboard.gameBoardArray);
+
+    expect(computerPlayer.gameboard.allSunk()).toBe(false);
+  });
+});
