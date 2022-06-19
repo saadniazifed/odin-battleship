@@ -143,11 +143,8 @@ describe("Checking sendAttack method functionality for Battleship", () => {
 });
 
 describe("Checking sendAttack method functionality for Destroyer", () => {
-  const newCPU = ComputerPlayer("Computer", 2);
-
   test("sendAttack in player factory function", () => {
     computerPlayer.gameboard.placeShip().placeDestroyer([2, 0], "horizontal");
-
     //Miss Coordinates
     computerPlayer.gameboard.receiveAttack([2, 9]);
     computerPlayer.gameboard.receiveAttack([2, 8]);
@@ -254,9 +251,6 @@ describe("Checking allSunk function with sendAttack", () => {
     computerPlayer.gameboard.receiveAttack([8, 3]);
     computerPlayer.gameboard.receiveAttack([9, 0]);
     computerPlayer.gameboard.receiveAttack([9, 1]);
-
-    console.table(computerPlayer.gameboard.gameBoardArray);
-
     expect(computerPlayer.gameboard.allSunk()).toBe(true);
   });
 });
@@ -290,9 +284,6 @@ describe("Checking allSunk function on computer gameboard", () => {
     computerPlayer.gameboard.receiveAttack([8, 3]);
     computerPlayer.gameboard.receiveAttack([9, 0]);
     // computerPlayer.gameboard.receiveAttack([9, 1]);
-
-    console.table(computerPlayer.gameboard.gameBoardArray);
-
     expect(computerPlayer.gameboard.allSunk()).toBe(false);
   });
 });
@@ -324,9 +315,27 @@ describe("Checking allSunk function on player gameboard", () => {
     playerOne.gameboard.receiveAttack([8, 3]);
     playerOne.gameboard.receiveAttack([9, 0]);
     playerOne.gameboard.receiveAttack([9, 1]);
-
-    console.table(playerOne.gameboard.gameBoardArray);
-
     expect(playerOne.gameboard.allSunk()).toBe(true);
+  });
+});
+
+describe.only("Checking something", () => {
+  test("Check something", () => {
+    playerOne.gameboard.placeShip().placeWaterCarrier([0, 0], "horizontal");
+    playerOne.gameboard.placeShip().placeBattleship([1, 0], "horizontal");
+    playerOne.gameboard.placeShip().placeDestroyer([2, 0], "horizontal");
+    playerOne.gameboard.placeShip().placeSubmarine([3, 0], "horizontal");
+    playerOne.gameboard.placeShip().placeDestroyer([4, 0], "horizontal");
+
+    computerPlayer.gameboard
+      .placeShip()
+      .placeWaterCarrier([0, 0], "horizontal");
+    computerPlayer.gameboard.placeShip().placeBattleship([1, 0], "horizontal");
+    computerPlayer.gameboard.placeShip().placeDestroyer([2, 0], "horizontal");
+    computerPlayer.gameboard.placeShip().placeSubmarine([3, 0], "horizontal");
+    computerPlayer.gameboard.placeShip().placePatroller([4, 0], "horizontal");
+
+    // expect(computerPlayer.sendAttack([0, 0])).toEqual();
+    // expect(playerOne.sendAttack([0, 9])).toEqual();
   });
 });
