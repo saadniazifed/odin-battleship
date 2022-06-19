@@ -319,7 +319,7 @@ describe("Checking allSunk function on player gameboard", () => {
   });
 });
 
-describe.only("Checking something", () => {
+describe("Checking something", () => {
   test("Check something", () => {
     playerOne.gameboard.placeShip().placeWaterCarrier([0, 0], "horizontal");
     playerOne.gameboard.placeShip().placeBattleship([1, 0], "horizontal");
