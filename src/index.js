@@ -1,3 +1,6 @@
 import { gameController } from "./Game";
 
-gameController().placeShips();
+// gameController;
+gameController.setUpGame();
+gameController.shipPlacement();
+gameController.attackShip();

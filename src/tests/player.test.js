@@ -312,7 +312,6 @@ describe("Checking allSunk function on player gameboard", () => {
     playerOne.gameboard.receiveAttack([8, 0]);
     playerOne.gameboard.receiveAttack([8, 1]);
     playerOne.gameboard.receiveAttack([8, 2]);
-    playerOne.gameboard.receiveAttack([8, 3]);
     playerOne.gameboard.receiveAttack([9, 0]);
     playerOne.gameboard.receiveAttack([9, 1]);
     expect(playerOne.gameboard.allSunk()).toBe(true);
