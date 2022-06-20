@@ -16,7 +16,7 @@ describe("Checking if player is hitting computers gameboard or not", () => {
   });
 });
 
-describe.only("Checking to see if the ships are being placed by default", () => {
+describe.only("Checking to see if the ships are being placed in the game module.", () => {
   test("Check if ship placement is working or not", () => {
     expect(
       player.gameboard.placeShip().placeWaterCarrier([0, 0], "horizontal")
@@ -24,5 +24,7 @@ describe.only("Checking to see if the ships are being placed by default", () => 
     expect(
       computer.gameboard.placeShip().placeWaterCarrier([0, 0], "horizontal")
     ).toEqual(true);
+
+    console.table(computer.gameboard.gameBoardArray);
   });
 });

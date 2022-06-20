@@ -1,11 +1,9 @@
-import { Gameboard } from "./GameboardFactory";
 import { ComputerPlayer, Player } from "./playerFactory";
 
 const gameController = () => {
+  console.log(1);
   let player;
   let computer;
-  let playerBoard;
-  let computerBoard;
   let activeOpponentBoard;
   let activePlayer;
 
@@ -13,14 +11,32 @@ const gameController = () => {
     player = Player("John", 1);
     computer = ComputerPlayer("Computer", 2);
     activePlayer = player;
-    activeOpponentBoard = computerBoard;
+    activeOpponentBoard = computer.gameboard;
   };
 
   const placeShips = () => {
-    player.placeShips().placeWaterCarrier([0, 0], "horizontal");
-    player.placeShips().placeBattleship([1, 0], "horizontal");
-    player.placeShips().placeDestroyer([2, 0], "horizontal");
-    player.placeShips().placeSubmarine([3, 0], "horizontal");
-    player.placeShips().placePatroller([4, 0], "horizontal");
+    player.gameboard.placeShips().placeWaterCarrier([0, 0], "horizontal");
+    player.gameboard.placeShips().placeBattleship([1, 0], "horizontal");
+    player.gameboard.placeShips().placeDestroyer([2, 0], "horizontal");
+    player.gameboard.placeShips().placeSubmarine([3, 0], "horizontal");
+    player.gameboard.placeShips().placePatroller([4, 0], "horizontal");
+
+    console.table(player.gameboard.gameBoardArray);
+  };
+
+  const isGameOver = () => {
+    if (player.gameboard.isSunk() === true) {
+      console.log(`${computer.getName()} is the winner!`);
+    } else if (computer.gameboard.isSunk() === true) {
+      console.log(`${player.getName()} is the winner!`);
+    }
+  };
+
+  return {
+    placeShips,
+    isGameOver,
+    setUpGame,
   };
 };
+
+export { gameController };

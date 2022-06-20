@@ -1,10 +1,5 @@
 import { Ship } from "./shipFactory";
 
-/*    
-let row = cell[0];
-let column = cell[1]; 
-*/
-
 const Gameboard = () => {
   const gameBoardArray = [];
   const showBoard = () => [...gameBoardArray];
@@ -16,7 +11,6 @@ const Gameboard = () => {
     }
   }
 
-  //Creating the Ships
   const waterCarrier = Ship(5, "Water Carrier");
   const battleShip = Ship(4, "Battleship");
   const destroyer = Ship(3, "Destroyer");
