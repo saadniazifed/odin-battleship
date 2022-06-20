@@ -5,10 +5,12 @@ const gameController = (function () {
   let computer;
   let activeOpponentBoard;
   let activePlayer;
+  player = Player("John", 1);
+  computer = ComputerPlayer("Computer", 2);
 
   const setUpGame = () => {
-    player = Player("John", 1);
-    computer = ComputerPlayer("Computer", 2);
+    // player = Player("John", 1);
+    // computer = ComputerPlayer("Computer", 2);
     activePlayer = player;
     activeOpponentBoard = computer.gameboard;
   };
@@ -25,7 +27,6 @@ const gameController = (function () {
     computer.gameboard.placeShip().placeDestroyer([2, 0], "horizontal");
     computer.gameboard.placeShip().placeSubmarine([3, 0], "horizontal");
     computer.gameboard.placeShip().placePatroller([4, 0], "horizontal");
-    console.table(computer.gameboard.gameBoardArray);
   };
 
   const attackShip = () => {
@@ -73,7 +74,6 @@ const gameController = (function () {
     isGameOver();
     player.sendAttack([4, 0], computer);
     isGameOver();
-    console.table(computer.gameboard.gameBoardArray);
   };
 
   const isGameOver = () => {
@@ -93,6 +93,8 @@ const gameController = (function () {
     setUpGame,
     shipPlacement,
     attackShip,
+    player,
+    computer,
   };
 })();
 

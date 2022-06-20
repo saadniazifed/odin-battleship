@@ -4,10 +4,10 @@ const Gameboard = () => {
   const gameBoardArray = [];
   const showBoard = () => [...gameBoardArray];
 
-  for (let i = 0; i < 10; i++) {
-    gameBoardArray[i] = [];
-    for (let j = 0; j < 10; j++) {
-      gameBoardArray[i][j] = null;
+  for (let row = 0; row < 10; row++) {
+    gameBoardArray[row] = [];
+    for (let col = 0; col < 10; col++) {
+      gameBoardArray[row][col] = null;
     }
   }
 
