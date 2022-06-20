@@ -25,17 +25,10 @@ const gameController = (function () {
     computer.gameboard.placeShip().placeDestroyer([2, 0], "horizontal");
     computer.gameboard.placeShip().placeSubmarine([3, 0], "horizontal");
     computer.gameboard.placeShip().placePatroller([4, 0], "horizontal");
-
-    // console.table(player.gameboard.gameBoardArray);
-    // console.table(computer.gameboard.gameBoardArray);
+    console.table(computer.gameboard.gameBoardArray);
   };
 
   const attackShip = () => {
-    player.sendAttack([0, 9], computer);
-    player.sendAttack([0, 8], computer);
-    player.sendAttack([0, 7], computer);
-    player.sendAttack([0, 6], computer);
-    player.sendAttack([0, 5], computer);
     player.sendAttack([0, 4], computer);
     isGameOver();
     player.sendAttack([0, 3], computer);
