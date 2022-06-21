@@ -14,7 +14,6 @@ function createElement(elementType, classes, otherAttributes) {
   return element;
 }
 const renderPlayerBoard = () => {
-  console.log(1);
   let board = gameController.player.gameboard.showBoard();
   for (let row = 0; row < board.length; row++) {
     for (let col = 0; col < board[row].length; col++) {
@@ -22,7 +21,6 @@ const renderPlayerBoard = () => {
         "data-row": row,
         "data-col": col,
       });
-      // board.dataset
       playerBoard.append(board[row][col]);
     }
   }
@@ -41,4 +39,10 @@ const renderComputerBoard = () => {
   }
 };
 
-export { renderPlayerBoard, renderComputerBoard };
+const mouseOverEvent = () => {
+  playerBoard.addEventListener("mouseover", (e) => {
+    console.table(e.target.dataset);
+  });
+};
+
+export { renderPlayerBoard, renderComputerBoard, mouseOverEvent };

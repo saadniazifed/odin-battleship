@@ -1,6 +1,7 @@
 import "./style.css";
-import { renderComputerBoard, renderPlayerBoard } from "./DOM";
+import { mouseOverEvent, renderComputerBoard, renderPlayerBoard } from "./DOM";
 import { gameController } from "./Game";
 
 renderPlayerBoard();
 renderComputerBoard();
+mouseOverEvent();

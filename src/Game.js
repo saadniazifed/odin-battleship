@@ -3,17 +3,10 @@ import { ComputerPlayer, Player } from "./playerFactory";
 const gameController = (function () {
   let player;
   let computer;
-  let activeOpponentBoard;
-  let activePlayer;
   player = Player("John", 1);
   computer = ComputerPlayer("Computer", 2);
-
-  const setUpGame = () => {
-    // player = Player("John", 1);
-    // computer = ComputerPlayer("Computer", 2);
-    activePlayer = player;
-    activeOpponentBoard = computer.gameboard;
-  };
+  let activePlayer = player;
+  let activeOpponentBoard = computer.gameboard;
 
   const shipPlacement = () => {
     player.gameboard.placeShip().placeWaterCarrier([0, 0], "horizontal");
@@ -90,7 +83,6 @@ const gameController = (function () {
   };
 
   return {
-    setUpGame,
     shipPlacement,
     attackShip,
     player,
